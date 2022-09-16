@@ -1,0 +1,22 @@
+.header {
+  nav {
+    height: 80px;
+    width: 100vw;
+    background: rgb(32, 32, 32);
+    color: white;
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+
+      a {
+        text-decoration: none;
+        color: white;
+
+        &:visited {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
