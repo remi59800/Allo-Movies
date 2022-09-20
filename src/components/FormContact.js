@@ -13,11 +13,12 @@ const FormContact = () => {
         'service_0h655nc',
         'template_14e2a9j',
         form.current,
-        'N53LVAolY_xK4Q2nX'
+        process.env.REACT_APP_ID
       )
       .then(
         (result) => {
-          console.log(result.text);
+          // console.log(result.text);
+          form.current.reset();
           toast.success(`Votre message a bien été envoyé`, {
             position: 'bottom-center',
             autoClose: 2500,
@@ -27,10 +28,9 @@ const FormContact = () => {
             draggable: true,
             progress: undefined,
           });
-          form.current.reset();
         },
         (error) => {
-          console.log(error.text);
+          // console.log(error.text);
           toast.error(`Le message n'a pas été envoyé, veuillez réessayer`, {
             position: 'bottom-center',
             autoClose: 2500,
