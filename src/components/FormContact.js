@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 const FormContact = () => {
   const form = useRef();
@@ -17,16 +18,34 @@ const FormContact = () => {
       .then(
         (result) => {
           console.log(result.text);
+          toast.success(`Votre message a bien été envoyé`, {
+            position: 'bottom-center',
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
           form.current.reset();
         },
         (error) => {
           console.log(error.text);
+          toast.error(`Le message n'a pas été envoyé, veuillez réessayer`, {
+            position: 'bottom-center',
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
       );
   };
 
   return (
-    <div className='form-container'>
+    <div className='form-contact-container'>
       <form ref={form} onSubmit={sendEmail}>
         <label>Name</label>
         <input type='text' name='name' required autoComplete='off' />
