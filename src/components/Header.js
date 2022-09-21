@@ -12,7 +12,7 @@ const Header = () => {
             <NavLink to='/accueil'>Accueil</NavLink>
           </li>
           <li>
-            <NavLink to='/recherche-film'>Rechercher un film</NavLink>
+            <NavLink to='/mes-films-cultes'>Mes films cultes</NavLink>
           </li>
           <li>
             <NavLink to='/a-propos'>À propos</NavLink>

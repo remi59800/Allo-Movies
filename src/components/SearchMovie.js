@@ -17,7 +17,6 @@ const SearchMovie = () => {
 
   return (
     <div>
-      <Header />
       <div className='form-container'>
         <form>
           <input

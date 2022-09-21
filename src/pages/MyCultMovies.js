@@ -1,14 +1,13 @@
 import React from 'react';
 import Header from '../components/Header';
-import SearchMovie from '../components/SearchMovie';
 
-const Home = () => {
+const MyCultMovies = () => {
   return (
     <div>
       <Header />
-      <SearchMovie />
+      <h2>Mes films cultes</h2>
     </div>
   );
 };
 
-export default Home;
+export default MyCultMovies;
