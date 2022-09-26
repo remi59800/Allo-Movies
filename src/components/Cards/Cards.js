@@ -29,7 +29,7 @@ const Card = ({ movie }) => {
         </div>
         <Link to={`/movie/${movie.id}`}>
           <div className='btn'>
-            <input type='submit' value='Voir plus' />
+            <input type='submit' value="Plus d'infos" />
           </div>
         </Link>
       </div>

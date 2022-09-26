@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const Movie = () => {
+const MovieDetail = () => {
   const [currentMovieDetail, setMovie] = useState();
   const { id } = useParams();
 
@@ -88,4 +88,4 @@ const Movie = () => {
   );
 };
 
-export default Movie;
+export default MovieDetail;

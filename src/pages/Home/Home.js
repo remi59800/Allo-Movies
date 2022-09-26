@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchMovie from '../components/SearchMovie';
+import SearchMovie from '../../components/SearchMovie/SearchMovie';
 
 const Home = () => {
   return (
