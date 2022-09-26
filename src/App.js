@@ -4,10 +4,12 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import MyCultMovies from './pages/MyCultMovies';
+import Header from './components/Header';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/accueil' element={<Home />} />

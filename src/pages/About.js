@@ -1,10 +1,8 @@
 import React from 'react';
-import Header from '../components/Header';
 
 const About = () => {
   return (
     <div>
-      <Header />
       <h2>
         Kult Film Club, l'alliance d'une passion pour le cinéma et le
         développement web !{' '}
