@@ -1,5 +1,41 @@
 .card {
-  img {
-    height: 200px;
+  min-width: 500;
+  width: 80%;
+  height: 200px;
+  background: #1e1e1e;
+  border-radius: 35px;
+  margin: 5px;
+  padding: 20px 10px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 20% 80%;
+
+  .poster-film {
+    img {
+      width: 100px;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+      margin: 0 auto;
+    }
+  }
+  h2 {
+    line-height: 20px;
+    font-size: 1.2rem;
+  }
+  h3 {
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    font-weight: 100;
+  }
+  h4 {
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+  }
+  p {
+    text-overflow: ellipsis;
+    font-weight: 100;
+    font-size: 0.7rem;
   }
 }

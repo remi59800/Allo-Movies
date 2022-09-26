@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: 30% 70%;
   align-items: center;
-  background: black;
+  background: $black;
   height: 70px;
   padding: 0px 40px;
-  font-family: $font1;
+  font-family: $font-1;
   font-size: 0.9rem;
 
   img {
@@ -13,7 +13,7 @@
   }
 
   nav {
-    color: white;
+    color: $white;
 
     ul {
       display: flex;
@@ -22,7 +22,7 @@
       a {
         margin: 10px;
         text-decoration: none;
-        color: white;
+        color: $white;
         transition: 0.3s;
 
         &:hover {

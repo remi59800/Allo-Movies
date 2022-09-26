@@ -1,0 +1,41 @@
+.form-container {
+  margin-top: 20px;
+  text-align: center;
+}
+form {
+  width: 300px;
+  margin: 0 auto;
+
+  input[type='text'] {
+    padding: 1px 10px;
+    border-radius: 10px 10px 0 0;
+    border: none;
+    font-size: 1rem;
+    display: block;
+    margin: 0 auto;
+    width: 220px;
+    outline: none;
+    text-align: center;
+  }
+  input[type='submit'] {
+    padding: 1px 10px;
+    width: 220px;
+    border-radius: 0 0 10px 10px;
+    border: none;
+    background: $orange-light;
+    color: $white;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+
+    &:hover {
+      background: $black;
+    }
+  }
+}
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
