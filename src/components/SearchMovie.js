@@ -1,29 +1,36 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
+import React, { useState } from 'react';
 import Card from '../components/Card';
 
 const SearchMovie = () => {
   const [moviesData, setMoviesData] = useState([]);
-  const [searchMovie, setSearchMovie] = useState('code');
+  const [searchMovie, setSearchMovie] = useState('');
 
-  useEffect(() => {
-    axios
+  const handleOnChange = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    setSearchMovie(value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    return await axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=2f29d9bc9f76a597232a8a514e956b12&query=${searchMovie}&language=fr-FR`
       )
       .then((res) => setMoviesData(res.data.results));
-  }, [searchMovie]);
+  };
 
   return (
     <div>
       <div className='form-container'>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type='text'
             placeholder="Entrez le titre d'un film"
             id='search-input'
-            onChange={(e) => setSearchMovie(e.target.value)}
+            value={searchMovie}
+            onChange={handleOnChange}
           />
           <input type='submit' value='Rechercher' />
         </form>
