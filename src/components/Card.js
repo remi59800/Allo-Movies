@@ -16,11 +16,16 @@ const Card = ({ movie }) => {
       </div>
       <div className='first-infos'>
         <h2>{movie.title}</h2>
-        <h3>{dateFormater(movie.release_date)}</h3>
-        <h4>
-          {movie.vote_average.toFixed(1)}/10 <span>⭐</span>
-        </h4>
-        <p>{movie.overview}</p>
+
+        <div className='date-and-note'>
+          <h4>Sorti le {dateFormater(movie.release_date)} - </h4>
+          <h4>
+            Note : {movie.vote_average.toFixed(1)}/10 <span>⭐</span>
+          </h4>
+        </div>
+        <div className='synopsis'>
+          <p>{movie.overview}</p>
+        </div>
       </div>
     </div>
   );
