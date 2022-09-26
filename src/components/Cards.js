@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Card = ({ movie }) => {
   const dateFormater = (date) => {
@@ -7,7 +8,7 @@ const Card = ({ movie }) => {
   };
 
   return (
-    <div className='card'>
+    <div className='movies-cards'>
       <div className='poster-film'>
         <img
           src={'https://image.tmdb.org/t/p/original' + movie.poster_path}
@@ -26,6 +27,11 @@ const Card = ({ movie }) => {
         <div className='synopsis'>
           <p>{movie.overview}</p>
         </div>
+        <Link to={`/movie/${movie.id}`}>
+          <div className='btn'>
+            <input type='submit' value='Voir plus' />
+          </div>
+        </Link>
       </div>
     </div>
   );

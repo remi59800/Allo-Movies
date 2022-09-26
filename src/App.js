@@ -5,6 +5,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import MyCultMovies from './pages/MyCultMovies';
 import Header from './components/Header';
+import Movie from './pages/Movie';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/accueil' element={<Home />} />
         <Route path='*' element={<Home />} />
+        <Route path='movie/:id' element={<Movie />}></Route>
         <Route path='/mes-films-cultes' element={<MyCultMovies />} />
         <Route path='/a-propos' element={<About />} />
         <Route path='/contact' element={<Contact />} />
