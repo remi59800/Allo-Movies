@@ -1,16 +1,31 @@
 @font-face {
-  font-family: 'Poppins';
+  font-family: 'font-1';
+  src: url(../assets/fonts/Poppins-Medium.ttf);
+}
+@font-face {
+  font-family: 'font-2';
   src: url(../assets/fonts/Poppins-Medium.ttf);
 }
 
-$font1: Poppins, serif;
+$font-1: 'font-1', sans-serif;
+$font-2: 'font-2', sans-serif;
+
+$orange-light: #ffc40b;
+$orange-deep: #ff8b7a;
+$black: #080303;
+$white: rgb(238, 238, 238);
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: $font-1;
 }
 
+body {
+  background: $black;
+  color: $white;
+}
 li {
   list-style: none;
 }
