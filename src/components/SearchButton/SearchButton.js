@@ -1,5 +1,9 @@
 const SearchButton = (props) => {
-  return <button {...props}>Search</button>;
+  return (
+    <div className='search-button'>
+      <button {...props}>Search</button>
+    </div>
+  );
 };
 
 export default SearchButton;
