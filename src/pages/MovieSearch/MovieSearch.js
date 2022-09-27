@@ -2,9 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import Card from '../../components/Cards/Cards';
-import InputSearch from '../../components/InputSearch/InputSearch';
-import SearchButton from '../../components/SearchButton/SearchButton';
+import MoviesCards from '../../components/MoviesCards/MoviesCards';
 
 const MovieSearch = () => {
   const [moviesData, setMoviesData] = useState([]);
@@ -50,7 +48,7 @@ const MovieSearch = () => {
       </div>
       <div className='result'>
         {moviesData.slice(0, 12).map((movie) => {
-          return <Card movie={movie} key={movie.id} />;
+          return <MoviesCards movie={movie} key={movie.id} />;
         })}
       </div>
     </div>
