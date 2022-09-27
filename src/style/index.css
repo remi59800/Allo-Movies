@@ -23,11 +23,13 @@ li {
 }
 
 .header {
+  width: 100vw;
+  height: 70px;
+  min-height: 70px;
   display: grid;
   grid-template-columns: 30% 70%;
   align-items: center;
   background: #080303;
-  height: 70px;
   padding: 0px 40px;
   font-family: "font-1", sans-serif;
   font-size: 0.9rem;
@@ -81,15 +83,16 @@ li {
   justify-content: center;
 }
 .movies-cards .first-infos h2 {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin: 0;
 }
 .movies-cards .first-infos .date-and-note {
   display: flex;
 }
 .movies-cards .first-infos .date-and-note h4 {
-  letter-spacing: 1px;
   font-size: 0.8rem;
   font-weight: 100;
+  margin: 0;
 }
 .movies-cards .first-infos p {
   overflow: hidden;
@@ -97,9 +100,18 @@ li {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  margin-top: 10px;
   font-weight: 100;
   font-size: 0.7rem;
+  margin: 2px 0 8px;
+}
+.movies-cards .first-infos .btn-more-infos input {
+  cursor: pointer;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ffc40b, #ff8b7a);
+  color: #080303;
+  font-size: 0.7rem;
+  padding: 5px 12px;
+  border: none;
 }
 
 .form-contact-container {
@@ -113,31 +125,42 @@ li {
   margin: 0 auto;
 }
 
-.form-container {
-  margin: 20px 0;
-  text-align: center;
+.intro-search-banner {
+  height: 45vh;
+  min-height: 300px;
+  padding: 0px 40px;
+  background: orange;
 }
 
-form {
-  width: 450px;
-  margin: 0 auto;
-  display: flex;
+.my-cult-movies-banner {
+  background: blue;
 }
-form input[type=text] {
+
+.form-container {
+  margin-bottom: 10px;
+}
+.form-container form {
+  display: flex;
+  border-top: 1px solid #ffc40b;
+  border-top: 1px solid #ffc40b;
+}
+.form-container form input[type=text] {
+  width: 90vw;
   padding: 7px 10px;
-  border-radius: 10px 0px 0px 10px;
   border: none;
   font-size: 1rem;
   display: block;
   margin: 0 auto;
-  width: 320px;
   outline: none;
   text-align: center;
+  background: rgb(246, 246, 246);
 }
-form input[type=submit] {
+.form-container form input[placeholder] {
+  text-align: left;
+}
+.form-container form input[type=submit] {
+  width: 10vw;
   padding: 7px 10px;
-  width: 130px;
-  border-radius: 0 10px 10px 0px;
   border: none;
   background: #ff8b7a;
   color: rgb(238, 238, 238);
@@ -147,7 +170,7 @@ form input[type=submit] {
   position: relative;
   transition: 0.3s;
 }
-form input[type=submit]:hover {
+.form-container form input[type=submit]:hover {
   color: #080303;
 }
 

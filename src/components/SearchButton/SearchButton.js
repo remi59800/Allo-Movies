@@ -1,5 +1,5 @@
 const SearchButton = (props) => {
-  return <button {...props}>Rechercher</button>;
+  return <button {...props}>Search</button>;
 };
 
 export default SearchButton;

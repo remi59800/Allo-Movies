@@ -4,8 +4,6 @@ import SearchButton from '../../components/SearchButton/SearchButton';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// import SearchMovie from '../../components/SearchMovie/SearchMovie';
-
 const Home = () => {
   const searchInputRef = useRef();
   const navigate = useNavigate();
@@ -23,9 +21,13 @@ const Home = () => {
 
   return (
     <div>
-      {/* <SearchMovie /> */}
-      <InputSearch ref={searchInputRef} onKeyDown={handleKeyDown} />
-      <SearchButton onClick={handleSearch} />
+      <div className='intro-search-banner'>
+        <h1>Bienvenue sur Kult Film Club,</h1>
+        <h2>Votre nouvel espace dédié au cinéma et ses films cultes !</h2>
+        <InputSearch ref={searchInputRef} onKeyDown={handleKeyDown} />
+        <SearchButton onClick={handleSearch} />
+      </div>
+      <div className='my-cult-movies-banner'></div>
     </div>
   );
 };

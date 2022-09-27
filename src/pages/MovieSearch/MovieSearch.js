@@ -36,6 +36,7 @@ const MovieSearch = () => {
     <div>
       <div className='form-container'>
         <form onSubmit={handleSubmit}>
+          <input type='submit' value='🔍' />
           <input
             type='text'
             placeholder={state.searchResult}
@@ -43,7 +44,6 @@ const MovieSearch = () => {
             value={searchMovie}
             onChange={handleOnChange}
           />
-          <input type='submit' value='Rechercher' />
         </form>
       </div>
       <div className='result'>

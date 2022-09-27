@@ -19,7 +19,7 @@ const MoviesCards = ({ movie }) => {
         <h2>{movie.title}</h2>
 
         <div className='date-and-note'>
-          <h4>Sorti le {dateFormater(movie.release_date)} - </h4>
+          <h4>Sorti le {dateFormater(movie.release_date)} -</h4>
           <h4>
             Note : {movie.vote_average.toFixed(1)}/10 <span>⭐</span>
           </h4>
@@ -27,11 +27,11 @@ const MoviesCards = ({ movie }) => {
         <div className='synopsis'>
           <p>{movie.overview}</p>
         </div>
-        <Link to={`/film/${movie.id}`}>
-          <div className='btn'>
+        <div className='btn-more-infos'>
+          <Link to={`/film/${movie.id}`}>
             <input type='submit' value="Plus d'infos" />
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     </div>
   );

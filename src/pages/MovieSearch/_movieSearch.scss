@@ -1,38 +1,39 @@
 .form-container {
-  margin: 20px 0;
-  text-align: center;
-}
-form {
-  width: 450px;
-  margin: 0 auto;
-  display: flex;
+  margin-bottom: 10px;
+  form {
+    display: flex;
+    border-top: 1px solid $orange-light;
+    border-top: 1px solid $orange-light;
 
-  input[type='text'] {
-    padding: 7px 10px;
-    border-radius: 10px 0px 0px 10px;
-    border: none;
-    font-size: 1rem;
-    display: block;
-    margin: 0 auto;
-    width: 320px;
-    outline: none;
-    text-align: center;
-  }
-  input[type='submit'] {
-    padding: 7px 10px;
-    width: 130px;
-    border-radius: 0 10px 10px 0px;
-    border: none;
-    background: $orange-deep;
-    color: $white;
-    font-size: 1rem;
-    cursor: pointer;
-    z-index: 10;
-    position: relative;
-    transition: 0.3s;
+    input[type='text'] {
+      width: 90vw;
+      padding: 7px 10px;
+      border: none;
+      font-size: 1rem;
+      display: block;
+      margin: 0 auto;
+      outline: none;
+      text-align: center;
+      background: rgb(246, 246, 246);
+    }
+    input[placeholder] {
+      text-align: left;
+    }
+    input[type='submit'] {
+      width: 10vw;
+      padding: 7px 10px;
+      border: none;
+      background: $orange-deep;
+      color: $white;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 10;
+      position: relative;
+      transition: 0.3s;
 
-    &:hover {
-      color: $black;
+      &:hover {
+        color: $black;
+      }
     }
   }
 }

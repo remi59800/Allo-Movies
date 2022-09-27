@@ -23,17 +23,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
+      margin: 0;
     }
 
     .date-and-note {
       display: flex;
 
       h4 {
-        letter-spacing: 1px;
         font-size: 0.8rem;
         font-weight: 100;
+        margin: 0;
       }
     }
 
@@ -43,9 +45,21 @@
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      margin-top: 10px;
       font-weight: 100;
+
       font-size: 0.7rem;
+      margin: 2px 0 8px;
+    }
+    .btn-more-infos {
+      input {
+        cursor: pointer;
+        border-radius: 10px;
+        background: linear-gradient(to right, $orange-light, $orange-deep);
+        color: $black;
+        font-size: 0.7rem;
+        padding: 5px 12px;
+        border: none;
+      }
     }
   }
 }
