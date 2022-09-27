@@ -5,6 +5,7 @@ import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import MyCultMovies from './pages/MyCultMovies/MyCultMovies';
 import Header from './components/Header/Header';
+import MovieSearch from './pages/MovieSearch/MovieSearch';
 import MovieDetail from './pages/MovieDetail/MovieDetail';
 
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/accueil' element={<Home />} />
         <Route path='*' element={<Home />} />
-        <Route path='movie/:id' element={<MovieDetail />}></Route>
+        <Route path='recherche-films' element={<MovieSearch />}></Route>
+        <Route path='film/:id' element={<MovieDetail />}></Route>
         <Route path='/mes-films-cultes' element={<MyCultMovies />} />
         <Route path='/a-propos' element={<About />} />
         <Route path='/contact' element={<Contact />} />

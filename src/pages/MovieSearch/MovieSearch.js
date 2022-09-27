@@ -1,10 +1,21 @@
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import React, { useState } from 'react';
-import Card from '../Cards/Cards';
+import MoviesCards from '../../components/MoviesCards/MoviesCards';
 
-const SearchMovie = () => {
+const MovieSearch = () => {
   const [moviesData, setMoviesData] = useState([]);
   const [searchMovie, setSearchMovie] = useState('');
+  const { state } = useLocation();
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=2f29d9bc9f76a597232a8a514e956b12&query=${state.searchResult}&language=fr-FR`
+      )
+      .then((res) => setMoviesData(res.data.results));
+  }, []);
 
   const handleOnChange = (e) => {
     e.preventDefault();
@@ -27,7 +38,7 @@ const SearchMovie = () => {
         <form onSubmit={handleSubmit}>
           <input
             type='text'
-            placeholder="Entrez le titre d'un film"
+            placeholder={state.searchResult}
             id='search-input'
             value={searchMovie}
             onChange={handleOnChange}
@@ -37,11 +48,11 @@ const SearchMovie = () => {
       </div>
       <div className='result'>
         {moviesData.slice(0, 12).map((movie) => {
-          return <Card movie={movie} key={movie.id} />;
+          return <MoviesCards movie={movie} key={movie.id} />;
         })}
       </div>
     </div>
   );
 };
 
-export default SearchMovie;
+export default MovieSearch;

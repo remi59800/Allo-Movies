@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Card = ({ movie }) => {
+const MoviesCards = ({ movie }) => {
   const dateFormater = (date) => {
     let [yy, mm, dd] = date.split('-');
     return [dd, mm, yy].join('/');
@@ -27,7 +27,7 @@ const Card = ({ movie }) => {
         <div className='synopsis'>
           <p>{movie.overview}</p>
         </div>
-        <Link to={`/movie/${movie.id}`}>
+        <Link to={`/film/${movie.id}`}>
           <div className='btn'>
             <input type='submit' value="Plus d'infos" />
           </div>
@@ -37,4 +37,4 @@ const Card = ({ movie }) => {
   );
 };
 
-export default Card;
+export default MoviesCards;
