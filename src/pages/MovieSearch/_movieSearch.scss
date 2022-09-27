@@ -1,44 +1,50 @@
-.form-container {
-  margin-bottom: 10px;
-  form {
-    display: flex;
-    border-top: 1px solid $orange-light;
-    border-top: 1px solid $orange-light;
-
-    input[type='text'] {
-      width: 90vw;
+.search-result-page {
+  .form-container {
+    margin-bottom: 10px;
+    form {
+      display: flex;
+      background: $white;
       padding: 7px 10px;
-      border: none;
-      font-size: 1rem;
-      display: block;
-      margin: 0 auto;
-      outline: none;
-      text-align: center;
-      background: rgb(246, 246, 246);
-    }
-    input[placeholder] {
-      text-align: left;
-    }
-    input[type='submit'] {
-      width: 10vw;
-      padding: 7px 10px;
-      border: none;
-      background: $orange-deep;
-      color: $white;
-      font-size: 1rem;
-      cursor: pointer;
-      z-index: 10;
-      position: relative;
-      transition: 0.3s;
 
-      &:hover {
-        color: $black;
+      input[type='text'] {
+        width: 100%;
+        border: none;
+        font-size: 1rem;
+        outline: none;
+        text-align: center;
+        background: $white;
+        outline: none;
+      }
+      input[placeholder] {
+        text-align: left;
+      }
+      input[type='submit'] {
+        margin-left: 42px;
+        margin-right: 25px;
+        border: none;
+        background: $white;
+        color: $white;
+        font-size: 1rem;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 1rem;
+        position: relative;
+        transition: 0.3s;
+
+        &:hover {
+          color: $black;
+        }
       }
     }
   }
-}
-.result {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+
+  h2 {
+    margin: 20px 42px 10px;
+  }
+
+  .result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

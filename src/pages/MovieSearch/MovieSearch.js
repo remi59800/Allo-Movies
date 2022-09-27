@@ -33,7 +33,7 @@ const MovieSearch = () => {
   };
 
   return (
-    <div>
+    <div className='search-result-page'>
       <div className='form-container'>
         <form onSubmit={handleSubmit}>
           <input type='submit' value='🔍' />
@@ -46,6 +46,7 @@ const MovieSearch = () => {
           />
         </form>
       </div>
+      <h2>Résultats de la recherche</h2>
       <div className='result'>
         {moviesData.slice(0, 12).map((movie) => {
           return <MoviesCards movie={movie} key={movie.id} />;
