@@ -55,50 +55,6 @@ li {
   text-decoration: none;
 }
 
-.form-container {
-  margin: 20px 0;
-  text-align: center;
-}
-
-form {
-  width: 450px;
-  margin: 0 auto;
-  display: flex;
-}
-form input[type=text] {
-  padding: 7px 10px;
-  border-radius: 10px 0px 0px 10px;
-  border: none;
-  font-size: 1rem;
-  display: block;
-  margin: 0 auto;
-  width: 320px;
-  outline: none;
-  text-align: center;
-}
-form input[type=submit] {
-  padding: 7px 10px;
-  width: 130px;
-  border-radius: 0 10px 10px 0px;
-  border: none;
-  background: #ff8b7a;
-  color: rgb(238, 238, 238);
-  font-size: 1rem;
-  cursor: pointer;
-  z-index: 10;
-  position: relative;
-  transition: 0.3s;
-}
-form input[type=submit]:hover {
-  color: #080303;
-}
-
-.result {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .movies-cards {
   min-width: 500px;
   width: 80%;
