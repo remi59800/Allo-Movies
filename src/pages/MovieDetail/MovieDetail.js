@@ -20,20 +20,20 @@ const MovieDetail = () => {
 
   return (
     <div className='movie'>
-      <div className='movie__intro'>
+      {/* <div className='movie-intro'>
         <img
-          className='movie__backdrop'
+          className='movie-backdrop'
           src={`https://image.tmdb.org/t/p/original${
             currentMovieDetail ? currentMovieDetail.backdrop_path : ''
           }`}
           alt={`Affiche film`}
         />
-      </div>
-      <div className='movie__detail'>
-        <div className='movie__detailLeft'>
-          <div className='movie__posterBox'>
+      </div> */}
+      <div className='movie-detail'>
+        <div className='movie-detail-left'>
+          <div className='movie-posterBox'>
             <img
-              className='movie__poster'
+              className='movie-poster'
               src={`https://image.tmdb.org/t/p/original${
                 currentMovieDetail ? currentMovieDetail.poster_path : ''
               }`}
@@ -41,32 +41,31 @@ const MovieDetail = () => {
             />
           </div>
         </div>
-        <div className='movie__detailRight'>
-          <div className='movie__detailRightTop'>
-            <div className='movie__name'>
+        <div className='movie-detailRight'>
+          <div className='movie-detailRightTop'>
+            <div className='movie-name'>
               {currentMovieDetail ? currentMovieDetail.original_title : ''}
             </div>
-            <div className='movie__tagline'>
+            <div className='movie-tagline'>
               {currentMovieDetail ? currentMovieDetail.tagline : ''}
             </div>
-            <div className='movie__rating'>
+            <div className='movie-rating'>
               {currentMovieDetail ? currentMovieDetail.vote_average : ''}{' '}
-              <i class='fas fa-star' />
-              <span className='movie__voteCount'>
+              <span className='movie-voteCount'>
                 {currentMovieDetail
                   ? '(' + currentMovieDetail.vote_count + ') votes'
                   : ''}
               </span>
             </div>
-            <div className='movie__runtime'>
+            <div className='movie-runtime'>
               {currentMovieDetail ? currentMovieDetail.runtime + ' mins' : ''}
             </div>
-            <div className='movie__releaseDate'>
+            <div className='movie-releaseDate'>
               {currentMovieDetail
                 ? 'Release date: ' + currentMovieDetail.release_date
                 : ''}
             </div>
-            <div className='movie__genres'>
+            <div className='movie-genres'>
               {currentMovieDetail && currentMovieDetail.genres
                 ? currentMovieDetail.genres.map((genre) => (
                     <>
@@ -78,8 +77,8 @@ const MovieDetail = () => {
                 : ''}
             </div>
           </div>
-          <div className='movie__detailRightBottom'>
-            <div className='synopsisText'>Synopsis</div>
+          <div className='movie-detailRightBottom'>
+            <div className='synopsis-text'>Synopsis</div>
             <div>{currentMovieDetail ? currentMovieDetail.overview : ''}</div>
           </div>
         </div>
