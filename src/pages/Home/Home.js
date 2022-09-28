@@ -23,7 +23,7 @@ const Home = () => {
     <div>
       <div className='intro-search-banner'>
         <h1>Bienvenue sur Kult Film Club,</h1>
-        <h2>Le nouvel espace dédié au cinéma et ses films cultes !</h2>
+        <h2>L'espace dédié au cinéma et ses films cultes !</h2>
         <div className='inputs-container'>
           <InputSearch ref={searchInputRef} onKeyDown={handleKeyDown} />
           <SearchButton onClick={handleSearch} />
