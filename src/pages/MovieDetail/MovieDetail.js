@@ -29,36 +29,37 @@ const MovieDetail = () => {
         <div className='movie-text-infos'>
           <h2>{movieData ? movieData.title : ''}</h2>
 
-          <div className='date-duration'>
+          <div className='date-duration-genre'>
             <div className='date'>
               <h4>{movieData ? movieData.release_date + ' •' : ''}</h4>
             </div>
             <div className='duration'>
-              <h4>&nbsp;{movieData ? movieData.runtime + ' mins' : ''}</h4>
+              <h4>&nbsp;{movieData ? movieData.runtime + ' mins •' : ''}</h4>
+            </div>
+            <div className='genres'>
+              <h4>
+                &nbsp;
+                {movieData && movieData.genres
+                  ? movieData.genres
+                      .map(function (genre) {
+                        return genre.name;
+                      })
+                      .join(', ')
+                  : ''}
+              </h4>
             </div>
           </div>
 
           <h4>
-            {movieData && movieData.genres
-              ? movieData.genres.map((genre) => (
-                  <>
-                    <span className='movie-genre' id={genre.id}>
-                      {genre.name}
-                    </span>
-                  </>
-                ))
-              : ''}
-          </h4>
-
-          <h4>
-            {movieData ? movieData.vote_average.toFixed(1) : ''}{' '}
+            Note : {movieData ? movieData.vote_average.toFixed(1) : ''} /10{' '}
+            <span>⭐ </span>
             <span className='movie-vote-count'>
               {movieData ? '(' + movieData.vote_count + ') votes' : ''}
             </span>
           </h4>
-
-          <h4>{movieData ? movieData.tagline : ''}</h4>
-
+          <div className='tagline'>
+            <h4>{movieData ? movieData.tagline : ''}</h4>
+          </div>
           <div className='synopsis-text'>
             <h3>Synopsis</h3>
             <p>{movieData ? movieData.overview : ''}</p>

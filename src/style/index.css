@@ -8,11 +8,19 @@
 }
 @font-face {
   font-family: "font-3";
-  src: url(../assets/fonts/Poppins-Bold.ttf);
+  src: url(../assets/fonts/Poppins-SemiBold.ttf);
 }
 @font-face {
   font-family: "font-4";
   src: url(../assets/fonts/Poppins-Thin.ttf);
+}
+@font-face {
+  font-family: "font-5";
+  src: url(../assets/fonts/Poppins-Light.ttf);
+}
+@font-face {
+  font-family: "font-6";
+  src: url(../assets/fonts/Poppins-LightItalic.ttf);
 }
 * {
   margin: 0;
@@ -228,30 +236,50 @@ li {
 }
 .movie-details-container .movie-details {
   display: flex;
-  padding: 40px 40px 0px;
+  padding: 40px 40px;
+}
+@media screen and (max-width: 850px) {
+  .movie-details-container .movie-details {
+    width: 200%;
+  }
+}
+.movie-details-container .movie-details .movie-poster {
+  display: flex;
+  align-items: center;
 }
 .movie-details-container .movie-details .movie-poster img {
   height: 450px;
   border-radius: 20px;
   margin-right: 40px;
 }
-.movie-details-container .movie-details .movie-text-infos .date-duration {
+.movie-details-container .movie-details .movie-text-infos {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .movie-details-container .movie-details .movie-text-infos h2 {
   font-size: 1.9rem;
   font-family: "font-3", sans-serif;
   font-weight: 400;
+  margin-top: -5px;
 }
-.movie-details-container .movie-details .movie-text-infos h3 {
+.movie-details-container .movie-details .movie-text-infos .date-duration-genre {
+  display: flex;
+  margin-top: -2px;
+}
+.movie-details-container .movie-details .movie-text-infos .date-duration-genre h4 {
+  font-family: "font-5", sans-serif;
+  font-size: 0.9rem;
+}
+.movie-details-container .movie-details .movie-text-infos .tagline h4 {
+  margin: 10px 0;
+  font-family: "font-6", sans-serif;
+}
+.movie-details-container .movie-details .movie-text-infos .synopsis-text h3 {
   font-size: 1.5rem;
   font-family: "font-2", sans-serif;
 }
-.movie-details-container .movie-details .movie-text-infos h4 {
-  font-family: "font-1", sans-serif;
-  font-size: 0.9rem;
-}
-.movie-details-container .movie-details .movie-text-infos p {
-  font-family: "font-1", sans-serif;
-  font-size: 0.9rem;
+.movie-details-container .movie-details .movie-text-infos .synopsis-text p {
+  font-family: "font-5", sans-serif;
+  font-size: 0.85rem;
 }/*# sourceMappingURL=index.css.map */
