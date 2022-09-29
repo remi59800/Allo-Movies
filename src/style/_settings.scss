@@ -8,17 +8,27 @@
 }
 @font-face {
   font-family: 'font-3';
-  src: url(../assets/fonts/Poppins-Bold.ttf);
+  src: url(../assets/fonts/Poppins-SemiBold.ttf);
 }
 @font-face {
   font-family: 'font-4';
   src: url(../assets/fonts/Poppins-Thin.ttf);
+}
+@font-face {
+  font-family: 'font-5';
+  src: url(../assets/fonts/Poppins-Light.ttf);
+}
+@font-face {
+  font-family: 'font-6';
+  src: url(../assets/fonts/Poppins-LightItalic.ttf);
 }
 
 $font-1: 'font-1', sans-serif;
 $font-2: 'font-2', sans-serif;
 $font-3: 'font-3', sans-serif;
 $font-4: 'font-4', sans-serif;
+$font-5: 'font-5', sans-serif;
+$font-6: 'font-6', sans-serif;
 
 $orange-light: #ffc40b;
 $orange-deep: #ff8b7a;

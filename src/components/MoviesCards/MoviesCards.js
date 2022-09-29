@@ -19,9 +19,9 @@ const MoviesCards = ({ movie }) => {
         <h2>{movie.title}</h2>
 
         <div className='date-and-note'>
-          <h4>Sorti le {dateFormater(movie.release_date)} -</h4>
+          <h4>Sorti le {dateFormater(movie.release_date) + ' •'}</h4>
           <h4>
-            Note : {movie.vote_average.toFixed(1)}/10 <span>⭐</span>
+            &nbsp;Note : {movie.vote_average.toFixed(1)}/10 <span>⭐</span>
           </h4>
         </div>
         <div className='synopsis'>
