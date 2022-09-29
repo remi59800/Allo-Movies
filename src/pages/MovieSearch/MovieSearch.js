@@ -15,6 +15,7 @@ const MovieSearch = () => {
         `https://api.themoviedb.org/3/search/movie?api_key=2f29d9bc9f76a597232a8a514e956b12&query=${state.searchResult}&language=fr-FR`
       )
       .then((res) => setMoviesData(res.data.results));
+    // eslint-disable-next-line
   }, []);
 
   const handleOnChange = (e) => {

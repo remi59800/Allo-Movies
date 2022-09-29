@@ -26,7 +26,8 @@
         margin: 10px;
         text-decoration: none;
         color: $white;
-        transition: color 1s;
+        transition: color 0.8s;
+        font-family: $font-1;
 
         &:hover {
           color: $orange-deep;
