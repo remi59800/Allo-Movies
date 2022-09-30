@@ -45,6 +45,7 @@ $white: rgb(238, 238, 238);
 body {
   background: rgb(19, 19, 19);
   color: $white;
+  -webkit-font-smoothing: antialiased;
 }
 li {
   list-style: none;

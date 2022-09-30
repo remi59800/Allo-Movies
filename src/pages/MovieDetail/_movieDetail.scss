@@ -1,9 +1,11 @@
 .movie-details-container {
-  height: 80vh;
+  height: 90vh;
 
   .movie-details {
     display: flex;
     padding: 40px 40px;
+    height: 90vh;
+    background-color: rgba(0, 0, 0, 0.497);
 
     @media screen and (max-width: 850px) {
       width: 200%;
@@ -52,6 +54,18 @@
         }
 
         p {
+          font-family: $font-5;
+          font-size: 0.85rem;
+        }
+      }
+
+      .casting {
+        display: grid;
+
+        p {
+          span {
+            font-family: $font-2;
+          }
           font-family: $font-5;
           font-size: 0.85rem;
         }
