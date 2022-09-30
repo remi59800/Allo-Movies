@@ -32,6 +32,7 @@
 body {
   background: rgb(19, 19, 19);
   color: rgb(238, 238, 238);
+  -webkit-font-smoothing: antialiased;
 }
 
 li {
@@ -40,7 +41,7 @@ li {
 
 .header {
   width: 100vw;
-  height: 70px;
+  height: 10vh;
   min-height: 70px;
   display: grid;
   grid-template-columns: 30% 70%;
@@ -232,11 +233,13 @@ li {
 }
 
 .movie-details-container {
-  height: 80vh;
+  height: 90vh;
 }
 .movie-details-container .movie-details {
   display: flex;
   padding: 40px 40px;
+  height: 90vh;
+  background-color: rgba(0, 0, 0, 0.497);
 }
 @media screen and (max-width: 850px) {
   .movie-details-container .movie-details {
@@ -282,4 +285,14 @@ li {
 .movie-details-container .movie-details .movie-text-infos .synopsis-text p {
   font-family: "font-5", sans-serif;
   font-size: 0.85rem;
+}
+.movie-details-container .movie-details .movie-text-infos .casting {
+  display: grid;
+}
+.movie-details-container .movie-details .movie-text-infos .casting p {
+  font-family: "font-5", sans-serif;
+  font-size: 0.85rem;
+}
+.movie-details-container .movie-details .movie-text-infos .casting p span {
+  font-family: "font-2", sans-serif;
 }/*# sourceMappingURL=index.css.map */

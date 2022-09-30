@@ -21,15 +21,28 @@ const Home = () => {
 
   return (
     <div>
-      <div className='intro-search-banner'>
-        <h1>Bienvenue sur Kult Film Club,</h1>
-        <h2>L'espace dédié au cinéma et ses films cultes !</h2>
-        <div className='inputs-container'>
-          <InputSearch ref={searchInputRef} onKeyDown={handleKeyDown} />
-          <SearchButton onClick={handleSearch} />
+      <div
+        className='intro-search-banner'
+        style={{
+          backgroundImage:
+            'url(' +
+            'https://image.tmdb.org/t/p/original/smAnf46gZL1jXuP9nZvkM3Uynav.jpg' +
+            ')',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <div className='intro-search-banner-filter'>
+          <h1>Bienvenue sur Kult Film Club,</h1>
+          <h2>L'espace dédié au cinéma et ses films cultes !</h2>
+          <div className='inputs-container'>
+            <InputSearch ref={searchInputRef} onKeyDown={handleKeyDown} />
+            <SearchButton onClick={handleSearch} />
+          </div>
         </div>
+        <div className='my-cult-movies-banner'></div>
       </div>
-      <div className='my-cult-movies-banner'></div>
     </div>
   );
 };

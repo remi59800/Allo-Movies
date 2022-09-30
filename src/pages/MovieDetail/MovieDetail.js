@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState();
+  const [movieCast, setMovieCast] = useState();
   const { id } = useParams();
 
   useEffect(() => {
@@ -12,6 +13,15 @@ const MovieDetail = () => {
         `https://api.themoviedb.org/3/movie/${id}?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
       )
       .then((res) => setMovieData(res.data));
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
+      )
+      .then((res) => setMovieCast(res.data));
     // eslint-disable-next-line
   }, []);
 
@@ -48,6 +58,30 @@ const MovieDetail = () => {
                   : ''}
               </h4>
             </div>
+          </div>
+
+          <div className='casting'>
+            <p>
+              <span>
+                {movieCast && movieCast.crew ? movieCast.crew[0].job : ''} :
+              </span>
+              &nbsp;
+              {movieCast && movieCast.crew ? movieCast.crew[0].name : ''}
+            </p>
+            <p>
+              <span>
+                {movieCast && movieCast.crew ? movieCast.crew[1].job : ''}{' '}
+                :&nbsp;
+              </span>
+              {movieCast && movieCast.crew ? movieCast.crew[1].name : ''}
+            </p>
+            <p>
+              <span>
+                {movieCast && movieCast.crew ? movieCast.crew[2].job : ''} :
+              </span>
+              &nbsp;
+              {movieCast && movieCast.crew ? movieCast.crew[2].name : ''}
+            </p>
           </div>
 
           <h4>
