@@ -249,12 +249,6 @@ li {
   max-height: 600px;
   display: flex;
   padding: 40px 40px;
-  background-color: rgba(206, 54, 54, 0.497);
-}
-@media screen and (max-width: 850px) {
-  .movie-details-container .movie-details {
-    width: 200%;
-  }
 }
 .movie-details-container .movie-details .movie-poster {
   display: flex;
