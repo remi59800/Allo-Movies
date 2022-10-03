@@ -86,7 +86,6 @@ li {
   display: flex;
 }
 .movies-cards .poster-film img {
-  width: 100px;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -167,6 +166,13 @@ li {
   font-family: "font-2", sans-serif;
 }
 
+.reco-cards {
+  margin: 0 15px;
+}
+.reco-cards .poster-film img {
+  width: 300px;
+  border-radius: 20px;
+}
 .intro-search-banner {
   height: 45vh;
   min-height: 300px;
@@ -178,9 +184,14 @@ li {
 }
 .intro-search-banner h1 {
   margin-top: -8px;
+  text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
+  font-family: "font-3", sans-serif;
 }
 .intro-search-banner h2 {
+  font-family: "font-2", sans-serif;
+  letter-spacing: 0.2px;
   line-height: 25px;
+  text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
 }
 .intro-search-banner .inputs-container {
   margin-top: 35px;
@@ -232,14 +243,13 @@ li {
   justify-content: center;
 }
 
-.movie-details-container {
-  height: 90vh;
-}
 .movie-details-container .movie-details {
+  min-height: 400px;
+  height: 80vh;
+  max-height: 600px;
   display: flex;
   padding: 40px 40px;
-  height: 90vh;
-  background-color: rgba(0, 0, 0, 0.497);
+  background-color: rgba(206, 54, 54, 0.497);
 }
 @media screen and (max-width: 850px) {
   .movie-details-container .movie-details {
@@ -252,6 +262,7 @@ li {
 }
 .movie-details-container .movie-details .movie-poster img {
   height: 450px;
+  width: 300px;
   border-radius: 20px;
   margin-right: 40px;
 }
@@ -287,12 +298,30 @@ li {
   font-size: 0.85rem;
 }
 .movie-details-container .movie-details .movie-text-infos .casting {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 20px;
+}
+.movie-details-container .movie-details .movie-text-infos .casting .casting-role1,
+.movie-details-container .movie-details .movie-text-infos .casting .casting-role2,
+.movie-details-container .movie-details .movie-text-infos .casting .casting-role3 {
+  display: flex;
+  flex-direction: column;
+}
+.movie-details-container .movie-details .movie-text-infos .casting h5 {
+  font-family: "font-2", sans-serif;
+  font-size: 0.95rem;
 }
 .movie-details-container .movie-details .movie-text-infos .casting p {
   font-family: "font-5", sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
-.movie-details-container .movie-details .movie-text-infos .casting p span {
-  font-family: "font-2", sans-serif;
+.movie-details-container .recommandations-container {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+}
+.movie-details-container .recommandations-container .cards-movies-recos {
+  display: flex;
 }/*# sourceMappingURL=index.css.map */
