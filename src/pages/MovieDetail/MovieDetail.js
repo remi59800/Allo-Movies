@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import RecoCards from '../../components/RecoCards/RecoCards';
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState();
   const [movieCast, setMovieCast] = useState();
+  const [recommendMovie, setRecommendMovie] = useState([]);
   const { id } = useParams();
+
+  const dateFormater = (date) => {
+    let [yy, mm, dd] = date.split('-');
+    return [dd, mm, yy].join('/');
+  };
 
   useEffect(() => {
     axios
@@ -25,6 +32,15 @@ const MovieDetail = () => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&page=1`
+      )
+      .then((res) => setRecommendMovie(res.data.results));
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className='movie-details-container'>
       <div className='movie-details'>
@@ -41,7 +57,9 @@ const MovieDetail = () => {
 
           <div className='date-duration-genre'>
             <div className='date'>
-              <h4>{movieData ? movieData.release_date + ' •' : ''}</h4>
+              <h4>
+                {movieData ? dateFormater(movieData.release_date) + ' •' : ''}
+              </h4>
             </div>
             <div className='duration'>
               <h4>&nbsp;{movieData ? movieData.runtime + ' mins •' : ''}</h4>
@@ -60,30 +78,6 @@ const MovieDetail = () => {
             </div>
           </div>
 
-          <div className='casting'>
-            <p>
-              <span>
-                {movieCast && movieCast.crew ? movieCast.crew[0].job : ''} :
-              </span>
-              &nbsp;
-              {movieCast && movieCast.crew ? movieCast.crew[0].name : ''}
-            </p>
-            <p>
-              <span>
-                {movieCast && movieCast.crew ? movieCast.crew[1].job : ''}{' '}
-                :&nbsp;
-              </span>
-              {movieCast && movieCast.crew ? movieCast.crew[1].name : ''}
-            </p>
-            <p>
-              <span>
-                {movieCast && movieCast.crew ? movieCast.crew[2].job : ''} :
-              </span>
-              &nbsp;
-              {movieCast && movieCast.crew ? movieCast.crew[2].name : ''}
-            </p>
-          </div>
-
           <h4>
             Note : {movieData ? movieData.vote_average.toFixed(1) : ''} /10{' '}
             <span>⭐ </span>
@@ -98,6 +92,34 @@ const MovieDetail = () => {
             <h3>Synopsis</h3>
             <p>{movieData ? movieData.overview : ''}</p>
           </div>
+          <div className='casting'>
+            <div className='casting-role1'>
+              <h5>
+                {movieCast && movieCast.crew ? movieCast.crew[0].name : ''}
+              </h5>
+              <p>{movieCast && movieCast.crew ? movieCast.crew[0].job : ''}</p>
+            </div>
+            <div className='casting-role2'>
+              <h5>
+                {movieCast && movieCast.crew ? movieCast.crew[1].name : ''}
+              </h5>
+              <p>{movieCast && movieCast.crew ? movieCast.crew[1].job : ''} </p>
+            </div>
+            <div className='casting-role3'>
+              <h5>
+                {movieCast && movieCast.crew ? movieCast.crew[2].name : ''}
+              </h5>
+              <p>{movieCast && movieCast.crew ? movieCast.crew[2].job : ''}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='recommandations-container'>
+        <h2>Recommandations</h2>
+        <div className='cards-movies-recos'>
+          {recommendMovie.slice(0, 6).map((reco) => {
+            return <RecoCards reco={reco} key={reco.id} />;
+          })}
         </div>
       </div>
     </div>
