@@ -115,7 +115,7 @@ const MovieDetail = () => {
         </div>
       </div>
       <div className='recommandations-container'>
-        <h2>Recommandations</h2>
+        <h3>Recommandations</h3>
         <div className='cards-movies-recos'>
           {recommendMovie.slice(0, 6).map((reco) => {
             return <RecoCards reco={reco} key={reco.id} />;
