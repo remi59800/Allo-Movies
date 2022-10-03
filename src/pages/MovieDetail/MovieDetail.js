@@ -4,7 +4,7 @@ import axios from 'axios';
 import RecoCards from '../../components/RecoCards/RecoCards';
 
 const MovieDetail = () => {
-  const [movieData, setMovieData] = useState();
+  const [movieData, setMovieData] = useState('');
   const [movieCast, setMovieCast] = useState();
   const [recommendMovie, setRecommendMovie] = useState([]);
   const { id } = useParams();
@@ -41,9 +41,25 @@ const MovieDetail = () => {
     // eslint-disable-next-line
   }, []);
 
+  const imgBackground = {
+    originalImage: (imgPath) =>
+      `https://image.tmdb.org/t/p/original/${imgPath}`,
+  };
+
   return (
     <div className='movie-details-container'>
-      <div className='movie-details'>
+      <div
+        className='movie-details'
+        style={{
+          backgroundImage: `url(${imgBackground.originalImage(
+            movieData.backdrop_path
+          )})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          width: '100%',
+        }}
+      >
         <div className='movie-poster'>
           <img
             src={`https://image.tmdb.org/t/p/original${
