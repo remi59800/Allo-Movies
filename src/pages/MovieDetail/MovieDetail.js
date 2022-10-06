@@ -5,7 +5,7 @@ import RecoCards from '../../components/RecoCards/RecoCards';
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState('');
-  const [movieCast, setMovieCast] = useState();
+  // const [movieCast, setMovieCast] = useState('');
   const [recommendMovie, setRecommendMovie] = useState([]);
   const { id } = useParams();
 
@@ -23,14 +23,14 @@ const MovieDetail = () => {
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
-      )
-      .then((res) => setMovieCast(res.data));
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
+  //     )
+  //     .then((res) => setMovieCast(res.data));
+  //   // eslint-disable-next-line
+  // }, []);
 
   useEffect(() => {
     axios
@@ -47,27 +47,19 @@ const MovieDetail = () => {
   };
 
   return (
-    <div className='movie-details-container'>
+    <div>
       <div
         className='movie-details-bg'
         style={{
           backgroundImage: `url(${imgBackground.originalImage(
             movieData.backdrop_path
           )})`,
-          backgroundPosition: 'center',
+          backgroundPosition: 'top',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
       >
         <div className='movie-details'>
-          <div className='movie-poster'>
-            <img
-              src={`https://image.tmdb.org/t/p/original${
-                movieData ? movieData.poster_path : ''
-              }`}
-              alt={`Affiche film`}
-            />
-          </div>
           <div className='movie-text-infos'>
             <h2>{movieData ? movieData.title : ''}</h2>
             <div className='tagline'>
@@ -88,6 +80,7 @@ const MovieDetail = () => {
                   &nbsp;
                   {movieData && movieData.genres
                     ? movieData.genres
+                        .slice(0, 3)
                         .map(function (genre) {
                           return genre.name;
                         })
@@ -107,34 +100,8 @@ const MovieDetail = () => {
             </div>
 
             <div className='synopsis-text'>
-              <h3>Synopsis</h3>
+              <h3>{movieData.overview ? `Synopsis` : ''}</h3>
               <p>{movieData ? movieData.overview : ''}</p>
-            </div>
-            <div className='casting'>
-              <div className='casting-role1'>
-                <h5>
-                  {movieCast && movieCast.crew ? movieCast.crew[0].name : ''}
-                </h5>
-                <p>
-                  {movieCast && movieCast.crew ? movieCast.crew[0].job : ''}
-                </p>
-              </div>
-              <div className='casting-role2'>
-                <h5>
-                  {movieCast && movieCast.crew ? movieCast.crew[1].name : ''}
-                </h5>
-                <p>
-                  {movieCast && movieCast.crew ? movieCast.crew[1].job : ''}{' '}
-                </p>
-              </div>
-              <div className='casting-role3'>
-                <h5>
-                  {movieCast && movieCast.crew ? movieCast.crew[2].name : ''}
-                </h5>
-                <p>
-                  {movieCast && movieCast.crew ? movieCast.crew[2].job : ''}
-                </p>
-              </div>
             </div>
           </div>
         </div>

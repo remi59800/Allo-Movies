@@ -4,7 +4,7 @@
   height: 160px;
   background: #1e1e1e;
   border-radius: 20px;
-  margin: 10px 42px;
+  margin: 15px 40px;
   display: flex;
 
   .poster-film {
@@ -23,7 +23,7 @@
     justify-content: center;
 
     h2 {
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin: 0;
       font-family: $font-7;
       letter-spacing: 0.5px;
@@ -47,9 +47,9 @@
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      font-size: 0.75rem;
-      margin: 2px 0 8px;
-      font-family: $font-1;
+      font-size: 0.8rem;
+      margin: 5px 0 10px;
+      font-family: $font-2;
     }
     .btn-more-infos {
       input {
@@ -57,7 +57,7 @@
         border-radius: 10px;
         background: linear-gradient(to right, $orange-light, $orange-deep);
         color: $black;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         padding: 5px 12px;
         border: none;
         font-family: $font-3;
