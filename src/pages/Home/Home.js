@@ -22,18 +22,18 @@ const Home = () => {
   return (
     <div>
       <div
-        className='intro-search-banner'
+        className='search-banner-bg'
         style={{
           backgroundImage:
             'url(' +
-            'https://image.tmdb.org/t/p/original/smAnf46gZL1jXuP9nZvkM3Uynav.jpg' +
+            'https://image.tmdb.org/t/p/original/3uM41OT0RfBkE6Gb6U89LEskJBr.jpg' +
             ')',
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className='intro-search-banner-filter'>
+        <div className='search-banner'>
           <h1>Bienvenue sur Kult Film Club,</h1>
           <h2>L'espace dédié au cinéma et ses films cultes !</h2>
           <div className='inputs-container'>
@@ -41,8 +41,8 @@ const Home = () => {
             <SearchButton onClick={handleSearch} />
           </div>
         </div>
-        <div className='my-cult-movies-banner'></div>
       </div>
+      <div className='my-cult-movies-banner'></div>
     </div>
   );
 };
