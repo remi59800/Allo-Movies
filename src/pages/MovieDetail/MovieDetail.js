@@ -49,7 +49,7 @@ const MovieDetail = () => {
   return (
     <div className='movie-details-container'>
       <div
-        className='movie-details'
+        className='movie-details-bg'
         style={{
           backgroundImage: `url(${imgBackground.originalImage(
             movieData.backdrop_path
@@ -57,81 +57,90 @@ const MovieDetail = () => {
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          width: '100%',
         }}
       >
-        <div className='movie-poster'>
-          <img
-            src={`https://image.tmdb.org/t/p/original${
-              movieData ? movieData.poster_path : ''
-            }`}
-            alt={`Affiche film`}
-          />
-        </div>
-        <div className='movie-text-infos'>
-          <h2>{movieData ? movieData.title : ''}</h2>
+        <div className='movie-details'>
+          <div className='movie-poster'>
+            <img
+              src={`https://image.tmdb.org/t/p/original${
+                movieData ? movieData.poster_path : ''
+              }`}
+              alt={`Affiche film`}
+            />
+          </div>
+          <div className='movie-text-infos'>
+            <h2>{movieData ? movieData.title : ''}</h2>
 
-          <div className='date-duration-genre'>
-            <div className='date'>
-              <h4>
-                {movieData ? dateFormater(movieData.release_date) + ' •' : ''}
-              </h4>
+            <div className='date-duration-genre'>
+              <div className='date'>
+                <h4>
+                  {movieData ? dateFormater(movieData.release_date) + ' •' : ''}
+                </h4>
+              </div>
+              <div className='duration'>
+                <h4>&nbsp;{movieData ? movieData.runtime + ' mins •' : ''}</h4>
+              </div>
+              <div className='genres'>
+                <h4>
+                  &nbsp;
+                  {movieData && movieData.genres
+                    ? movieData.genres
+                        .map(function (genre) {
+                          return genre.name;
+                        })
+                        .join(', ')
+                    : ''}
+                </h4>
+              </div>
             </div>
-            <div className='duration'>
-              <h4>&nbsp;{movieData ? movieData.runtime + ' mins •' : ''}</h4>
-            </div>
-            <div className='genres'>
-              <h4>
-                &nbsp;
-                {movieData && movieData.genres
-                  ? movieData.genres
-                      .map(function (genre) {
-                        return genre.name;
-                      })
-                      .join(', ')
-                  : ''}
-              </h4>
-            </div>
-          </div>
 
-          <h4>
-            Note : {movieData ? movieData.vote_average.toFixed(1) : ''} /10{' '}
-            <span>⭐ </span>
-            <span className='movie-vote-count'>
-              {movieData ? '(' + movieData.vote_count + ') votes' : ''}
-            </span>
-          </h4>
-          <div className='tagline'>
-            <h4>{movieData ? movieData.tagline : ''}</h4>
-          </div>
-          <div className='synopsis-text'>
-            <h3>Synopsis</h3>
-            <p>{movieData ? movieData.overview : ''}</p>
-          </div>
-          <div className='casting'>
-            <div className='casting-role1'>
-              <h5>
-                {movieCast && movieCast.crew ? movieCast.crew[0].name : ''}
-              </h5>
-              <p>{movieCast && movieCast.crew ? movieCast.crew[0].job : ''}</p>
+            <h4>
+              Note : {movieData ? movieData.vote_average.toFixed(1) : ''} /10{' '}
+              <span>⭐ </span>
+              <span className='movie-vote-count'>
+                {movieData ? '(' + movieData.vote_count + ') votes' : ''}
+              </span>
+            </h4>
+            <div className='tagline'>
+              <h4>{movieData ? movieData.tagline : ''}</h4>
             </div>
-            <div className='casting-role2'>
-              <h5>
-                {movieCast && movieCast.crew ? movieCast.crew[1].name : ''}
-              </h5>
-              <p>{movieCast && movieCast.crew ? movieCast.crew[1].job : ''} </p>
+            <div className='synopsis-text'>
+              <h3>Synopsis</h3>
+              <p>{movieData ? movieData.overview : ''}</p>
             </div>
-            <div className='casting-role3'>
-              <h5>
-                {movieCast && movieCast.crew ? movieCast.crew[2].name : ''}
-              </h5>
-              <p>{movieCast && movieCast.crew ? movieCast.crew[2].job : ''}</p>
+            <div className='casting'>
+              <div className='casting-role1'>
+                <h5>
+                  {movieCast && movieCast.crew ? movieCast.crew[0].name : ''}
+                </h5>
+                <p>
+                  {movieCast && movieCast.crew ? movieCast.crew[0].job : ''}
+                </p>
+              </div>
+              <div className='casting-role2'>
+                <h5>
+                  {movieCast && movieCast.crew ? movieCast.crew[1].name : ''}
+                </h5>
+                <p>
+                  {movieCast && movieCast.crew ? movieCast.crew[1].job : ''}{' '}
+                </p>
+              </div>
+              <div className='casting-role3'>
+                <h5>
+                  {movieCast && movieCast.crew ? movieCast.crew[2].name : ''}
+                </h5>
+                <p>
+                  {movieCast && movieCast.crew ? movieCast.crew[2].job : ''}
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className='recommandations-container'>
-        <h3>Recommandations</h3>
+        <h3>
+          Si vous avez aimé {movieData ? movieData.title : ''}, vous aimerez...
+        </h3>
         <div className='cards-movies-recos'>
           {recommendMovie.slice(0, 6).map((reco) => {
             return <RecoCards reco={reco} key={reco.id} />;
