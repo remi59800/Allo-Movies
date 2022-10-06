@@ -22,6 +22,10 @@
   font-family: 'font-6';
   src: url(../assets/fonts/Poppins-LightItalic.ttf);
 }
+@font-face {
+  font-family: 'font-7';
+  src: url(../assets/fonts/Poppins-Bold.ttf);
+}
 
 $font-1: 'font-1', sans-serif;
 $font-2: 'font-2', sans-serif;
@@ -29,6 +33,7 @@ $font-3: 'font-3', sans-serif;
 $font-4: 'font-4', sans-serif;
 $font-5: 'font-5', sans-serif;
 $font-6: 'font-6', sans-serif;
+$font-7: 'font-7', sans-serif;
 
 $orange-light: #ffc40b;
 $orange-deep: #ff8b7a;
