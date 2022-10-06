@@ -70,6 +70,9 @@ const MovieDetail = () => {
           </div>
           <div className='movie-text-infos'>
             <h2>{movieData ? movieData.title : ''}</h2>
+            <div className='tagline'>
+              <h4>{movieData ? movieData.tagline : ''}</h4>
+            </div>
 
             <div className='date-duration-genre'>
               <div className='date'>
@@ -93,17 +96,16 @@ const MovieDetail = () => {
                 </h4>
               </div>
             </div>
-
-            <h4>
-              Note : {movieData ? movieData.vote_average.toFixed(1) : ''} /10{' '}
-              <span>⭐ </span>
-              <span className='movie-vote-count'>
-                {movieData ? '(' + movieData.vote_count + ') votes' : ''}
-              </span>
-            </h4>
-            <div className='tagline'>
-              <h4>{movieData ? movieData.tagline : ''}</h4>
+            <div className='notation'>
+              <h4>
+                <span>⭐ </span>
+                {movieData ? movieData.vote_average.toFixed(1) : ''} /10{' '}
+                <span className='movie-vote-count'>
+                  {movieData ? '(' + movieData.vote_count + ') votes' : ''}
+                </span>
+              </h4>
             </div>
+
             <div className='synopsis-text'>
               <h3>Synopsis</h3>
               <p>{movieData ? movieData.overview : ''}</p>
