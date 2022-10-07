@@ -17,9 +17,6 @@
     );
     color: rgb(255, 255, 255);
 
-    .movie-text-infos {
-      width: 40%;
-    }
     .movie-poster {
       display: flex;
       align-items: center;
@@ -46,6 +43,7 @@
       .tagline {
         h4 {
           font-family: $font-6;
+          width: 35%;
         }
       }
       .date-duration-genre {
@@ -73,10 +71,12 @@
         }
 
         p {
-          font-family: $font-2;
+          font-family: $font-1;
           letter-spacing: -0.2px;
           line-height: 20px;
           font-size: 0.85rem;
+          min-width: 450px;
+          width: 35%;
         }
       }
     }

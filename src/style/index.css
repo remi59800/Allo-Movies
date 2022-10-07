@@ -117,7 +117,7 @@ li {
   font-size: 0.8rem;
   font-weight: 100;
   margin: 0;
-  font-family: "font-3", sans-serif;
+  font-family: "font-2", sans-serif;
 }
 .movies-cards .first-infos p {
   overflow: hidden;
@@ -127,7 +127,7 @@ li {
   -webkit-box-orient: vertical;
   font-size: 0.8rem;
   margin: 5px 0 10px;
-  font-family: "font-2", sans-serif;
+  font-family: "font-1", sans-serif;
 }
 .movies-cards .first-infos .btn-more-infos input {
   cursor: pointer;
@@ -265,9 +265,6 @@ li {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.2) 100%);
   color: rgb(255, 255, 255);
 }
-.movie-details-bg .movie-details .movie-text-infos {
-  width: 40%;
-}
 .movie-details-bg .movie-details .movie-poster {
   display: flex;
   align-items: center;
@@ -292,6 +289,7 @@ li {
 }
 .movie-details-bg .movie-details .movie-text-infos .tagline h4 {
   font-family: "font-6", sans-serif;
+  width: 35%;
 }
 .movie-details-bg .movie-details .movie-text-infos .date-duration-genre {
   display: flex;
@@ -313,10 +311,12 @@ li {
   font-family: "font-2", sans-serif;
 }
 .movie-details-bg .movie-details .movie-text-infos .synopsis-text p {
-  font-family: "font-2", sans-serif;
+  font-family: "font-1", sans-serif;
   letter-spacing: -0.2px;
   line-height: 20px;
   font-size: 0.85rem;
+  min-width: 450px;
+  width: 35%;
 }
 
 .recommandations-container {
