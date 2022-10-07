@@ -5,7 +5,7 @@ import RecoCards from '../../components/RecoCards/RecoCards';
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState('');
-  // const [movieCast, setMovieCast] = useState('');
+  // const [movieCast, setMovieCast] = useState([]);
   const [recommendMovie, setRecommendMovie] = useState([]);
   const { id } = useParams();
 
@@ -29,6 +29,7 @@ const MovieDetail = () => {
   //       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
   //     )
   //     .then((res) => setMovieCast(res.data));
+
   //   // eslint-disable-next-line
   // }, []);
 
@@ -65,7 +66,6 @@ const MovieDetail = () => {
             <div className='tagline'>
               <h4>{movieData ? movieData.tagline : ''}</h4>
             </div>
-
             <div className='date-duration-genre'>
               <div className='date'>
                 <h4>
