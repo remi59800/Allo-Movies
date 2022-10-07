@@ -1,12 +1,11 @@
-.reco-cards {
-  margin: 0 15px;
-  .poster-film {
-    img {
-      width: 300px;
-      border-radius: 20px;
-    }
+.reco-card {
+  margin: 0px;
+
+  img {
+    width: 200px;
   }
 
-  .movie-title {
+  h4 {
+    font-size: 0.85rem;
   }
 }
