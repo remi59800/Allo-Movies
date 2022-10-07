@@ -91,6 +91,7 @@ li {
 }
 .movies-cards .poster-film img {
   height: 100%;
+  width: 105px;
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
@@ -98,7 +99,7 @@ li {
   border-bottom-left-radius: 20px;
 }
 .movies-cards .first-infos {
-  margin: 10px 15px;
+  margin: 10px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -170,13 +171,14 @@ li {
   font-family: "font-2", sans-serif;
 }
 
-.reco-cards {
+.reco-card {
   margin: 0 15px;
 }
-.reco-cards .poster-film img {
-  width: 300px;
+.reco-card img {
+  width: 150px;
   border-radius: 20px;
 }
+
 .search-banner-bg {
   height: 45vh;
   min-height: 300px;
@@ -320,16 +322,10 @@ li {
 }
 
 .recommandations-container {
-  display: flex;
-  flex-direction: column;
-  margin: 40px;
+  margin: 30px 40px;
 }
 .recommandations-container h3 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 1.5rem;
   font-family: "font-2", sans-serif;
-}
-.recommandations-container .cards-movies-recos {
-  display: flex;
-  margin-left: -15px;
 }/*# sourceMappingURL=index.css.map */

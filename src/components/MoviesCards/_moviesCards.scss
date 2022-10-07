@@ -10,6 +10,7 @@
   .poster-film {
     img {
       height: 100%;
+      width: 108px;
       object-fit: cover;
       display: block;
       border-top-left-radius: 20px;
@@ -17,7 +18,7 @@
     }
   }
   .first-infos {
-    margin: 10px 15px;
+    margin: 10px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;

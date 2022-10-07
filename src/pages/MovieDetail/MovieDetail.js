@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import RecoCards from '../../components/RecoCards/RecoCards';
+import { SwiperSlide, Swiper } from 'swiper/react';
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState('');
@@ -107,13 +108,25 @@ const MovieDetail = () => {
         </div>
       </div>
       <div className='recommandations-container'>
-        <h3>
-          Si vous avez aimé {movieData ? movieData.title : ''}, vous aimerez...
-        </h3>
-        <div className='cards-movies-recos'>
-          {recommendMovie.slice(0, 6).map((reco) => {
-            return <RecoCards reco={reco} key={reco.id} />;
-          })}
+        <h3>Recommandations</h3>
+
+        <div className='movie-recommendation-list'>
+          {recommendMovie.length > 0 ? (
+            <Swiper
+              grabCursor={true}
+              spaceBetween={9}
+              slidesPerView={'auto'}
+              className='my-swiper'
+            >
+              {recommendMovie.map((reco, index) => (
+                <SwiperSlide key={index}>
+                  <RecoCards reco={reco} key={reco.id} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            <h2>Pas de recommandations trouvées</h2>
+          )}
         </div>
       </div>
     </div>
