@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import RecoCards from '../../components/RecoCards/RecoCards';
 import { SwiperSlide, Swiper } from 'swiper/react';
+// import { Link } from 'react-router-dom';
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState('');
@@ -120,7 +120,20 @@ const MovieDetail = () => {
             >
               {recommendMovie.map((reco, index) => (
                 <SwiperSlide key={index}>
-                  <RecoCards reco={reco} key={reco.id} />
+                  {/* <Link to={`/film/${reco.id}`}> */}
+                  <div className='reco-cards' reco={reco} key={reco.id}>
+                    <img
+                      src={
+                        reco
+                          ? 'https://image.tmdb.org/t/p/original' +
+                            reco.backdrop_path
+                          : './image-movie.png'
+                      }
+                      alt={`Affiche ${reco.title}`}
+                    />
+                    <h4>{reco.title}</h4>
+                  </div>
+                  {/* </Link> */}
                 </SwiperSlide>
               ))}
             </Swiper>
