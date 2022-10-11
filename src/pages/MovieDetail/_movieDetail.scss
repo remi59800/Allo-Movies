@@ -13,7 +13,7 @@
     background: linear-gradient(
       90deg,
       rgb(0, 0, 0, 0.9) 10%,
-      rgba(0, 0, 0, 0.2) 100%
+      rgba(0, 0, 0, 0.2) 80%
     );
     color: rgb(255, 255, 255);
 
@@ -77,6 +77,9 @@
           font-size: 0.85rem;
           min-width: 450px;
           width: 35%;
+          height: 100px;
+          overflow: scroll;
+          text-overflow: ellipsis;
         }
       }
     }
@@ -119,6 +122,7 @@
 
       img {
         width: 220px;
+        height: 124px;
       }
 
       h4 {

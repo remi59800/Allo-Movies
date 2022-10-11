@@ -53,12 +53,14 @@ const MovieDetail = () => {
       <div
         className='movie-details-bg'
         style={{
-          backgroundImage: `url(${imgBackground.originalImage(
-            movieData.backdrop_path
-          )})`,
+          backgroundImage:
+            imgBackground.originalImage(movieData.backdrop_path) !== null
+              ? `url(${imgBackground.originalImage(movieData.backdrop_path)})`
+              : '/movie-bg.png',
           backgroundPosition: 'top',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
+          width: '100%',
         }}
       >
         <div className='movie-details'>
@@ -118,16 +120,16 @@ const MovieDetail = () => {
               slidesPerView={'auto'}
               className='my-swiper'
             >
-              {recommendMovie.map((reco, index) => (
-                <SwiperSlide key={index}>
+              {recommendMovie.map((reco) => (
+                <SwiperSlide key={reco.id}>
                   <Link to={`/film/${reco.id}`} reloadDocument={true}>
-                    <div className='reco-cards' reco={reco} key={reco.id}>
+                    <div className='reco-cards'>
                       <img
                         src={
-                          reco
+                          reco.backdrop_path !== null
                             ? 'https://image.tmdb.org/t/p/original' +
                               reco.backdrop_path
-                            : './image-movie.png'
+                            : '/movie-bg.png'
                         }
                         alt={`Affiche ${reco.title}`}
                       />
