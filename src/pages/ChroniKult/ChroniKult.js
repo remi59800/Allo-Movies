@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyCultMovies = () => {
+const ChroniKult = () => {
   return (
     <div>
       <h2>Mes films cultes</h2>
@@ -8,4 +8,4 @@ const MyCultMovies = () => {
   );
 };
 
-export default MyCultMovies;
+export default ChroniKult;
