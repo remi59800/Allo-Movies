@@ -42,7 +42,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='my-cult-movies-banner'></div>
+      <div className='chronikults-container'>
+        <h2>Chroni'Kult</h2>
+        <p>Section en consctruction</p>
+      </div>
     </div>
   );
 };
