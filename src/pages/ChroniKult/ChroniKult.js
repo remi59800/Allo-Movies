@@ -6,7 +6,7 @@ const ChroniKult = () => {
       <h2>
         Chroni'Kult, les critiques des meilleurs films cultes de la rédac'
       </h2>
-      <p>Page en cours de consctruction</p>
+      <p>Page en cours de construction</p>
     </div>
   );
 };
