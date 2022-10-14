@@ -44,8 +44,7 @@ const MovieDetail = () => {
   }, []);
 
   const imgBackground = {
-    originalImage: (imgPath) =>
-      `https://image.tmdb.org/t/p/original/${imgPath}`,
+    originalImage: (imgPath) => `https://image.tmdb.org/t/p/original${imgPath}`,
   };
 
   return (
@@ -53,10 +52,11 @@ const MovieDetail = () => {
       <div
         className='movie-details-bg'
         style={{
-          backgroundImage:
-            imgBackground.originalImage(movieData.backdrop_path) !== null
-              ? `url(${imgBackground.originalImage(movieData.backdrop_path)})`
-              : '/movie-bg.png',
+          backgroundImage: imgBackground.originalImage(
+            movieData.backdrop_path !== null
+          )
+            ? `url(${imgBackground.originalImage(movieData.backdrop_path)})`
+            : `/movie-bg.png`,
           backgroundPosition: 'top',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',

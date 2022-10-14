@@ -44,7 +44,7 @@ const Home = () => {
       </div>
       <div className='chronikults-container'>
         <h2>Chroni'Kult</h2>
-        <p>Section en consctruction</p>
+        <p>Section en construction</p>
       </div>
     </div>
   );

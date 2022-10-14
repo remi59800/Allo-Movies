@@ -14,7 +14,7 @@ const MoviesCards = ({ movie }) => {
           src={
             movie.poster_path
               ? 'https://image.tmdb.org/t/p/original' + movie.poster_path
-              : './image-movie.png'
+              : './movie-bg.png'
           }
           alt={`Affiche ${movie.title}`}
         />
