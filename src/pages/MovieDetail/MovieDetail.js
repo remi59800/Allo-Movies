@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState('');
-  // const [movieCast, setMovieCast] = useState([]);
+  const [movieCast, setMovieCast] = useState([]);
   const [recommendMovie, setRecommendMovie] = useState([]);
   const { id } = useParams();
 
@@ -24,15 +24,15 @@ const MovieDetail = () => {
     // eslint-disable-next-line
   }, []);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
-  //     )
-  //     .then((res) => setMovieCast(res.data));
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
+      )
+      .then((res) => setMovieCast(res.data.cast));
 
-  //   // eslint-disable-next-line
-  // }, []);
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     axios
@@ -52,15 +52,12 @@ const MovieDetail = () => {
       <div
         className='movie-details-bg'
         style={{
-          backgroundImage: imgBackground.originalImage(
-            movieData.backdrop_path !== null
-          )
-            ? `url(${imgBackground.originalImage(movieData.backdrop_path)})`
-            : `/movie-bg.png`,
-          backgroundPosition: 'top',
+          backgroundImage: `url(${imgBackground.originalImage(
+            movieData.backdrop_path
+          )})`,
+          backgroundPosition: 'right top',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          width: '100%',
         }}
       >
         <div className='movie-details'>
@@ -92,6 +89,19 @@ const MovieDetail = () => {
                 </h4>
               </div>
             </div>
+
+            <div className='actors'>
+              <h4>
+                Acteurs :&nbsp;
+                {movieCast
+                  .slice(0, 3)
+                  .map((cast) => {
+                    return cast.name;
+                  })
+                  .join(', ')}
+              </h4>
+            </div>
+
             <div className='notation'>
               <h4>
                 <span>⭐ </span>

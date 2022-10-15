@@ -1,19 +1,19 @@
 .movie-details-bg {
-  min-height: 400px;
-  height: 520px;
+  min-height: 500px;
+  height: 550px;
   max-height: 570px;
 
   .movie-details {
-    min-height: 400px;
-    height: 520px;
+    min-height: 500px;
+    height: 550px;
     max-height: 570px;
     display: flex;
     width: 100%;
     padding: 40px 40px;
     background: linear-gradient(
       90deg,
-      rgb(0, 0, 0, 0.9) 10%,
-      rgba(0, 0, 0, 0.2) 80%
+      rgb(0, 0, 0, 0.95) 10%,
+      rgba(0, 0, 0, 0.2) 90%
     );
     color: rgb(255, 255, 255);
 
@@ -56,7 +56,8 @@
         }
       }
 
-      .notation {
+      .notation,
+      .actors {
         h4 {
           font-family: $font-1;
           font-size: 0.9rem;
