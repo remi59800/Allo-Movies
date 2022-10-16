@@ -37,6 +37,15 @@ const MovieDetail = () => {
   useEffect(() => {
     axios
       .get(
+        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
+      )
+      .then((res) => console.log(res.data.results));
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
         `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&page=1`
       )
       .then((res) => setRecommendMovie(res.data.results));
@@ -60,20 +69,42 @@ const MovieDetail = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
+        {/* <Youtube
+          className={'youtube amru'}
+          containerClassName={'youtube-container amru'}
+          opts={{
+            width: '100%',
+            height: '550px',
+            playerVars: {
+              autoplay: 1,
+              controls: 0,
+              cc_load_policy: 0,
+              fs: 0,
+              iv_load_policy: 0,
+              modestbranding: 0,
+              rel: 0,
+              showinfo: 0,
+            },
+          }}
+        /> */}
         <div className='movie-details'>
           <div className='movie-text-infos'>
-            <h2>{movieData ? movieData.title : ''}</h2>
+            <h2>{movieData ? movieData.title : null}</h2>
             <div className='tagline'>
-              <h4>{movieData ? movieData.tagline : ''}</h4>
+              <h4>{movieData ? movieData.tagline : null}</h4>
             </div>
             <div className='date-duration-genre'>
               <div className='date'>
                 <h4>
-                  {movieData ? dateFormater(movieData.release_date) + ' •' : ''}
+                  {movieData
+                    ? dateFormater(movieData.release_date) + ' •'
+                    : null}
                 </h4>
               </div>
               <div className='duration'>
-                <h4>&nbsp;{movieData ? movieData.runtime + ' mins •' : ''}</h4>
+                <h4>
+                  &nbsp;{movieData ? movieData.runtime + ' mins •' : null}
+                </h4>
               </div>
               <div className='genres'>
                 <h4>
@@ -85,7 +116,7 @@ const MovieDetail = () => {
                           return genre.name;
                         })
                         .join(', ')
-                    : ''}
+                    : null}
                 </h4>
               </div>
             </div>
@@ -107,18 +138,23 @@ const MovieDetail = () => {
                 <span>⭐ </span>
                 {movieData ? movieData.vote_average.toFixed(1) : ''} /10{' '}
                 <span className='movie-vote-count'>
-                  {movieData ? '(' + movieData.vote_count + ') votes' : ''}
+                  {movieData ? '(' + movieData.vote_count + ') votes' : null}
                 </span>
               </h4>
             </div>
 
             <div className='synopsis-text'>
-              <h3>{movieData.overview ? `Synopsis` : ''}</h3>
-              <p>{movieData ? movieData.overview : ''}</p>
+              <h3>{movieData.overview ? `Synopsis` : null}</h3>
+              <p>{movieData ? movieData.overview : null}</p>
+            </div>
+
+            <div className='trailer'>
+              <button>Bande-annonce</button>
             </div>
           </div>
         </div>
       </div>
+
       <div className='recommandations-container'>
         <h3>Recommandations</h3>
 
