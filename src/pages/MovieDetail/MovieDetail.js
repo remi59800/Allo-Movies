@@ -3,11 +3,15 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Link } from 'react-router-dom';
+import Youtube from 'react-youtube';
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState('');
   const [movieCast, setMovieCast] = useState([]);
+  const [trailer, setTrailer] = useState('');
+  const [playing, setPlaying] = useState(false);
   const [recommendMovie, setRecommendMovie] = useState([]);
+
   const { id } = useParams();
 
   const dateFormater = (date) => {
@@ -39,9 +43,9 @@ const MovieDetail = () => {
       .get(
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
       )
-      .then((res) => console.log(res.data.results));
+      .then((res) => setTrailer(res.data.results[0]));
     // eslint-disable-next-line
-  }, []);
+  }, [playing]);
 
   useEffect(() => {
     axios
@@ -69,24 +73,6 @@ const MovieDetail = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* <Youtube
-          className={'youtube amru'}
-          containerClassName={'youtube-container amru'}
-          opts={{
-            width: '100%',
-            height: '550px',
-            playerVars: {
-              autoplay: 1,
-              controls: 0,
-              cc_load_policy: 0,
-              fs: 0,
-              iv_load_policy: 0,
-              modestbranding: 0,
-              rel: 0,
-              showinfo: 0,
-            },
-          }}
-        /> */}
         <div className='movie-details'>
           <div className='movie-text-infos'>
             <h2>{movieData ? movieData.title : null}</h2>
@@ -147,10 +133,45 @@ const MovieDetail = () => {
               <h3>{movieData.overview ? `Synopsis` : null}</h3>
               <p>{movieData ? movieData.overview : null}</p>
             </div>
-
-            <div className='trailer'>
-              <button>Bande-annonce</button>
-            </div>
+            {playing ? (
+              <>
+                <Youtube
+                  videoId={trailer.key}
+                  className={'youtube amru'}
+                  containerClassName={'youtube-container amru'}
+                  opts={{
+                    width: '100%',
+                    height: '100%',
+                    playerVars: {
+                      autoplay: 1,
+                      controls: 0,
+                      cc_load_policy: 0,
+                      fs: 0,
+                      iv_load_policy: 0,
+                      modestbranding: 0,
+                      rel: 0,
+                      showinfo: 0,
+                    },
+                  }}
+                />
+                <button
+                  onClick={() => setPlaying(false)}
+                  className={'button-close-video'}
+                >
+                  Close
+                </button>
+              </>
+            ) : (
+              <div className='trailer'>
+                <button
+                  className={'button-play-video'}
+                  onClick={() => setPlaying(true)}
+                  type='button'
+                >
+                  Bande-annonce
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
