@@ -74,7 +74,7 @@ const MovieDetail = () => {
         }}
       >
         <div className='movie-details'>
-          <div className='movie-text-infos'>
+          <div className='movie-infos'>
             <h2>{movieData ? movieData.title : null}</h2>
             <div className='tagline'>
               <h4>{movieData ? movieData.tagline : null}</h4>
@@ -133,45 +133,48 @@ const MovieDetail = () => {
               <h3>{movieData.overview ? `Synopsis` : null}</h3>
               <p>{movieData ? movieData.overview : null}</p>
             </div>
-            {playing ? (
-              <>
-                <Youtube
-                  videoId={trailer.key}
-                  className={'youtube amru'}
-                  containerClassName={'youtube-container amru'}
-                  opts={{
-                    width: '100%',
-                    height: '100%',
-                    playerVars: {
-                      autoplay: 1,
-                      controls: 0,
-                      cc_load_policy: 0,
-                      fs: 0,
-                      iv_load_policy: 0,
-                      modestbranding: 0,
-                      rel: 0,
-                      showinfo: 0,
-                    },
-                  }}
-                />
-                <button
-                  onClick={() => setPlaying(false)}
-                  className={'button-close-video'}
-                >
-                  Close
-                </button>
-              </>
-            ) : (
-              <div className='trailer'>
-                <button
-                  className={'button-play-video'}
-                  onClick={() => setPlaying(true)}
-                  type='button'
-                >
-                  Bande-annonce
-                </button>
+            {trailer ? (
+              <div>
+                {playing ? (
+                  <div className='youtube-container'>
+                    <Youtube
+                      videoId={trailer.key}
+                      className={'youtube'}
+                      opts={{
+                        width: '100%',
+                        height: '550px',
+                        playerVars: {
+                          autoplay: 1,
+                          controls: 0,
+                          cc_load_policy: 0,
+                          fs: 0,
+                          iv_load_policy: 0,
+                          modestbranding: 0,
+                          rel: 0,
+                          showinfo: 0,
+                        },
+                      }}
+                    />
+                    <button
+                      onClick={() => setPlaying(false)}
+                      className={'button-close-video'}
+                    >
+                      ✖
+                    </button>
+                  </div>
+                ) : (
+                  <div className='trailer'>
+                    <button
+                      className={'button-play-video'}
+                      onClick={() => setPlaying(true)}
+                      type='button'
+                    >
+                      Bande-annonce
+                    </button>
+                  </div>
+                )}
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
