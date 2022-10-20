@@ -59,6 +59,7 @@
           font-family: $font-6;
         }
       }
+
       .date-duration-genre {
         display: flex;
         margin-top: 15px;
@@ -70,7 +71,8 @@
       }
 
       .notation,
-      .actors {
+      .actors,
+      .director {
         h4 {
           font-family: $font-1;
           font-size: 0.9rem;

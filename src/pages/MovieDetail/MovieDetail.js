@@ -8,6 +8,7 @@ import Youtube from 'react-youtube';
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState('');
   const [movieCast, setMovieCast] = useState([]);
+  const [movieDirector, setMovieDirector] = useState('');
   const [trailer, setTrailer] = useState('');
   const [playing, setPlaying] = useState(false);
   const [recommendMovie, setRecommendMovie] = useState([]);
@@ -34,6 +35,18 @@ const MovieDetail = () => {
         `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
       )
       .then((res) => setMovieCast(res.data.cast));
+
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
+      )
+      .then((res) =>
+        setMovieDirector(res.data.crew.find((dir) => dir.job === 'Director'))
+      );
 
     // eslint-disable-next-line
   }, []);
@@ -79,6 +92,7 @@ const MovieDetail = () => {
             <div className='tagline'>
               <h4>{movieData ? movieData.tagline : null}</h4>
             </div>
+
             <div className='date-duration-genre'>
               <div className='date'>
                 <h4>
@@ -105,6 +119,10 @@ const MovieDetail = () => {
                     : null}
                 </h4>
               </div>
+            </div>
+
+            <div className='director'>
+              <h4>Réalisé par {movieDirector ? movieDirector.name : null}</h4>
             </div>
 
             <div className='actors'>
