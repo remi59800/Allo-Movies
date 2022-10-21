@@ -16,7 +16,7 @@ const MovieSearch = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=2f29d9bc9f76a597232a8a514e956b12&query=${state.searchResult}&page=${currentPage}&language=fr-FR`
+        `https://api.themoviedb.org/3/search/movie?api_key=2f29d9bc9f76a597232a8a514e956b12&query=${state.searchResult}&language=fr-FR`
       )
       .then((res) => setMoviesData(res.data.results));
 
@@ -50,7 +50,7 @@ const MovieSearch = () => {
           <input type='submit' value='🔍' />
           <input
             type='text'
-            placeholder={state.searchResult}
+            placeholder='Rechercher un film...'
             id='search-input'
             value={searchMovie}
             onChange={handleOnChange}

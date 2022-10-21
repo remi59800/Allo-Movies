@@ -9,8 +9,8 @@ const MoviesCards = ({ movie }) => {
 
   return (
     <div className='movies-cards'>
-      <Link to={`/film/${movie.id}`}>
-        <div className='poster-film'>
+      <div className='poster-film'>
+        <Link to={`/film/${movie.id}`}>
           <img
             src={
               movie.poster_path
@@ -19,8 +19,8 @@ const MoviesCards = ({ movie }) => {
             }
             alt={`Affiche ${movie.title}`}
           />
-        </div>
-      </Link>
+        </Link>
+      </div>
       <div className='first-infos'>
         <Link to={`/film/${movie.id}`}>
           <h2>{movie ? movie.title : ''}</h2>
