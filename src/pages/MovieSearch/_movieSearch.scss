@@ -1,45 +1,60 @@
 .search-result-page {
-  .form-container {
-    margin-bottom: 10px;
-    form {
-      display: flex;
-      background: $white;
-      padding: 10px 10px;
-
-      input[type='text'] {
-        width: 100%;
-        border: none;
-        font-size: 1rem;
-        outline: none;
-        text-align: center;
-        background: $white;
-        outline: none;
-      }
-      input[placeholder] {
-        text-align: left;
-      }
-      input[type='submit'] {
-        margin-left: 42px;
-        margin-right: 25px;
-        border: none;
-        background: $white;
-        color: $white;
-        font-size: 1rem;
-        cursor: pointer;
-        z-index: 10;
-        font-size: 1rem;
-        position: relative;
-        transition: 0.3s;
-
-        &:hover {
-          color: $black;
-        }
-      }
+  .results-and-topflop {
+    display: flex;
+    align-items: center;
+    h2 {
+      margin-left: 44px;
+      margin-right: 15px;
     }
   }
 
-  h2 {
-    margin: 20px 42px 10px;
+  .btn-sort-container {
+    margin: 15px;
+    background: linear-gradient(to right, $orange-light, $orange-deep);
+    font-family: $font-2;
+    width: 150px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    color: $black;
+    font-size: 0.9rem;
+
+    .btn-sort {
+      display: flex;
+      justify-content: center;
+    }
+
+    #goodToBad {
+      border-radius: 20px 0 0 20px;
+      padding: 9px;
+      border-right: 1px solid black;
+      font-family: $font-2;
+    }
+    #goodToBad::after {
+      content: '➜';
+      transform: rotate(-90deg);
+    }
+    #badToGood {
+      border-radius: 0 20px 20px 0;
+      padding: 9px;
+      font-family: $font-2;
+    }
+    #badToGood::after {
+      content: '➜';
+      transform: rotate(90deg);
+    }
+    #goodToBad,
+    #badToGood {
+      width: 75px;
+      transition: 0.3s;
+      position: relative;
+      transition: filter 0.4s ease-in-out;
+
+      &:hover {
+        color: white;
+      }
+    }
   }
 
   .result {
