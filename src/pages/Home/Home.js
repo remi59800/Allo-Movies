@@ -1,22 +1,22 @@
 import React from 'react';
-import InputSearch from '../../components/InputSearch/InputSearch';
-import SearchButton from '../../components/SearchButton/SearchButton';
-import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Home = () => {
-  const searchInputRef = useRef();
   const navigate = useNavigate();
+  const [query, setQuery] = useState('');
 
-  const handleSearch = (e) => {
-    const searchResult = searchInputRef.current.value;
-    navigate('/recherche-films', { state: { searchResult: searchResult } });
+  const handleOnChange = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    setQuery(value);
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/films/langage=fr&recherche=${query}`, {
+      state: { query: query },
+    });
   };
 
   return (
@@ -37,14 +37,17 @@ const Home = () => {
           <h1>Bienvenue sur Kult Film Club,</h1>
           <h2>L'espace dédié au cinéma et ses films cultes !</h2>
           <div className='inputs-container'>
-            <InputSearch ref={searchInputRef} onKeyDown={handleKeyDown} />
-            <SearchButton onClick={handleSearch} />
+            <form onSubmit={handleSearch}>
+              <input
+                type='text'
+                placeholder='Rechercher un film...'
+                value={query}
+                onChange={handleOnChange}
+              />
+              <input type='submit' value='Search' />
+            </form>
           </div>
         </div>
-      </div>
-      <div className='chronikults-container'>
-        <h2>Chroni'Kult</h2>
-        <p>Section en construction</p>
       </div>
     </div>
   );
