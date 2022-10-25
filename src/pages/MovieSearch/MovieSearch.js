@@ -6,6 +6,7 @@ import MoviesCards from '../../components/MoviesCards/MoviesCards';
 
 const MovieSearch = () => {
   const [moviesData, setMoviesData] = useState([]);
+  const [sortGoodBad, setSortGoodBad] = useState(null);
   const { state } = useLocation();
 
   useEffect(() => {
@@ -21,11 +22,38 @@ const MovieSearch = () => {
 
   return (
     <div className='search-result-page'>
-      <h2>Résultats de la recherche : {state.query}</h2>
+      <div className='results-and-topflop'>
+        <h2>Résultats de la recherche : {state.query}</h2>
+        <div className='btn-sort-container'>
+          <div
+            className='btn-sort'
+            id='goodToBad'
+            onClick={() => setSortGoodBad('goodToBad')}
+          >
+            Top&nbsp;
+          </div>
+          <div
+            className='btn-sort'
+            id='badToGood'
+            onClick={() => setSortGoodBad('badToGood')}
+          >
+            Flop&nbsp;
+          </div>
+        </div>
+      </div>
       <div className='result'>
-        {moviesData.map((movie) => {
-          return <MoviesCards movie={movie} key={movie.id} />;
-        })}
+        {moviesData
+          .slice(0, 12)
+          .sort((a, b) => {
+            if (sortGoodBad === 'goodToBad') {
+              return b.vote_average - a.vote_average;
+            } else if (sortGoodBad === 'badToGood') {
+              return a.vote_average - b.vote_average;
+            }
+          })
+          .map((movie) => {
+            return <MoviesCards movie={movie} key={movie.id} />;
+          })}
       </div>
     </div>
   );
