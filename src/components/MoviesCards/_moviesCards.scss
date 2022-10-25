@@ -8,16 +8,18 @@
   display: flex;
 
   .poster-film {
-    img {
-      height: 100%;
-      width: 108px;
-      object-fit: cover;
-      display: block;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
+    a {
+      text-decoration: none;
+      img {
+        height: 100%;
+        width: 108px;
+        object-fit: cover;
+        display: block;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+      }
     }
   }
-
   .first-infos {
     margin: 10px 20px;
     display: flex;
