@@ -6,8 +6,6 @@ const CoupsDeCoeur = () => {
   const [listData, setListData] = useState([]);
 
   useEffect(() => {
-    let movieArray = [];
-
     let moviesId = window.localStorage.movies
       ? window.localStorage.movies.split(',')
       : [];
@@ -17,8 +15,7 @@ const CoupsDeCoeur = () => {
         .get(
           `https://api.themoviedb.org/3/movie/${moviesId[i]}?api_key=ed82f4c18f2964e75117c2dc65e2161d&language=fr-FR`
         )
-        .then((res) => movieArray.push(res.data))
-        .then(() => setListData(movieArray));
+        .then((res) => setListData((listData) => [...listData, res.data]));
     }
   }, []);
 
