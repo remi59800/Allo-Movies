@@ -73,6 +73,17 @@ const MovieDetail = () => {
     originalImage: (imgPath) => `https://image.tmdb.org/t/p/original${imgPath}`,
   };
 
+  const addStorage = () => {
+    let storedData = window.localStorage.movies
+      ? window.localStorage.movies.split(',')
+      : [];
+
+    if (!storedData.includes(id.toString())) {
+      storedData.push(id);
+      window.localStorage.movies = storedData;
+    }
+  };
+
   return (
     <div>
       <div
@@ -193,6 +204,9 @@ const MovieDetail = () => {
                 )}
               </div>
             ) : null}
+            <button onClick={() => addStorage()}>
+              Ajouter aux coups de coeur
+            </button>
           </div>
         </div>
       </div>
