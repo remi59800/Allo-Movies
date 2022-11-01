@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
-import ChroniKult from './pages/ChroniKult/ChroniKult';
+import Fav from './pages/Fav/Fav';
 import Header from './components/Header/Header';
 import MovieSearch from './pages/MovieSearch/MovieSearch';
 import MovieDetail from './pages/MovieDetail/MovieDetail';
@@ -21,7 +21,7 @@ const App = () => {
           element={<MovieSearch />}
         ></Route>
         <Route path='film/:id' element={<MovieDetail />}></Route>
-        <Route path='/chronikult' element={<ChroniKult />} />
+        <Route path='/mes-coups-de-coeur' element={<Fav />} />
         <Route path='/a-propos' element={<About />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>

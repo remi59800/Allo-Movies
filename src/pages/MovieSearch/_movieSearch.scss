@@ -18,7 +18,7 @@
     justify-content: space-around;
     cursor: pointer;
     color: $black;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 
     .btn-sort {
       display: flex;
@@ -58,6 +58,7 @@
   }
 
   .result {
+    margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
