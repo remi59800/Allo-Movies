@@ -14,6 +14,7 @@
       margin-top: -8px;
       text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
       font-family: $font-3;
+      font-size: 2.3rem;
     }
 
     h2 {
@@ -44,7 +45,7 @@
     }
   }
 }
-.trending-container {
+.on-theater-container {
   margin: 25px 40px 40px;
 
   h3 {
@@ -52,7 +53,7 @@
     font-family: $font-2;
   }
 
-  .trending-list {
+  .on-theater-list {
     width: 100%;
     overflow: hidden;
 
@@ -75,19 +76,30 @@
 
   a {
     text-decoration: none;
-    .trend-cards {
+
+    .on-theater-cards {
       margin: 5px;
 
       img {
-        width: 160px;
-        height: 220px;
-        border-radius: 20px;
+        width: 280px;
+        height: 160px;
       }
 
       h4 {
+        margin-top: 15px;
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: white;
+        font-family: $font-2;
+        line-height: 1rem;
+        margin-bottom: 4px;
+      }
+
+      h5 {
         font-size: 0.85rem;
         text-decoration: none;
         color: white;
+        font-family: $font-5;
       }
     }
   }

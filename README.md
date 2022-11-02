@@ -1,6 +1,6 @@
-# Kult-Film-Club
+# AlloMovies
 
-Website about cinema and cult movies.
+Website about cinema.
 
 This project was bootstrapped with Create React App.
 

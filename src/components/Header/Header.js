@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/img/logo-kfc.png';
+import logo from '../../assets/img/Logo-AM.png';
 
 const Header = () => {
   return (
     <div className='header'>
-      <img src={logo} alt='Logo Kult Film Club' />
+      <NavLink to='/accueil'>
+        <img src={logo} alt='Logo Kult Film Club' />
+      </NavLink>
       <nav>
         <ul>
           <li>

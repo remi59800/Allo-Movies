@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
-  const [trending, setTrending] = useState([]);
+  const [onTheater, setOnTheater] = useState([]);
 
   const handleOnChange = (e) => {
     e.preventDefault();
@@ -26,17 +26,17 @@ const Home = () => {
   useEffect(() => {
     axios
       .get(
-        `
-        https://api.themoviedb.org/3/trending/all/week?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`
       )
-      .then((res) =>
-        setTrending(
-          res.data.results.filter((movie) => movie.media_type === 'movie')
-        )
-      );
+      .then((res) => setOnTheater(res.data.results));
 
     // eslint-disable-next-line
   }, []);
+
+  const dateFormater = (date) => {
+    let [yy, mm, dd] = date.split('-');
+    return [dd, mm, yy].join('/');
+  };
 
   return (
     <div>
@@ -53,8 +53,8 @@ const Home = () => {
         }}
       >
         <div className='search-banner'>
-          <h1>Bienvenue sur Kult Film Club,</h1>
-          <h2>L'espace dédié au cinéma et ses films cultes !</h2>
+          <h1>Bienvenue sur AlloMovies,</h1>
+          <h2>Des millions de films à retrouver...</h2>
           <div className='inputs-container'>
             <form onSubmit={handleSearch}>
               <input
@@ -68,30 +68,31 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='trending-container'>
-        <h3>Tendances de la semaine</h3>
+      <div className='on-theater-container'>
+        <h3>Films actuellement en salle</h3>
 
-        <div className='trending-list'>
+        <div className='on-theater-list'>
           <Swiper
             grabCursor={true}
             spaceBetween={9}
             slidesPerView={'auto'}
             className='my-swiper'
           >
-            {trending.map((trend) => (
-              <SwiperSlide key={trend.id}>
-                <Link to={`/film/${trend.id}`} reloadDocument={true}>
-                  <div className='trend-cards'>
+            {onTheater.map((nowplaying) => (
+              <SwiperSlide key={nowplaying.id}>
+                <Link to={`/film/${nowplaying.id}`}>
+                  <div className='on-theater-cards'>
                     <img
                       src={
-                        trend.poster_path !== null
+                        nowplaying.backdrop_path !== null
                           ? 'https://image.tmdb.org/t/p/original' +
-                            trend.poster_path
+                            nowplaying.backdrop_path
                           : '/movie-bg.png'
                       }
-                      alt={`Affiche ${trend.title}`}
+                      alt={`Affiche ${nowplaying.title}`}
                     />
-                    <h4>{trend.title}</h4>
+                    <h4>{nowplaying.title}</h4>
+                    <h5>{dateFormater(nowplaying.release_date)}</h5>
                   </div>
                 </Link>
               </SwiperSlide>
