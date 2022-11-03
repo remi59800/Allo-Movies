@@ -4,6 +4,9 @@ import axios from 'axios';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import Youtube from 'react-youtube';
+import 'swiper/css/zoom';
+import SwiperCore, { Keyboard, Mousewheel } from 'swiper/core';
+SwiperCore.use([Keyboard, Mousewheel]);
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState('');
@@ -12,6 +15,9 @@ const MovieDetail = () => {
   const [trailer, setTrailer] = useState('');
   const [playing, setPlaying] = useState(false);
   const [recommendMovie, setRecommendMovie] = useState([]);
+  // eslint-disable-next-line
+  const [active, setActive] = useState(false);
+  const [iconActive, setIconActive] = useState('♡');
 
   const { id } = useParams();
 
@@ -80,7 +86,12 @@ const MovieDetail = () => {
 
     if (!storedData.includes(id.toString())) {
       storedData.push(id);
+      setActive(true);
+      setIconActive('♥');
       window.localStorage.movies = storedData;
+    } else {
+      setActive(false);
+      setIconActive('♥');
     }
   };
 
@@ -162,51 +173,53 @@ const MovieDetail = () => {
               <h3>{movieData.overview ? `Synopsis` : null}</h3>
               <p>{movieData ? movieData.overview : null}</p>
             </div>
-            {trailer ? (
-              <div>
-                {playing ? (
-                  <div className='youtube-container'>
-                    <Youtube
-                      videoId={trailer.key}
-                      className={'youtube'}
-                      opts={{
-                        width: '100%',
-                        height: '550px',
-                        playerVars: {
-                          autoplay: 1,
-                          controls: 0,
-                          cc_load_policy: 0,
-                          fs: 0,
-                          iv_load_policy: 0,
-                          modestbranding: 0,
-                          rel: 0,
-                          showinfo: 0,
-                        },
-                      }}
-                    />
-                    <button
-                      onClick={() => setPlaying(false)}
-                      className={'button-close-video'}
-                    >
-                      ✖
-                    </button>
-                  </div>
-                ) : (
-                  <div className='trailer'>
-                    <button
-                      className={'button-play-video'}
-                      onClick={() => setPlaying(true)}
-                      type='button'
-                    >
-                      Bande-annonce
-                    </button>
-                  </div>
-                )}
-              </div>
-            ) : null}
-            <button onClick={() => addStorage()}>
-              Ajouter aux coups de coeur
-            </button>
+            <div className='buttons-play-and-fav'>
+              {trailer ? (
+                <div>
+                  {playing ? (
+                    <div className='youtube-container'>
+                      <Youtube
+                        videoId={trailer.key}
+                        className={'youtube'}
+                        opts={{
+                          width: '100%',
+                          height: '550px',
+                          playerVars: {
+                            autoplay: 1,
+                            controls: 0,
+                            cc_load_policy: 0,
+                            fs: 0,
+                            iv_load_policy: 0,
+                            modestbranding: 0,
+                            rel: 0,
+                            showinfo: 0,
+                          },
+                        }}
+                      />
+                      <button
+                        onClick={() => setPlaying(false)}
+                        className={'button-close-video'}
+                      >
+                        ✖
+                      </button>
+                    </div>
+                  ) : (
+                    <div className='trailer'>
+                      <button
+                        className={'button-play-video'}
+                        onClick={() => setPlaying(true)}
+                        type='button'
+                      >
+                        Bande-annonce
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : null}
+              <button className={'button-fav'} onClick={() => addStorage()}>
+                {iconActive}&nbsp;&nbsp;&nbsp;Coups de coeur
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -220,6 +233,8 @@ const MovieDetail = () => {
               grabCursor={true}
               spaceBetween={9}
               slidesPerView={'auto'}
+              mousewheel={true}
+              keyboard={true}
               className='my-swiper'
             >
               {recommendMovie.map((reco) => (

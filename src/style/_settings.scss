@@ -52,6 +52,8 @@ body {
   background: $greybg;
   color: $white;
   -webkit-font-smoothing: antialiased;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 li {
   list-style: none;

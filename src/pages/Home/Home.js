@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Link } from 'react-router-dom';
+import SwiperCore, { Keyboard, Mousewheel } from 'swiper/core';
+SwiperCore.use([Keyboard, Mousewheel]);
 
 const Home = () => {
   const navigate = useNavigate();
@@ -38,6 +40,14 @@ const Home = () => {
     return [dd, mm, yy].join('/');
   };
 
+  let date = new Date();
+  let options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit',
+  };
+
   return (
     <div>
       <div
@@ -69,13 +79,18 @@ const Home = () => {
         </div>
       </div>
       <div className='on-theater-container'>
-        <h3>Films actuellement en salle</h3>
+        <h2>Actuellement en salle</h2>
+        <h3>
+          Films à l'affiche au {date.toLocaleDateString('fr-FR', options)}
+        </h3>
 
         <div className='on-theater-list'>
           <Swiper
             grabCursor={true}
             spaceBetween={9}
             slidesPerView={'auto'}
+            mousewheel={true}
+            keyboard={true}
             className='my-swiper'
           >
             {onTheater.map((nowplaying) => (
@@ -100,6 +115,13 @@ const Home = () => {
           </Swiper>
         </div>
       </div>
+      {/* <div className='credits-container'>
+        <p>
+          Conçu et construit par Rémi Ménart
+          <br></br>
+          ©Copyright 2022 - Rémi Ménart
+        </p>
+      </div> */}
     </div>
   );
 };

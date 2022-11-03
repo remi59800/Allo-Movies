@@ -21,7 +21,7 @@ const App = () => {
           element={<MovieSearch />}
         ></Route>
         <Route path='film/:id' element={<MovieDetail />}></Route>
-        <Route path='/mes-coups-de-coeur' element={<Fav />} />
+        <Route path='/coups-de-coeur' element={<Fav />} />
         <Route path='/a-propos' element={<About />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>

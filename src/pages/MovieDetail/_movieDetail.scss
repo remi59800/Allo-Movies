@@ -133,13 +133,14 @@
     }
 
     .trailer {
-      button {
+      .button-play-video {
         padding: 8px 20px;
         border-radius: 40px;
         border: none;
         background: linear-gradient(to right, $orange-light, $orange-deep);
         cursor: pointer;
         font-family: $font-2;
+        margin-right: 15px;
       }
 
       button::before {
@@ -151,8 +152,22 @@
   }
 }
 
+.buttons-play-and-fav {
+  display: flex;
+}
+
+.button-fav {
+  padding: 8px 20px;
+  border-radius: 40px;
+  border: 1px solid $orange-deep;
+  cursor: pointer;
+  background-color: transparent;
+  color: $orange-deep;
+  font-family: $font-2;
+}
+
 .recommandations-container {
-  margin: 25px 40px 40px;
+  margin: 25px 40px 50px;
 
   h3 {
     font-size: 1.5rem;
@@ -173,11 +188,26 @@
   .swiper-wrapper {
     display: flex;
     width: 100vw;
+    height: 200px;
     margin-top: 15px;
   }
 
   .swiper-slide {
     margin: 0;
+    transition: 250ms all;
+    opacity: 0.8;
+
+    &:hover {
+      transform: scale(1.2);
+      z-index: 1;
+      opacity: 1;
+    }
+    &:first-child:hover {
+      margin-left: 22px;
+    }
+    &:last-child:hover {
+      margin-right: 22px;
+    }
   }
 
   a {
@@ -191,7 +221,10 @@
       }
 
       h4 {
+        margin-top: 5px;
+        padding-right: 20px;
         font-size: 0.85rem;
+        font-family: $font-1;
         text-decoration: none;
         color: white;
       }
