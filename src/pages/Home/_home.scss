@@ -82,11 +82,26 @@
   .swiper-wrapper {
     display: flex;
     width: 100vw;
+    height: 220px;
     margin-top: 15px;
   }
 
   .swiper-slide {
     margin: 0;
+    transition: 250ms all;
+    opacity: 0.8;
+
+    &:hover {
+      transform: scale(1.2);
+      z-index: 1;
+      opacity: 1;
+    }
+    &:first-child:hover {
+      margin-left: 22px;
+    }
+    &:last-child:hover {
+      margin-right: 22px;
+    }
   }
 
   a {
@@ -100,6 +115,7 @@
 
       h4 {
         margin-top: 15px;
+        padding-right: 20px;
         font-size: 0.9rem;
         text-decoration: none;
         color: white;

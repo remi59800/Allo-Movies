@@ -16,8 +16,7 @@ const MovieDetail = () => {
   const [playing, setPlaying] = useState(false);
   const [recommendMovie, setRecommendMovie] = useState([]);
   // eslint-disable-next-line
-  const [active, setActive] = useState(false);
-  const [iconActive, setIconActive] = useState('♡');
+  const [iconActive, setIconActive] = useState('♡', false);
 
   const { id } = useParams();
 
@@ -83,17 +82,14 @@ const MovieDetail = () => {
     let storedData = window.localStorage.movies
       ? window.localStorage.movies.split(',')
       : [];
-
     if (!storedData.includes(id.toString())) {
       storedData.push(id);
-      setActive(true);
-      setIconActive('♥');
       window.localStorage.movies = storedData;
-    } else {
-      setActive(false);
-      setIconActive('♥');
+      setIconActive('♥', true);
     }
   };
+
+  let storedData = window.localStorage.movies;
 
   return (
     <div>
@@ -217,7 +213,8 @@ const MovieDetail = () => {
                 </div>
               ) : null}
               <button className={'button-fav'} onClick={() => addStorage()}>
-                {iconActive}&nbsp;&nbsp;&nbsp;Coups de coeur
+                {storedData.includes(id.toString()) ? '♥' : iconActive}
+                &nbsp;&nbsp;&nbsp;Coups de coeur
               </button>
             </div>
           </div>

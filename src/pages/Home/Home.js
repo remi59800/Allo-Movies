@@ -55,7 +55,7 @@ const Home = () => {
         style={{
           backgroundImage:
             'url(' +
-            'https://image.tmdb.org/t/p/original//3uM41OT0RfBkE6Gb6U89LEskJBr.jpg' +
+            'https://image.tmdb.org/t/p/original/3uM41OT0RfBkE6Gb6U89LEskJBr.jpg' +
             ')',
           backgroundPosition: 'top',
           backgroundSize: 'cover',
