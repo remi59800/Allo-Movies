@@ -84,6 +84,28 @@ li {
   text-decoration: none;
 }
 
+.footer {
+  margin: 0 40px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .first-bloc {
+  display: flex;
+}
+.footer h5 {
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid white;
+}
+.footer p {
+  font-size: 0.8rem;
+}
+.footer i {
+  margin-left: 15px;
+  font-size: 1.5rem;
+}
+
 .movies-cards {
   min-width: 500px;
   width: 100%;
@@ -273,7 +295,11 @@ li {
 }
 
 .on-theater-container {
-  margin: 50px 40px 40px;
+  margin: 40px 40px 0px;
+}
+.on-theater-container .onscreen-title {
+  display: flex;
+  align-items: center;
 }
 .on-theater-container h2 {
   font-family: "font-2", sans-serif;
@@ -284,10 +310,9 @@ li {
 }
 .on-theater-container h3 {
   font-family: "font-5", sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .on-theater-container .on-theater-list {
-  margin-top: 15px;
   width: 100%;
   overflow: hidden;
 }
@@ -300,10 +325,24 @@ li {
 .on-theater-container .swiper-wrapper {
   display: flex;
   width: 100vw;
+  height: 180px;
   margin-top: 15px;
 }
 .on-theater-container .swiper-slide {
   margin: 0;
+  transition: 250ms all;
+  opacity: 0.8;
+}
+.on-theater-container .swiper-slide:hover {
+  transform: scale(1.2);
+  z-index: 1;
+  opacity: 1;
+}
+.on-theater-container .swiper-slide:first-child:hover {
+  margin-left: 22px;
+}
+.on-theater-container .swiper-slide:last-child:hover {
+  margin-right: 22px;
 }
 .on-theater-container a {
   text-decoration: none;
@@ -313,19 +352,82 @@ li {
   height: 124px;
 }
 .on-theater-container a .on-theater-cards h4 {
-  margin-top: 15px;
+  margin-top: 5px;
+  padding-right: 20px;
   font-size: 0.9rem;
   text-decoration: none;
   color: white;
-  font-family: "font-2", sans-serif;
+  font-family: "font-5", sans-serif;
   line-height: 1rem;
   margin-bottom: 4px;
 }
-.on-theater-container a .on-theater-cards h5 {
-  font-size: 0.85rem;
+
+.upcoming-container {
+  margin: 0px 40px 30px;
+}
+.upcoming-container .upcoming-title {
+  display: flex;
+  align-items: center;
+}
+.upcoming-container h2 {
+  font-family: "font-2", sans-serif;
+  background: linear-gradient(120deg, #ffc40b 0%, #ff8b7a 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.upcoming-container h3 {
+  font-family: "font-5", sans-serif;
+  font-size: 0.9rem;
+}
+.upcoming-container .upcoming-list {
+  width: 100%;
+  overflow: hidden;
+}
+.upcoming-container .upcoming-list p {
+  margin-top: 10px;
+  font-family: "font-1", sans-serif;
+  line-height: 20px;
+  font-size: 1rem;
+}
+.upcoming-container .swiper-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 180px;
+  margin-top: 15px;
+}
+.upcoming-container .swiper-slide {
+  margin: 0;
+  transition: 250ms all;
+  opacity: 0.8;
+}
+.upcoming-container .swiper-slide:hover {
+  transform: scale(1.2);
+  z-index: 1;
+  opacity: 1;
+}
+.upcoming-container .swiper-slide:first-child:hover {
+  margin-left: 22px;
+}
+.upcoming-container .swiper-slide:last-child:hover {
+  margin-right: 22px;
+}
+.upcoming-container a {
+  text-decoration: none;
+}
+.upcoming-container a .upcoming-cards img {
+  width: 220px;
+  height: 124px;
+}
+.upcoming-container a .upcoming-cards h4 {
+  margin-top: 5px;
+  padding-right: 20px;
+  font-size: 0.9rem;
   text-decoration: none;
   color: white;
   font-family: "font-5", sans-serif;
+  line-height: 1rem;
+  margin-bottom: 4px;
 }
 
 .search-result-page .results-and-topflop {
@@ -564,7 +666,7 @@ li {
 .recommandations-container .swiper-wrapper {
   display: flex;
   width: 100vw;
-  height: 200px;
+  height: 220px;
   margin-top: 15px;
 }
 .recommandations-container .swiper-slide {

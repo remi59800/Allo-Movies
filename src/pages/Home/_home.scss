@@ -52,7 +52,12 @@
   }
 }
 .on-theater-container {
-  margin: 50px 40px 40px;
+  margin: 40px 40px 0px;
+
+  .onscreen-title {
+    display: flex;
+    align-items: center;
+  }
 
   h2 {
     font-family: $font-2;
@@ -64,11 +69,10 @@
 
   h3 {
     font-family: $font-5;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .on-theater-list {
-    margin-top: 15px;
     width: 100%;
     overflow: hidden;
 
@@ -82,7 +86,7 @@
   .swiper-wrapper {
     display: flex;
     width: 100vw;
-    height: 220px;
+    height: 180px;
     margin-top: 15px;
   }
 
@@ -114,32 +118,95 @@
       }
 
       h4 {
-        margin-top: 15px;
+        margin-top: 5px;
         padding-right: 20px;
         font-size: 0.9rem;
         text-decoration: none;
         color: white;
-        font-family: $font-2;
+        font-family: $font-5;
         line-height: 1rem;
         margin-bottom: 4px;
-      }
-
-      h5 {
-        font-size: 0.85rem;
-        text-decoration: none;
-        color: white;
-        font-family: $font-5;
       }
     }
   }
 }
 
-// .credits-container {
-//   width: 300px;
-//   padding-top: 20px;
-//   border-top: 1px solid white;
-//   text-align: center;
-//   padding-bottom: 40px;
-//   margin: auto;
-//   font-size: 0.8rem;
-// }
+.upcoming-container {
+  margin: 0px 40px 30px;
+
+  .upcoming-title {
+    display: flex;
+    align-items: center;
+  }
+
+  h2 {
+    font-family: $font-2;
+    background: linear-gradient(120deg, $orange-light 0%, $orange-deep 100%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h3 {
+    font-family: $font-5;
+    font-size: 0.9rem;
+  }
+
+  .upcoming-list {
+    width: 100%;
+    overflow: hidden;
+
+    p {
+      margin-top: 10px;
+      font-family: $font-1;
+      line-height: 20px;
+      font-size: 1rem;
+    }
+  }
+  .swiper-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 180px;
+    margin-top: 15px;
+  }
+
+  .swiper-slide {
+    margin: 0;
+    transition: 250ms all;
+    opacity: 0.8;
+
+    &:hover {
+      transform: scale(1.2);
+      z-index: 1;
+      opacity: 1;
+    }
+    &:first-child:hover {
+      margin-left: 22px;
+    }
+    &:last-child:hover {
+      margin-right: 22px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    .upcoming-cards {
+      img {
+        width: 220px;
+        height: 124px;
+      }
+
+      h4 {
+        margin-top: 5px;
+        padding-right: 20px;
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: white;
+        font-family: $font-5;
+        line-height: 1rem;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
