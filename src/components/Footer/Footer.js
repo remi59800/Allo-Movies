@@ -8,9 +8,15 @@ const Footer = () => {
         <p>© 2022 - @dev_remz</p>
       </div>
       <div className='social-media'>
-        <i class='uil uil-twitter'></i>
-        <i class='uil uil-linkedin'></i>
-        <i class='uil uil-github'></i>
+        <a href='https://twitter.com/dev_remz'>
+          <i class='uil uil-twitter'></i>
+        </a>
+        <a href='https://www.linkedin.com/in/r%C3%A9mi-m%C3%A9nart-4a4461125/'>
+          <i class='uil uil-linkedin'></i>
+        </a>
+        <a href='https://github.com/remi59800'>
+          <i class='uil uil-github'></i>
+        </a>
       </div>
     </div>
   );

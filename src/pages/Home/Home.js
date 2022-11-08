@@ -12,7 +12,10 @@ const Home = () => {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
   const [onTheater, setOnTheater] = useState([]);
+  const [onTheater2, setOnTheater2] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
+  const [topRated, setTopRated] = useState([]);
+  const [topRated2, setTopRated2] = useState([]);
 
   const handleOnChange = (e) => {
     e.preventDefault();
@@ -40,9 +43,39 @@ const Home = () => {
   useEffect(() => {
     axios
       .get(
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=2`
+      )
+      .then((res) => setOnTheater2(res.data.results));
+
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
         `https://api.themoviedb.org/3/movie/upcoming?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`
       )
       .then((res) => setUpcoming(res.data.results));
+
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`
+      )
+      .then((res) => setTopRated(res.data.results));
+
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=2`
+      )
+      .then((res) => setTopRated2(res.data.results));
 
     // eslint-disable-next-line
   }, []);
@@ -109,13 +142,31 @@ const Home = () => {
                 </Link>
               </SwiperSlide>
             ))}
+            {onTheater2.map((nowplaying) => (
+              <SwiperSlide key={nowplaying.id}>
+                <Link to={`/film/${nowplaying.id}`}>
+                  <div className='on-theater-cards'>
+                    <img
+                      src={
+                        nowplaying.backdrop_path !== null
+                          ? 'https://image.tmdb.org/t/p/original' +
+                            nowplaying.backdrop_path
+                          : '/movie-bg.png'
+                      }
+                      alt={`Affiche ${nowplaying.title}`}
+                    />
+                    <h4>{nowplaying.title}</h4>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>
 
       <div className='upcoming-container'>
         <div className='upcoming-title'>
-          <h2>Prochainement en salle</h2>
+          <h2>Prochainement</h2>
         </div>
 
         <div className='upcoming-list'>
@@ -141,6 +192,60 @@ const Home = () => {
                       alt={`Affiche ${upcome.title}`}
                     />
                     <h4>{upcome.title}</h4>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+      <div className='toprated-container'>
+        <div className='toprated-title'>
+          <h2>Films les mieux notés</h2>
+        </div>
+
+        <div className='toprated-list'>
+          <Swiper
+            grabCursor={true}
+            spaceBetween={9}
+            slidesPerView={'auto'}
+            mousewheel={true}
+            keyboard={true}
+            className='my-swiper'
+          >
+            {topRated.map((toprated) => (
+              <SwiperSlide key={toprated.id}>
+                <Link to={`/film/${toprated.id}`}>
+                  <div className='toprated-cards'>
+                    <img
+                      src={
+                        toprated.backdrop_path !== null
+                          ? 'https://image.tmdb.org/t/p/original' +
+                            toprated.backdrop_path
+                          : '/movie-bg.png'
+                      }
+                      alt={`Affiche ${toprated.title}`}
+                    />
+                    <h4>{toprated.title}</h4>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+            {topRated2.map((toprated) => (
+              <SwiperSlide key={toprated.id}>
+                <Link to={`/film/${toprated.id}`}>
+                  <div className='toprated-cards'>
+                    <img
+                      src={
+                        toprated.backdrop_path !== null
+                          ? 'https://image.tmdb.org/t/p/original' +
+                            toprated.backdrop_path
+                          : '/movie-bg.png'
+                      }
+                      alt={`Affiche ${toprated.title}`}
+                    />
+                    <h4>{toprated.title}</h4>
                   </div>
                 </Link>
               </SwiperSlide>

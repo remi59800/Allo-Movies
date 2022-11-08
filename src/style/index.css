@@ -92,18 +92,37 @@ li {
 }
 .footer .first-bloc {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .footer h5 {
   margin-right: 10px;
   padding-right: 10px;
   border-right: 1px solid white;
+  border-color: #ff8b7a;
+  font-size: 1rem;
+  margin-bottom: 2.96px;
 }
 .footer p {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+}
+.footer a {
+  text-decoration: none;
+  color: rgb(238, 238, 238);
+}
+.footer a:visited {
+  text-decoration: none;
+  color: rgb(238, 238, 238);
 }
 .footer i {
-  margin-left: 15px;
-  font-size: 1.5rem;
+  margin-left: 17px;
+  font-size: 1.6rem;
+  transition: all 0.5s ease-out;
+  opacity: 0.8;
+  scale: 1;
+}
+.footer i:hover {
+  opacity: 1;
 }
 
 .movies-cards {
@@ -295,22 +314,20 @@ li {
 }
 
 .on-theater-container {
-  margin: 40px 40px 0px;
+  margin: 40px 0px 0px 40px;
 }
 .on-theater-container .onscreen-title {
   display: flex;
   align-items: center;
 }
 .on-theater-container h2 {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
   font-family: "font-2", sans-serif;
   background: linear-gradient(120deg, #ffc40b 0%, #ff8b7a 100%);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.on-theater-container h3 {
-  font-family: "font-5", sans-serif;
-  font-size: 0.9rem;
 }
 .on-theater-container .on-theater-list {
   width: 100%;
@@ -325,8 +342,8 @@ li {
 .on-theater-container .swiper-wrapper {
   display: flex;
   width: 100vw;
-  height: 180px;
-  margin-top: 15px;
+  height: 200px;
+  margin-top: 5px;
 }
 .on-theater-container .swiper-slide {
   margin: 0;
@@ -354,7 +371,7 @@ li {
 .on-theater-container a .on-theater-cards h4 {
   margin-top: 5px;
   padding-right: 20px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-decoration: none;
   color: white;
   font-family: "font-5", sans-serif;
@@ -363,22 +380,20 @@ li {
 }
 
 .upcoming-container {
-  margin: 0px 40px 30px;
+  margin: 0px 0px 0px 40px;
 }
 .upcoming-container .upcoming-title {
   display: flex;
   align-items: center;
 }
 .upcoming-container h2 {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
   font-family: "font-2", sans-serif;
   background: linear-gradient(120deg, #ffc40b 0%, #ff8b7a 100%);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.upcoming-container h3 {
-  font-family: "font-5", sans-serif;
-  font-size: 0.9rem;
 }
 .upcoming-container .upcoming-list {
   width: 100%;
@@ -393,8 +408,8 @@ li {
 .upcoming-container .swiper-wrapper {
   display: flex;
   width: 100vw;
-  height: 180px;
-  margin-top: 15px;
+  height: 200px;
+  margin-top: 5px;
 }
 .upcoming-container .swiper-slide {
   margin: 0;
@@ -422,7 +437,73 @@ li {
 .upcoming-container a .upcoming-cards h4 {
   margin-top: 5px;
   padding-right: 20px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: white;
+  font-family: "font-5", sans-serif;
+  line-height: 1rem;
+  margin-bottom: 4px;
+}
+
+.toprated-container {
+  margin: 0px 0px 0px 40px;
+}
+.toprated-container .toprated-title {
+  display: flex;
+  align-items: center;
+}
+.toprated-container h2 {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+  font-family: "font-2", sans-serif;
+  background: linear-gradient(120deg, #ffc40b 0%, #ff8b7a 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.toprated-container .toprated-list {
+  width: 100%;
+  overflow: hidden;
+}
+.toprated-container .toprated-list p {
+  margin-top: 10px;
+  font-family: "font-1", sans-serif;
+  line-height: 20px;
+  font-size: 1rem;
+}
+.toprated-container .swiper-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 200px;
+  margin-top: 5px;
+}
+.toprated-container .swiper-slide {
+  margin: 0;
+  transition: 250ms all;
+  opacity: 0.8;
+}
+.toprated-container .swiper-slide:hover {
+  transform: scale(1.2);
+  z-index: 1;
+  opacity: 1;
+}
+.toprated-container .swiper-slide:first-child:hover {
+  margin-left: 22px;
+}
+.toprated-container .swiper-slide:last-child:hover {
+  margin-right: 22px;
+}
+.toprated-container a {
+  text-decoration: none;
+}
+.toprated-container a .toprated-cards img {
+  width: 220px;
+  height: 124px;
+}
+.toprated-container a .toprated-cards h4 {
+  margin-top: 5px;
+  padding-right: 20px;
+  font-size: 0.85rem;
   text-decoration: none;
   color: white;
   font-family: "font-5", sans-serif;
@@ -571,7 +652,6 @@ li {
 }
 .movie-details-bg .movie-details .movie-infos .synopsis-text {
   margin-top: 15px;
-  margin-bottom: 25px;
 }
 .movie-details-bg .movie-details .movie-infos .synopsis-text h3 {
   font-size: 1.5rem;
@@ -634,6 +714,7 @@ li {
 
 .buttons-play-and-fav {
   display: flex;
+  margin-top: 25px;
 }
 
 .button-fav {
@@ -647,11 +728,17 @@ li {
 }
 
 .recommandations-container {
-  margin: 25px 40px 50px;
+  margin: 20px 0px 10px 40px;
 }
-.recommandations-container h3 {
-  font-size: 1.5rem;
+.recommandations-container .recommendation-title h2 {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
   font-family: "font-2", sans-serif;
+  background: linear-gradient(120deg, #ffc40b 0%, #ff8b7a 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 217px;
 }
 .recommandations-container .movie-recommendation-list {
   width: 100%;
@@ -666,8 +753,8 @@ li {
 .recommandations-container .swiper-wrapper {
   display: flex;
   width: 100vw;
-  height: 220px;
-  margin-top: 15px;
+  height: 200px;
+  margin-top: 5px;
 }
 .recommandations-container .swiper-slide {
   margin: 0;
@@ -699,7 +786,9 @@ li {
   margin-top: 5px;
   padding-right: 20px;
   font-size: 0.85rem;
-  font-family: "font-1", sans-serif;
   text-decoration: none;
   color: white;
+  font-family: "font-5", sans-serif;
+  line-height: 1rem;
+  margin-bottom: 4px;
 }/*# sourceMappingURL=index.css.map */

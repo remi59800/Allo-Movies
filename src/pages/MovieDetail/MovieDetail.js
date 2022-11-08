@@ -164,11 +164,13 @@ const MovieDetail = () => {
                 </span>
               </h4>
             </div>
+            {movieData.overview ? (
+              <div className='synopsis-text'>
+                <h3>{movieData.overview ? `Synopsis` : null}</h3>
+                <p>{movieData ? movieData.overview : null}</p>
+              </div>
+            ) : null}
 
-            <div className='synopsis-text'>
-              <h3>{movieData.overview ? `Synopsis` : null}</h3>
-              <p>{movieData ? movieData.overview : null}</p>
-            </div>
             <div className='buttons-play-and-fav'>
               {trailer ? (
                 <div>
@@ -222,7 +224,9 @@ const MovieDetail = () => {
       </div>
 
       <div className='recommandations-container'>
-        <h3>Recommandations</h3>
+        <div className='recommendation-title'>
+          <h2>Recommandations</h2>
+        </div>
 
         <div className='movie-recommendation-list'>
           {recommendMovie.length > 0 ? (
