@@ -282,16 +282,24 @@ li {
 }
 .search-banner-bg .search-banner h1 {
   margin-top: -8px;
-  font-family: "font-2", sans-serif;
-  font-size: 2.4rem;
+  font-family: "font-5", sans-serif;
+  font-size: 1.9rem;
   line-height: 2.3rem;
-  text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
+}
+.search-banner-bg .search-banner h1 span {
+  margin-top: -8px;
+  font-family: "font-7", sans-serif;
+  font-size: 2.7rem;
+  line-height: 2.3rem;
+  text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
 }
 .search-banner-bg .search-banner h2 {
-  font-family: "font-2", sans-serif;
+  font-family: "font-5", sans-serif;
   letter-spacing: 0.2px;
   line-height: 40px;
-  text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.6);
+  font-size: 1.5rem;
+  text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
 }
 .search-banner-bg .search-banner .inputs-container {
   margin-top: 35px;
@@ -308,17 +316,22 @@ li {
   padding: 8px 20px;
   border-radius: 40px;
   border: none;
+  color: black;
   background: linear-gradient(to right, #ffc40b, #ff8b7a);
   cursor: pointer;
   font-family: "font-2", sans-serif;
 }
+.search-banner-bg .search-banner .inputs-container input[type=submit]:hover {
+  color: white;
+}
 
 .on-theater-container {
-  margin: 40px 0px 0px 40px;
+  margin: 40px 0px 17px 10px;
 }
 .on-theater-container .onscreen-title {
   display: flex;
   align-items: center;
+  margin-left: 40px;
 }
 .on-theater-container h2 {
   margin-bottom: 5px;
@@ -342,7 +355,7 @@ li {
 .on-theater-container .swiper-wrapper {
   display: flex;
   width: 100vw;
-  height: 200px;
+  height: 183px;
   margin-top: 5px;
 }
 .on-theater-container .swiper-slide {
@@ -380,11 +393,12 @@ li {
 }
 
 .upcoming-container {
-  margin: 0px 0px 0px 40px;
+  margin: 0px 0px 17px 10px;
 }
 .upcoming-container .upcoming-title {
   display: flex;
   align-items: center;
+  margin-left: 40px;
 }
 .upcoming-container h2 {
   margin-bottom: 5px;
@@ -408,7 +422,7 @@ li {
 .upcoming-container .swiper-wrapper {
   display: flex;
   width: 100vw;
-  height: 200px;
+  height: 183px;
   margin-top: 5px;
 }
 .upcoming-container .swiper-slide {
@@ -446,11 +460,12 @@ li {
 }
 
 .toprated-container {
-  margin: 0px 0px 0px 40px;
+  margin: 0px 0px 10px 13px;
 }
 .toprated-container .toprated-title {
   display: flex;
   align-items: center;
+  margin-left: 40px;
 }
 .toprated-container h2 {
   margin-bottom: 5px;
@@ -474,7 +489,7 @@ li {
 .toprated-container .swiper-wrapper {
   display: flex;
   width: 100vw;
-  height: 200px;
+  height: 183px;
   margin-top: 5px;
 }
 .toprated-container .swiper-slide {
@@ -677,25 +692,49 @@ li {
   right: 0;
   top: 0;
   bottom: 0;
+  z-index: 10;
+  opacity: 1;
 }
-.movie-details-bg .movie-details .movie-infos .button-close-video {
+.movie-details-bg .movie-details .movie-infos .close-container {
   position: absolute;
-  z-index: 5;
-  bottom: 10px;
-  left: 17px;
-  padding: 8px 13.15px;
-  border-radius: 40px;
-  border: none;
-  background: linear-gradient(to right, #ffc40b, #ff8b7a);
+  top: -13px;
+  right: 77px;
+  width: 25.5px;
+  height: 25.5px;
+  border: 1px solid #ff8b7a;
   cursor: pointer;
-  font-family: "font-2", sans-serif;
-  transition: 0.3s;
+  border-radius: 15px;
 }
-.movie-details-bg .movie-details .movie-infos .button-close-video::after {
-  transition: all 5s ease;
-  content: "Fermer";
-  color: black;
-  padding-left: 9px;
+.movie-details-bg .movie-details .movie-infos .leftright {
+  height: 2px;
+  width: 15px;
+  position: absolute;
+  margin-top: 11px;
+  margin-left: 4.25px;
+  background-color: #ff8b7a;
+  transform: rotate(45deg);
+  transition: all 0.3s ease-in;
+}
+.movie-details-bg .movie-details .movie-infos .rightleft {
+  height: 2px;
+  width: 15px;
+  position: absolute;
+  margin-top: 11px;
+  margin-left: 4.25px;
+  background-color: #ff8b7a;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease-in;
+}
+.movie-details-bg .movie-details .movie-infos .close {
+  position: absolute;
+}
+.movie-details-bg .movie-details .movie-infos .close-container:hover .leftright {
+  transform: rotate(-45deg);
+  background-color: #ff8b7a;
+}
+.movie-details-bg .movie-details .movie-infos .close-container:hover .rightleft {
+  transform: rotate(45deg);
+  background-color: #ff8b7a;
 }
 .movie-details-bg .movie-details .trailer .button-play-video {
   padding: 8px 20px;

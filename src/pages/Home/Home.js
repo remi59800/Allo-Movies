@@ -95,8 +95,10 @@ const Home = () => {
         }}
       >
         <div className='search-banner'>
-          <h1>Bienvenue sur AlloMovies,</h1>
-          <h2>Des millions de films à retrouver...</h2>
+          <h1>
+            Bienvenue sur <span>AlloMovies</span> !
+          </h1>
+          <h2>Retrouvez des millions de films...</h2>
           <div className='inputs-container'>
             <form onSubmit={handleSearch}>
               <input
@@ -112,7 +114,7 @@ const Home = () => {
       </div>
       <div className='on-theater-container'>
         <div className='onscreen-title'>
-          <h2>Actuellement en salle</h2>
+          <h2>Films à l'affiche</h2>
         </div>
 
         <div className='on-theater-list'>

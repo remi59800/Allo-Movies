@@ -92,7 +92,7 @@ const MovieDetail = () => {
   let storedData = window.localStorage.movies;
 
   return (
-    <div>
+    <div className='details'>
       <div
         className='movie-details-bg'
         style={{
@@ -184,22 +184,18 @@ const MovieDetail = () => {
                           height: '550px',
                           playerVars: {
                             autoplay: 1,
-                            controls: 0,
-                            cc_load_policy: 0,
-                            fs: 0,
-                            iv_load_policy: 0,
-                            modestbranding: 0,
-                            rel: 0,
-                            showinfo: 0,
+                            controls: 1,
                           },
                         }}
                       />
-                      <button
+
+                      <div
+                        class='close-container'
                         onClick={() => setPlaying(false)}
-                        className={'button-close-video'}
                       >
-                        ✖
-                      </button>
+                        <div class='leftright'></div>
+                        <div class='rightleft'></div>
+                      </div>
                     </div>
                   ) : (
                     <div className='trailer'>
