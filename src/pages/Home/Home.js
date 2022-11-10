@@ -139,7 +139,10 @@ const Home = () => {
                       }
                       alt={`Affiche ${nowplaying.title}`}
                     />
-                    <h4>{nowplaying.title}</h4>
+                    <h4>
+                      <span id='margin-first'></span>
+                      {nowplaying.title}
+                    </h4>
                   </div>
                 </Link>
               </SwiperSlide>

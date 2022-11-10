@@ -50,7 +50,8 @@ li {
   max-width: 1300px;
   width: 100%;
   height: 10vh;
-  min-height: 70px;
+  min-height: 65px;
+  max-height: 75px;
   display: grid;
   grid-template-columns: 30% 70%;
   align-items: center;
@@ -85,7 +86,7 @@ li {
 }
 
 .footer {
-  margin: 0 40px 30px;
+  margin: 0 40px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -326,7 +327,7 @@ li {
 }
 
 .on-theater-container {
-  margin: 40px 0px 17px 10px;
+  margin: 40px 0px 17px 0px;
 }
 .on-theater-container .onscreen-title {
   display: flex;
@@ -345,12 +346,6 @@ li {
 .on-theater-container .on-theater-list {
   width: 100%;
   overflow: hidden;
-}
-.on-theater-container .on-theater-list p {
-  margin-top: 10px;
-  font-family: "font-1", sans-serif;
-  line-height: 20px;
-  font-size: 1rem;
 }
 .on-theater-container .swiper-wrapper {
   display: flex;
@@ -390,10 +385,11 @@ li {
   font-family: "font-5", sans-serif;
   line-height: 1rem;
   margin-bottom: 4px;
+  margin-left: 15px;
 }
 
 .upcoming-container {
-  margin: 0px 0px 17px 10px;
+  margin: 0px 0px 17px 0px;
 }
 .upcoming-container .upcoming-title {
   display: flex;
@@ -412,12 +408,6 @@ li {
 .upcoming-container .upcoming-list {
   width: 100%;
   overflow: hidden;
-}
-.upcoming-container .upcoming-list p {
-  margin-top: 10px;
-  font-family: "font-1", sans-serif;
-  line-height: 20px;
-  font-size: 1rem;
 }
 .upcoming-container .swiper-wrapper {
   display: flex;
@@ -457,10 +447,11 @@ li {
   font-family: "font-5", sans-serif;
   line-height: 1rem;
   margin-bottom: 4px;
+  margin-left: 15px;
 }
 
 .toprated-container {
-  margin: 0px 0px 10px 13px;
+  margin: 0px 0px 10px 0px;
 }
 .toprated-container .toprated-title {
   display: flex;
@@ -479,12 +470,6 @@ li {
 .toprated-container .toprated-list {
   width: 100%;
   overflow: hidden;
-}
-.toprated-container .toprated-list p {
-  margin-top: 10px;
-  font-family: "font-1", sans-serif;
-  line-height: 20px;
-  font-size: 1rem;
 }
 .toprated-container .swiper-wrapper {
   display: flex;
@@ -524,6 +509,7 @@ li {
   font-family: "font-5", sans-serif;
   line-height: 1rem;
   margin-bottom: 4px;
+  margin-left: 15px;
 }
 
 .search-result-page .results-and-topflop {
@@ -601,7 +587,7 @@ li {
 }
 
 .movie-details-bg {
-  height: 550px;
+  height: 540px;
 }
 @media screen and (min-width: 980px) {
   .movie-details-bg {
@@ -615,7 +601,7 @@ li {
 }
 .movie-details-bg .movie-details {
   position: relative;
-  height: 550px;
+  height: 540px;
   display: flex;
   padding: 40px 40px;
   background: linear-gradient(90deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0.01) 100%);
@@ -697,30 +683,30 @@ li {
 }
 .movie-details-bg .movie-details .movie-infos .close-container {
   position: absolute;
-  top: -13px;
-  right: 77px;
-  width: 25.5px;
-  height: 25.5px;
-  border: 1px solid #ff8b7a;
+  top: 20px;
+  right: 20px;
+  width: 34px;
+  height: 34px;
+  background-color: rgb(238, 238, 238);
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 .movie-details-bg .movie-details .movie-infos .leftright {
-  height: 2px;
-  width: 15px;
+  height: 1.5px;
+  width: 14px;
   position: absolute;
-  margin-top: 11px;
-  margin-left: 4.25px;
+  margin-top: 16.5px;
+  margin-left: 10px;
   background-color: #ff8b7a;
   transform: rotate(45deg);
   transition: all 0.3s ease-in;
 }
 .movie-details-bg .movie-details .movie-infos .rightleft {
-  height: 2px;
-  width: 15px;
+  height: 1.5px;
+  width: 14px;
   position: absolute;
-  margin-top: 11px;
-  margin-left: 4.25px;
+  margin-top: 16.5px;
+  margin-left: 10px;
   background-color: #ff8b7a;
   transform: rotate(-45deg);
   transition: all 0.3s ease-in;
@@ -767,10 +753,11 @@ li {
 }
 
 .recommandations-container {
-  margin: 20px 0px 10px 40px;
+  margin: 30px 0px 10px 0px;
 }
 .recommandations-container .recommendation-title h2 {
   margin-bottom: 5px;
+  margin-left: 40px;
   font-size: 1.4rem;
   font-family: "font-2", sans-serif;
   background: linear-gradient(120deg, #ffc40b 0%, #ff8b7a 100%);
@@ -785,6 +772,8 @@ li {
 }
 .recommandations-container .movie-recommendation-list p {
   margin-top: 10px;
+  margin-left: 40px;
+  margin-bottom: 30px;
   font-family: "font-1", sans-serif;
   line-height: 20px;
   font-size: 1rem;
@@ -830,4 +819,5 @@ li {
   font-family: "font-5", sans-serif;
   line-height: 1rem;
   margin-bottom: 4px;
+  margin-left: 15px;
 }/*# sourceMappingURL=index.css.map */

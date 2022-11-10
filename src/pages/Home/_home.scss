@@ -66,7 +66,7 @@
   }
 }
 .on-theater-container {
-  margin: 40px 0px 17px 10px;
+  margin: 40px 0px 17px 0px;
 
   .onscreen-title {
     display: flex;
@@ -87,13 +87,6 @@
   .on-theater-list {
     width: 100%;
     overflow: hidden;
-
-    p {
-      margin-top: 10px;
-      font-family: $font-1;
-      line-height: 20px;
-      font-size: 1rem;
-    }
   }
   .swiper-wrapper {
     display: flex;
@@ -138,13 +131,14 @@
         font-family: $font-5;
         line-height: 1rem;
         margin-bottom: 4px;
+        margin-left: 15px;
       }
     }
   }
 }
 
 .upcoming-container {
-  margin: 0px 0px 17px 10px;
+  margin: 0px 0px 17px 0px;
 
   .upcoming-title {
     display: flex;
@@ -165,13 +159,6 @@
   .upcoming-list {
     width: 100%;
     overflow: hidden;
-
-    p {
-      margin-top: 10px;
-      font-family: $font-1;
-      line-height: 20px;
-      font-size: 1rem;
-    }
   }
   .swiper-wrapper {
     display: flex;
@@ -216,13 +203,14 @@
         font-family: $font-5;
         line-height: 1rem;
         margin-bottom: 4px;
+        margin-left: 15px;
       }
     }
   }
 }
 
 .toprated-container {
-  margin: 0px 0px 10px 13px;
+  margin: 0px 0px 10px 0px;
 
   .toprated-title {
     display: flex;
@@ -243,13 +231,6 @@
   .toprated-list {
     width: 100%;
     overflow: hidden;
-
-    p {
-      margin-top: 10px;
-      font-family: $font-1;
-      line-height: 20px;
-      font-size: 1rem;
-    }
   }
   .swiper-wrapper {
     display: flex;
@@ -294,6 +275,7 @@
         font-family: $font-5;
         line-height: 1rem;
         margin-bottom: 4px;
+        margin-left: 15px;
       }
     }
   }

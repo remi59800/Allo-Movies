@@ -181,7 +181,7 @@ const MovieDetail = () => {
                         className={'youtube'}
                         opts={{
                           width: '100%',
-                          height: '550px',
+                          height: '540px',
                           playerVars: {
                             autoplay: 1,
                             controls: 1,
