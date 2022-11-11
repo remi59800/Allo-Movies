@@ -7,16 +7,16 @@ const MoviesCards = ({ movie }) => {
     return [dd, mm, yy].join('/');
   };
 
-  const addStorage = () => {
-    let storedData = window.localStorage.movies
-      ? window.localStorage.movies.split(',')
-      : [];
+  // const addStorage = () => {
+  //   let storedData = window.localStorage.movies
+  //     ? window.localStorage.movies.split(',')
+  //     : [];
 
-    if (!storedData.includes(movie.id.toString())) {
-      storedData.push(movie.id);
-      window.localStorage.movies = storedData;
-    }
-  };
+  //   if (!storedData.includes(movie.id.toString())) {
+  //     storedData.push(movie.id);
+  //     window.localStorage.movies = storedData;
+  //   }
+  // };
 
   return (
     <div className='movies-cards'>
@@ -52,7 +52,7 @@ const MoviesCards = ({ movie }) => {
             <p>{movie ? movie.overview : ''}</p>
           </div>
         </Link>
-        <button onClick={() => addStorage()}>Ajouter aux coups de coeur</button>
+        {/* <button onClick={() => addStorage()}>Ajouter aux coups de coeur</button> */}
       </div>
     </div>
   );
