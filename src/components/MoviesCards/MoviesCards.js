@@ -7,19 +7,8 @@ const MoviesCards = ({ movie }) => {
     return [dd, mm, yy].join('/');
   };
 
-  // const addStorage = () => {
-  //   let storedData = window.localStorage.movies
-  //     ? window.localStorage.movies.split(',')
-  //     : [];
-
-  //   if (!storedData.includes(movie.id.toString())) {
-  //     storedData.push(movie.id);
-  //     window.localStorage.movies = storedData;
-  //   }
-  // };
-
   return (
-    <div className='movies-cards'>
+    <div className='movies-card'>
       <div className='poster-film'>
         <Link to={`/film/${movie.id}`}>
           <img
@@ -32,11 +21,9 @@ const MoviesCards = ({ movie }) => {
           />
         </Link>
       </div>
-      <div className='first-infos'>
-        <Link to={`/film/${movie.id}`}>
+      <Link to={`/film/${movie.id}`}>
+        <div className='first-infos'>
           <h2>{movie ? movie.title : ''}</h2>
-        </Link>
-        <Link to={`/film/${movie.id}`}>
           <div className='date-and-note'>
             <h4>
               Sorti le {movie ? dateFormater(movie.release_date) + ' •' : ''}
@@ -46,14 +33,11 @@ const MoviesCards = ({ movie }) => {
               <span>⭐</span>
             </h4>
           </div>
-        </Link>
-        <Link to={`/film/${movie.id}`}>
           <div className='synopsis'>
             <p>{movie ? movie.overview : ''}</p>
           </div>
-        </Link>
-        {/* <button onClick={() => addStorage()}>Ajouter aux coups de coeur</button> */}
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };

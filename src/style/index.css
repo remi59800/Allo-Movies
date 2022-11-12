@@ -126,20 +126,22 @@ li {
   opacity: 1;
 }
 
-.movies-cards {
-  min-width: 500px;
+.movies-card {
   width: 100%;
   height: 160px;
-  background: #1e1e1e;
+  background: rgba(30, 30, 30, 0.6980392157);
   border-radius: 20px;
   margin: 15px 40px;
   display: flex;
 }
-.movies-cards .poster-film a {
+.movies-card:hover {
+  background: #1e1e1e;
+}
+.movies-card .poster-film a {
   text-decoration: none;
 }
-.movies-cards .poster-film a img {
-  height: 100%;
+.movies-card .poster-film a img {
+  height: 160px;
   width: 108px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -147,40 +149,47 @@ li {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
-.movies-cards .first-infos {
+.movies-card a {
+  list-style-type: none;
+  text-decoration: none;
+  color: rgb(238, 238, 238);
+  display: flex;
+}
+.movies-card a .first-infos {
   margin: 10px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.movies-cards .first-infos a {
+.movies-card a .first-infos a {
   text-decoration: none;
   color: white;
 }
-.movies-cards .first-infos h2 {
+.movies-card a .first-infos h2 {
   font-size: 1.2rem;
   margin: 0;
   font-family: "font-7", sans-serif;
   letter-spacing: 0.5px;
   font-weight: 100;
 }
-.movies-cards .first-infos .date-and-note {
+.movies-card a .first-infos .date-and-note {
   display: flex;
   margin: 2px 0px;
 }
-.movies-cards .first-infos .date-and-note h4 {
+.movies-card a .first-infos .date-and-note h4 {
   font-size: 0.9rem;
   font-weight: 100;
   font-family: "font-2", sans-serif;
 }
-.movies-cards .first-infos p {
+.movies-card a .first-infos p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   font-size: 0.8rem;
-  margin: 2px 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   font-family: "font-1", sans-serif;
 }
 
@@ -299,7 +308,7 @@ li {
   font-family: "font-5", sans-serif;
   letter-spacing: 0.2px;
   line-height: 40px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
 }
 .search-banner-bg .search-banner .inputs-container {
@@ -514,17 +523,30 @@ li {
 
 .search-result-page .results-and-topflop {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
-.search-result-page .results-and-topflop h2 {
-  margin-left: 44px;
+.search-result-page .results-and-topflop .results {
+  margin: 0px 0;
+}
+.search-result-page .results-and-topflop .results h2 {
+  margin-left: 40px;
   margin-right: 15px;
+  font-size: 1.4rem;
+  font-family: "font-7", sans-serif;
+}
+.search-result-page .top-flop-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.search-result-page .top-flop-container p {
+  margin: 0px 30px 0 40px;
+  font-size: 0.9rem;
 }
 .search-result-page .btn-sort-container {
-  margin: 15px;
-  background: linear-gradient(to right, #ffc40b, #ff8b7a);
+  background: transparent;
   font-family: "font-2", sans-serif;
-  width: 150px;
+  width: 140px;
   border-radius: 20px;
   display: flex;
   justify-content: space-around;
@@ -533,14 +555,17 @@ li {
   font-size: 0.8rem;
 }
 .search-result-page .btn-sort-container .btn-sort {
+  color: #ff8b7a;
   display: flex;
   justify-content: center;
 }
 .search-result-page .btn-sort-container #goodToBad {
   border-radius: 20px 0 0 20px;
-  padding: 9px;
-  border-right: 1px solid black;
+  padding: 8px;
+  border-right: 1px solid #ff8b7a;
   font-family: "font-2", sans-serif;
+  color: #080303;
+  background: linear-gradient(120deg, #ffc40b 0%, #ff8b7a 100%);
 }
 .search-result-page .btn-sort-container #goodToBad::after {
   content: "➜";
@@ -548,8 +573,9 @@ li {
 }
 .search-result-page .btn-sort-container #badToGood {
   border-radius: 0 20px 20px 0;
-  padding: 9px;
+  padding: 8px;
   font-family: "font-2", sans-serif;
+  border: 1px solid #ff8b7a;
 }
 .search-result-page .btn-sort-container #badToGood::after {
   content: "➜";
@@ -557,20 +583,17 @@ li {
 }
 .search-result-page .btn-sort-container #goodToBad,
 .search-result-page .btn-sort-container #badToGood {
-  width: 75px;
+  width: 100%;
   transition: 0.3s;
   position: relative;
   transition: filter 0.4s ease-in-out;
-}
-.search-result-page .btn-sort-container #goodToBad:hover,
-.search-result-page .btn-sort-container #badToGood:hover {
-  color: white;
 }
 .search-result-page .result {
   margin-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
 .chronikult-container {

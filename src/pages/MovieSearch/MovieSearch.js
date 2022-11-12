@@ -20,29 +20,40 @@ const MovieSearch = () => {
     // eslint-disable-next-line
   }, []);
 
+  let resultNumber = moviesData.length;
+
   return (
     <div className='search-result-page'>
       <div className='results-and-topflop'>
-        <h2>Résultats de la recherche : {state.query}</h2>
-        <div className='btn-sort-container'>
-          <div
-            className='btn-sort'
-            id='goodToBad'
-            onClick={() => setSortGoodBad('goodToBad')}
-          >
-            Top&nbsp;
-          </div>
-          <div
-            className='btn-sort'
-            id='badToGood'
-            onClick={() => setSortGoodBad('badToGood')}
-          >
-            Flop&nbsp;
+        <div className='results'>
+          <h2>Résultats de votre recherche</h2>
+        </div>
+        <div className='top-flop-container'>
+          <p>
+            Parmi les {resultNumber} films trouvés, classez-les du plus au moins
+            bien noté
+          </p>
+          <div className='btn-sort-container'>
+            <div
+              className='btn-sort'
+              id='goodToBad'
+              onClick={() => setSortGoodBad('goodToBad')}
+            >
+              Top&nbsp;
+            </div>
+            <div
+              className='btn-sort'
+              id='badToGood'
+              onClick={() => setSortGoodBad('badToGood')}
+            >
+              Flop&nbsp;
+            </div>
           </div>
         </div>
       </div>
       <div className='result'>
         {moviesData
+          // eslint-disable-next-line
           .sort((a, b) => {
             if (sortGoodBad === 'goodToBad') {
               return b.vote_average - a.vote_average;

@@ -1,18 +1,35 @@
 .search-result-page {
   .results-and-topflop {
     display: flex;
+    flex-direction: column;
+
+    .results {
+      margin: 0px 0;
+
+      h2 {
+        margin-left: 40px;
+        margin-right: 15px;
+        font-size: 1.4rem;
+        font-family: $font-7;
+      }
+    }
+  }
+
+  .top-flop-container {
+    display: flex;
     align-items: center;
-    h2 {
-      margin-left: 44px;
-      margin-right: 15px;
+    margin-bottom: 10px;
+
+    p {
+      margin: 0px 30px 0 40px;
+      font-size: 0.9rem;
     }
   }
 
   .btn-sort-container {
-    margin: 15px;
-    background: linear-gradient(to right, $orange-light, $orange-deep);
+    background: transparent;
     font-family: $font-2;
-    width: 150px;
+    width: 140px;
     border-radius: 20px;
     display: flex;
     justify-content: space-around;
@@ -21,15 +38,18 @@
     font-size: 0.8rem;
 
     .btn-sort {
+      color: $orange-deep;
       display: flex;
       justify-content: center;
     }
 
     #goodToBad {
       border-radius: 20px 0 0 20px;
-      padding: 9px;
-      border-right: 1px solid black;
+      padding: 8px;
+      border-right: 1px solid $orange-deep;
       font-family: $font-2;
+      color: $black;
+      background: linear-gradient(120deg, $orange-light 0%, $orange-deep 100%);
     }
     #goodToBad::after {
       content: '➜';
@@ -37,8 +57,9 @@
     }
     #badToGood {
       border-radius: 0 20px 20px 0;
-      padding: 9px;
+      padding: 8px;
       font-family: $font-2;
+      border: 1px solid $orange-deep;
     }
     #badToGood::after {
       content: '➜';
@@ -46,14 +67,10 @@
     }
     #goodToBad,
     #badToGood {
-      width: 75px;
+      width: 100%;
       transition: 0.3s;
       position: relative;
       transition: filter 0.4s ease-in-out;
-
-      &:hover {
-        color: white;
-      }
     }
   }
 
@@ -62,5 +79,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
   }
 }
