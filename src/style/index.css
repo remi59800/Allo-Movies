@@ -308,7 +308,7 @@ li {
 .search-banner-bg .search-banner h2 {
   font-family: "font-5", sans-serif;
   letter-spacing: 0.2px;
-  line-height: 40px;
+  line-height: 35px;
   font-size: 1.4rem;
   text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
 }
@@ -331,6 +331,7 @@ li {
   background: linear-gradient(to right, #ffc40b, #ff8b7a);
   cursor: pointer;
   font-family: "font-2", sans-serif;
+  transition: 0.1s;
 }
 .search-banner-bg .search-banner .inputs-container input[type=submit]:hover {
   color: white;
@@ -563,10 +564,14 @@ li {
 .search-result-page .btn-sort-container #goodToBad {
   border-radius: 20px 0 0 20px;
   padding: 8px;
-  border-right: 1px solid #ff8b7a;
   font-family: "font-2", sans-serif;
   color: #080303;
   background: linear-gradient(120deg, #ffc40b 0%, #ff8b7a 100%);
+  transition: 0.2s;
+}
+.search-result-page .btn-sort-container #goodToBad:hover {
+  transform: scale(1.1);
+  z-index: 1;
 }
 .search-result-page .btn-sort-container #goodToBad::after {
   content: "➜";
@@ -576,7 +581,13 @@ li {
   border-radius: 0 20px 20px 0;
   padding: 8px;
   font-family: "font-2", sans-serif;
+  background-color: rgb(6, 6, 6);
   border: 1px solid #ff8b7a;
+  transition: 0.6s;
+}
+.search-result-page .btn-sort-container #badToGood:hover {
+  transform: scale(1.1);
+  z-index: 1;
 }
 .search-result-page .btn-sort-container #badToGood::after {
   content: "➜";
@@ -753,7 +764,13 @@ li {
   background: linear-gradient(to right, #ffc40b, #ff8b7a);
   cursor: pointer;
   font-family: "font-2", sans-serif;
-  margin-right: 15px;
+  margin-right: 20px;
+  transition: 0.1s;
+}
+.movie-details-bg .movie-details .trailer .button-play-video:hover {
+  transform: scale(1.07);
+  z-index: 1;
+  margin-left: 7.5px;
 }
 .movie-details-bg .movie-details .trailer button::before {
   content: "▶";
@@ -774,6 +791,11 @@ li {
   background-color: transparent;
   color: #ff8b7a;
   font-family: "font-2", sans-serif;
+  transition: 0.1s;
+}
+.button-fav:hover {
+  transform: scale(1.07);
+  z-index: 1;
 }
 
 .recommandations-container {

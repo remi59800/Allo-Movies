@@ -30,8 +30,8 @@ const MovieSearch = () => {
         </div>
         <div className='top-flop-container'>
           <p>
-            Parmi les {resultNumber} films trouvés, classez-les du plus au moins
-            bien noté
+            Parmi les {resultNumber} films trouvés, classez-les du mieux au
+            moins bien noté
           </p>
           <div className='btn-sort-container'>
             <div
