@@ -152,6 +152,7 @@ li {
 .movies-card a {
   list-style-type: none;
   text-decoration: none;
+  width: 100%;
   color: rgb(238, 238, 238);
   display: flex;
 }
