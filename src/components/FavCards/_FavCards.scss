@@ -1,10 +1,10 @@
-.movies-cards {
+.fav-cards {
   min-width: 500px;
   width: 100%;
-  height: 160px;
-  background: #1e1e1e;
-  border-radius: 20px;
-  margin: 15px 40px;
+  height: 60px;
+  background: #1e1e1eb2;
+  border-radius: 10px;
+  margin: 15px 0;
   display: flex;
 
   .poster-film {
@@ -12,54 +12,57 @@
       text-decoration: none;
       img {
         height: 100%;
-        width: 108px;
+        width: 140px;
         object-fit: cover;
         display: block;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
       }
     }
   }
-  .first-infos {
-    margin: 10px 20px;
+  .fav-infos {
+    margin: 0px 0px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
 
-    a {
-      text-decoration: none;
-      color: white;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      margin: 0;
-      font-family: $font-7;
-      letter-spacing: 0.5px;
-      font-weight: 100;
-    }
-
-    .date-and-note {
-      display: flex;
-      margin: 2px 0px;
-
-      h4 {
-        font-size: 0.9rem;
-        font-weight: 100;
-
-        font-family: $font-2;
+    .title-movie {
+      width: 300px;
+      h2 {
+        font-size: 1rem;
+        margin-left: 30px;
+        font-family: $font-7;
+        letter-spacing: 0.5px;
       }
     }
 
-    p {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      font-size: 0.8rem;
+    .date {
+      display: flex;
+      width: 150px;
       margin: 2px 0px;
-      font-family: $font-1;
+    }
+    h4 {
+      font-size: 0.9rem;
+      font-weight: 100;
+      font-family: $font-2;
+    }
+
+    .runtime {
+      width: 150px;
+    }
+
+    button {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      color: $orange-deep;
+      position: absolute;
+      right: 30px;
+
+      &:hover {
+        content: 'Supprimer des coups de coeur';
+      }
     }
   }
 }

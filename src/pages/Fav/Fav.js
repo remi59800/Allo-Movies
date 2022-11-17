@@ -20,10 +20,20 @@ const CoupsDeCoeur = () => {
   }, []);
 
   return (
-    <div className='user-list-page'>
-      <h2>
-        Coups de coeur <span>💖</span>
-      </h2>
+    <div className='fav-container'>
+      <div className='fav-header'>
+        <div className='heart'> ♥</div>
+        <div className='fav-header-text'>
+          <h1>
+            Films <span>Coups de coeur</span>
+          </h1>
+          <p>
+            Plus besoin de chercher 30 minutes quel film regarder avant une
+            soirée ciné, grâce à l'ajout en favoris, retrouvez toute votre liste
+            de films préférés ou à regarder prochainement !
+          </p>
+        </div>
+      </div>
       <div className='result'>
         {listData.length > 0 ? (
           listData.map((fav) => <FavCards fav={fav} key={fav.id} />)
