@@ -97,9 +97,11 @@ const FavCards = ({ fav }) => {
         </Link>
       </div>
       <div className='fav-infos'>
-        <div className='title-movie'>
-          <h2>{fav ? fav.title : ''}</h2>
-        </div>
+        <Link to={`/film/${fav.id}`}>
+          <div className='title-movie'>
+            <h2>{fav ? fav.title : ''}</h2>
+          </div>
+        </Link>
         <div className='date'>
           <h4>{fav ? dateFormater(fav.release_date) : ''}</h4>
         </div>
@@ -107,7 +109,7 @@ const FavCards = ({ fav }) => {
           <h4>&nbsp;{fav ? fav.runtime + ' min' : ''}</h4>
         </div>
 
-        <div className='runtime'>
+        <div className='genre'>
           <h4>
             {fav.genre_ids
               ? genreFinder()
@@ -117,14 +119,21 @@ const FavCards = ({ fav }) => {
                   .join(', ')}
           </h4>
         </div>
-        <button
-          onClick={() => {
-            deleteStorage();
-            window.location.reload();
-          }}
-        >
-          ♥
-        </button>
+
+        <div className='notation'>
+          <h4>⭐&nbsp;{fav ? fav.vote_average.toFixed(1) + '/10' : ''}</h4>
+        </div>
+
+        <div className='delete-fav'>
+          <button
+            onClick={() => {
+              deleteStorage();
+              window.location.reload();
+            }}
+          >
+            ♥
+          </button>
+        </div>
       </div>
     </div>
   );
