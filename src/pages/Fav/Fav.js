@@ -29,8 +29,8 @@ const CoupsDeCoeur = () => {
           </h1>
           <p>
             Plus besoin de chercher 30 minutes quel film regarder avant une
-            soirée ciné, grâce à l'ajout en favoris, retrouvez toute votre liste
-            de films préférés ou à regarder prochainement !
+            soirée ciné, grâce à votre liste de coups de coeurs, retrouvez toute
+            votre liste de films préférés ou à regarder prochainement !
           </p>
         </div>
       </div>
