@@ -26,53 +26,23 @@ const MovieDetail = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
-      )
-      .then((res) => setMovieData(res.data));
-    // eslint-disable-next-line
-  }, []);
+    const fetchData = async () => {
+      const [movieDataResponse, creditsResponse, videoResponse, recommendationsResponse] = await Promise.all([
+        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`),
+        axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`),
+        axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`),
+        axios.get(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&page=1`),
+      ]);
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
-      )
-      .then((res) => setMovieCast(res.data.cast));
+      setMovieData(movieDataResponse.data);
+      setMovieCast(creditsResponse.data.cast);
+      setMovieDirector(creditsResponse.data.crew.find((dir) => dir.job === 'Director'));
+      setTrailer(videoResponse.data.results[0]);
+      setRecommendMovie(recommendationsResponse.data.results);
+    };
 
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
-      )
-      .then((res) =>
-        setMovieDirector(res.data.crew.find((dir) => dir.job === 'Director'))
-      );
-
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR`
-      )
-      .then((res) => setTrailer(res.data.results[0]));
-    // eslint-disable-next-line
-  }, [playing]);
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&page=1`
-      )
-      .then((res) => setRecommendMovie(res.data.results));
-    // eslint-disable-next-line
-  }, []);
+    fetchData();
+  }, [id]);
 
   const imgBackground = {
     originalImage: (imgPath) => `https://image.tmdb.org/t/p/original${imgPath}`,

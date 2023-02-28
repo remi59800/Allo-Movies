@@ -8,7 +8,7 @@ import SwiperCore, { Keyboard, Mousewheel } from 'swiper/core';
 import Footer from '../../components/Footer/Footer';
 SwiperCore.use([Keyboard, Mousewheel]);
 
-const Home = () => {
+export const Home = () => {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
   const [onTheater, setOnTheater] = useState([]);
@@ -31,53 +31,22 @@ const Home = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`
-      )
-      .then((res) => setOnTheater(res.data.results));
+    const fetchData = async () => {
+      const [onTheaterRes, onTheater2Res, upcomingRes, topRatedRes, topRated2Res] = await Promise.all([
+        axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`),
+        axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=2`),
+        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`),
+        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`),
+        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=2`)
+      ]);
 
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=2`
-      )
-      .then((res) => setOnTheater2(res.data.results));
-
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`
-      )
-      .then((res) => setUpcoming(res.data.results));
-
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`
-      )
-      .then((res) => setTopRated(res.data.results));
-
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=2`
-      )
-      .then((res) => setTopRated2(res.data.results));
-
-    // eslint-disable-next-line
+      setOnTheater(onTheaterRes.data.results);
+      setOnTheater2(onTheater2Res.data.results);
+      setUpcoming(upcomingRes.data.results);
+      setTopRated(topRatedRes.data.results);
+      setTopRated2(topRated2Res.data.results);
+    };
+    fetchData();
   }, []);
 
   return (
@@ -186,7 +155,7 @@ const Home = () => {
             {upcoming.map((upcome) => (
               <SwiperSlide key={upcome.id}>
                 <Link to={`/film/${upcome.id}`}>
-                  <div className='upcoming-cards'>
+                  <div className='upcoming-cards'>·
                     <img
                       src={
                         upcome.backdrop_path !== null
