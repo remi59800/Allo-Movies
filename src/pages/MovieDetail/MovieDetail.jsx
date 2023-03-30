@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { SwiperSlide, Swiper } from 'swiper/react';
-import { Link } from 'react-router-dom';
 import Youtube from 'react-youtube';
 import 'swiper/css/zoom';
-import SwiperCore, { Keyboard, Mousewheel } from 'swiper/core';
-SwiperCore.use([Keyboard, Mousewheel]);
+import SwiperMovies from "../../components/Swiper/SwiperMovies";
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState('');
@@ -16,9 +13,11 @@ const MovieDetail = () => {
   const [playing, setPlaying] = useState(false);
   const [recommendMovie, setRecommendMovie] = useState([]);
   // eslint-disable-next-line
-  const [iconActive, setIconActive] = useState('♡', false);
+  const [iconActive, setIconActive] = useState('♡');
+  const [isStored, setIsStored] = useState(false);
 
   const { id } = useParams();
+
 
   const dateFormater = (date) => {
     let [yy, mm, dd] = date.split('-');
@@ -49,17 +48,40 @@ const MovieDetail = () => {
   };
 
   const addStorage = () => {
-    let storedData = window.localStorage.movies
-      ? window.localStorage.movies.split(',')
-      : [];
+    let storedData = window.localStorage.movies ? window.localStorage.movies.split(',') : [];
     if (!storedData.includes(id.toString())) {
-      storedData.push(id);
-      window.localStorage.movies = storedData;
-      setIconActive('♥', true);
+      storedData.push(id.toString());
+      window.localStorage.movies = storedData.join(',');
+      setIsStored(true);
+    } else {
+      setIsStored(false);
+      deleteStorage();
     }
   };
 
-  let storedData = window.localStorage.movies;
+  const deleteStorage = () => {
+    let storedData = window.localStorage.movies.split(',');
+    let newData = storedData.filter((storedId) => storedId !== id.toString());
+    window.localStorage.movies = newData.join(',');
+    setIsStored(false);
+  };
+
+  const handleStorageChange = useCallback(() => {
+    let storedData = window.localStorage.movies ? window.localStorage.movies.split(',') : [];
+    setIsStored(storedData.includes(id.toString()));
+  }, [id]);
+
+  useEffect(() => {
+    handleStorageChange();
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [handleStorageChange]);
+
+  useEffect(() => {
+    setIconActive(isStored ? '♥' : '♡');
+  }, [isStored]);
 
   return (
     <div className='details'>
@@ -180,10 +202,11 @@ const MovieDetail = () => {
                   )}
                 </div>
               ) : null}
-              <button className={'button-fav'} onClick={() => addStorage()}>
-                {storedData.includes(id.toString()) ? '♥' : iconActive}
-                &nbsp;&nbsp;&nbsp;Coups de coeur
-              </button>
+              <div>
+                <button className='button-fav' onClick={() => iconActive === '♡' ? addStorage() : deleteStorage()}>
+                  {iconActive} &nbsp;&nbsp;&nbsp;Coups de coeur
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -196,33 +219,7 @@ const MovieDetail = () => {
 
         <div className='movie-recommendation-list'>
           {recommendMovie.length > 0 ? (
-            <Swiper
-              grabCursor={true}
-              spaceBetween={9}
-              slidesPerView={'auto'}
-              mousewheel={true}
-              keyboard={true}
-              className='my-swiper'
-            >
-              {recommendMovie.map((reco) => (
-                <SwiperSlide key={reco.id}>
-                  <Link to={`/film/${reco.id}`} reloadDocument={true}>
-                    <div className='reco-cards'>
-                      <img
-                        src={
-                          reco.backdrop_path !== null
-                            ? 'https://image.tmdb.org/t/p/original' +
-                              reco.backdrop_path
-                            : '/movie-bg.png'
-                        }
-                        alt={`Affiche ${reco.title}`}
-                      />
-                      <h4>{reco.title}</h4>
-                    </div>
-                  </Link>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            <SwiperMovies items={recommendMovie}></SwiperMovies>
           ) : (
             <p>Pas de recommandations trouvées</p>
           )}

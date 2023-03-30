@@ -238,49 +238,49 @@
   .swiper-wrapper {
     display: flex;
     width: 100vw;
-    height: 200px;
+    height: 180px;
     margin-top: 5px;
   }
 
   .swiper-slide {
     margin: 0;
-    transition: 250ms all;
     opacity: 0.8;
+    transition: opacity 250ms, transform 250ms;
+    transform-origin: center center;
+  }
 
-    &:hover {
-      transform: scale(1.2);
-      z-index: 1;
-      opacity: 1;
-    }
-    &:first-child:hover {
-      margin-left: 22px;
-    }
-    &:last-child:hover {
-      margin-right: 22px;
-    }
+  .swiper-slide:hover {
+    transform: scale(1.15);
+    z-index: 1;
+    opacity: 1;
+  }
+
+  .swiper-slide:first-child:hover {
+    transform: translateX(15px) scale(1.15);
+  }
+
+  .swiper-slide:last-child:hover {
+    transform: translateX(-15px) scale(1.15);
   }
 
   a {
     text-decoration: none;
-    .reco-cards {
-      margin: 0px;
+  }
 
-      img {
-        width: 220px;
-        height: 124px;
-      }
+  .swiper-cards img {
+    width: 220px;
+    height: 124px;
+  }
 
-      h4 {
-        margin-top: 5px;
-        padding-right: 20px;
-        font-size: 0.85rem;
-        text-decoration: none;
-        color: white;
-        font-family: $font-5;
-        line-height: 1rem;
-        margin-bottom: 4px;
-        margin-left: 15px;
-      }
-    }
+  .swiper-cards h4 {
+    margin-top: 5px;
+    padding-right: 23px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: white;
+    font-family: $font-5;
+    line-height: 1rem;
+    margin-bottom: 4px;
+    margin-left: 15px;
   }
 }
