@@ -11,7 +11,10 @@ export const SwiperMovies = ({ items }) => {
             grabCursor={true}
             spaceBetween={9}
             slidesPerView={'auto'}
-            mousewheel={true}
+            direction={'horizontal'}
+            mousewheel={{
+                forceToAxis: true,
+            }}
             keyboard={true}
             className='my-swiper'
         >

@@ -4,7 +4,7 @@
   height: 60px;
   background: #1e1e1eb2;
   border-radius: 10px;
-  margin: 15px 0;
+  margin: 12px 0;
   display: flex;
   &:hover {
     background: #1e1e1e;
@@ -114,6 +114,32 @@
         font-size: 1.3rem;
         color: $orange-deep;
       }
+
+      .delete-fav-button {
+        position: relative;
+      }
+
+      .delete-fav-text {
+        position: absolute;
+        top: -28px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+        width: 155px;
+        background-color: #1e1e1e;
+        color: white;
+        font-family: $font-2;
+        padding: 5px;
+        font-size: 12px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+      }
+
+      .delete-fav-button:hover .delete-fav-text {
+        display: block;
+      }
+
     }
   }
 }
+

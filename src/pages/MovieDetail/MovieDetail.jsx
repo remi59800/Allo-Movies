@@ -12,17 +12,14 @@ const MovieDetail = () => {
   const [trailer, setTrailer] = useState('');
   const [playing, setPlaying] = useState(false);
   const [recommendMovie, setRecommendMovie] = useState([]);
-  // eslint-disable-next-line
   const [iconActive, setIconActive] = useState('♡');
   const [isStored, setIsStored] = useState(false);
 
   const { id } = useParams();
 
-
-  const dateFormater = (date) => {
-    let [yy, mm, dd] = date.split('-');
-    return [dd, mm, yy].join('/');
-  };
+  useEffect(() => {
+    setPlaying(false);
+  }, [id]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,6 +39,11 @@ const MovieDetail = () => {
 
     fetchData();
   }, [id]);
+
+  const dateFormater = (date) => {
+    let [yy, mm, dd] = date.split('-');
+    return [dd, mm, yy].join('/');
+  };
 
   const imgBackground = {
     originalImage: (imgPath) => `https://image.tmdb.org/t/p/original${imgPath}`,
@@ -73,15 +75,12 @@ const MovieDetail = () => {
 
   useEffect(() => {
     handleStorageChange();
+    setIconActive(isStored ? '♥' : '♡');
     window.addEventListener('storage', handleStorageChange);
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
-  }, [handleStorageChange]);
-
-  useEffect(() => {
-    setIconActive(isStored ? '♥' : '♡');
-  }, [isStored]);
+  }, [handleStorageChange, isStored]);
 
   return (
     <div className='details'>
@@ -219,7 +218,7 @@ const MovieDetail = () => {
 
         <div className='movie-recommendation-list'>
           {recommendMovie.length > 0 ? (
-            <SwiperMovies items={recommendMovie}></SwiperMovies>
+            <SwiperMovies items={recommendMovie} ></SwiperMovies>
           ) : (
             <p>Pas de recommandations trouvées</p>
           )}

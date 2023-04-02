@@ -126,12 +126,13 @@ const FavCards = ({ fav }) => {
 
         <div className='delete-fav'>
           <button
-            onClick={() => {
-              deleteStorage();
-              window.location.reload();
-            }}
+              className='delete-fav-button'
+              onClick={() => {
+                deleteStorage();
+                window.location.reload();
+              }}
           >
-            ♥
+            ♥ <span className='delete-fav-text'>Supprimer des favoris</span>
           </button>
         </div>
       </div>
