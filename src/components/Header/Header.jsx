@@ -4,7 +4,6 @@ import logo from '../../assets/img/Logo-AM.png';
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
 const Header = () => {
-
   return (
       <>
     <div className='header'>

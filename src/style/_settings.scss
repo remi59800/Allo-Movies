@@ -52,7 +52,8 @@ body {
   background: $greybg;
   color: $white;
   -webkit-font-smoothing: antialiased;
-  max-width: 1300px;
+  max-width: 1440px;
+  min-width:370px;
   margin: 0 auto;
 }
 li {

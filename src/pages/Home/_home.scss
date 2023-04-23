@@ -23,7 +23,6 @@
       font-size: 1.9rem;
       line-height: 2.3rem;
       text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
-
       span {
         margin-top: -8px;
         font-family: $font-7;
@@ -52,6 +51,9 @@
       }
       input[type='text'] {
         width:300px;
+        @media only screen and (max-width: 430px) {
+          width: 240px;
+        }
       }
       input[type='submit'] {
         margin-left: -40px;
