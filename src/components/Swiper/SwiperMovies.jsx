@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import SwiperCore, { Keyboard, Mousewheel } from 'swiper/core';
@@ -6,8 +6,15 @@ SwiperCore.use([Keyboard, Mousewheel]);
 
 
 export const SwiperMovies = ({ items }) => {
+    const swiperRef = useRef(null);
+
+    const handleSlideClick = (index) => {
+        swiperRef.current.slideTo(index);
+    };
+
     return (
         <Swiper
+            ref={swiperRef}
             grabCursor={true}
             spaceBetween={9}
             slidesPerView={'auto'}
@@ -18,9 +25,9 @@ export const SwiperMovies = ({ items }) => {
             keyboard={true}
             className='my-swiper'
         >
-            {items.map((item) => (
+            {items.map((item, index) => (
                 <SwiperSlide key={item.id}>
-                    <Link to={`/film/${item.id}`}>
+                    <Link to={`/film/${item.id}`} onClick={() => handleSlideClick(index)}>
                         <div className='swiper-cards'>
                             <img
                                 src={

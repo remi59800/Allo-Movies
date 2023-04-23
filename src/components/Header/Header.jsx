@@ -1,14 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/img/Logo-AM.png';
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
 const Header = () => {
+
   return (
+      <>
     <div className='header'>
       <NavLink to='/accueil'>
         <img src={logo} alt='Logo Kult Film Club' />
       </NavLink>
-      <nav>
+      <nav className='nav-web'>
         <ul>
           <li>
             <NavLink to='/accueil'>Accueil</NavLink>
@@ -25,6 +28,8 @@ const Header = () => {
         </ul>
       </nav>
     </div>
+    <BurgerMenu />
+      </>
   );
 };
 
