@@ -17,6 +17,10 @@
     border-color: $orange-deep;
     font-size: 1rem;
     margin-bottom: 2.96px;
+    @media only screen and (max-width: 500px) {
+     border-right:none;
+      display:none;
+    }
   }
 
   p {
@@ -26,9 +30,7 @@
   a {
     text-decoration: none;
     color: $white;
-    @media only screen and (max-width: 500px) {
-      display:none;
-    }
+
 
     &:visited {
       text-decoration: none;

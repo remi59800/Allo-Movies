@@ -28,11 +28,11 @@ const MoviesCards = ({ movie }) => {
             <h4>
               Sorti le{' '}
               {movie.release_date
-                ? dateFormater(movie.release_date) + ' •'
+                ? dateFormater(movie.release_date)
                 : ''}
             </h4>
-            <h4>
-              &nbsp;{movie ? movie.vote_average.toFixed(1) : ''}/10{' '}
+            <h4 className='voteAverage'>
+              &nbsp;{movie ? '• ' + movie.vote_average.toFixed(1) : ''}/10{' '}
               <span>⭐</span>
             </h4>
           </div>

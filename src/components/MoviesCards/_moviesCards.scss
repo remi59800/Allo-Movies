@@ -6,6 +6,10 @@
   border-radius: 20px;
   margin: 15px 40px;
   display: flex;
+  @media only screen and (max-width: 390px) {
+    height: 150px;
+
+  }
 
   &:hover {
     background: #1e1e1e;
@@ -21,6 +25,10 @@
         display: block;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
+        @media only screen and (max-width: 390px) {
+          height: 150px;
+          width: 100px;
+        }
       }
     }
   }
@@ -49,6 +57,9 @@
         font-family: $font-7;
         letter-spacing: 0.5px;
         font-weight: 100;
+        @media only screen and (max-width: 500px) {
+         font-size: 1rem;
+        }
       }
 
       .date-and-note {
@@ -60,6 +71,11 @@
           font-weight: 100;
 
           font-family: $font-2;
+        }
+        .voteAverage {
+          @media only screen and (max-width: 450px) {
+            display:none;
+          }
         }
       }
 
@@ -73,6 +89,7 @@
         margin-top: 2px;
         margin-bottom: 2px;
         font-family: $font-1;
+
       }
     }
   }

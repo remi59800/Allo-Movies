@@ -22,7 +22,7 @@ export const SwiperMovies = ({ items }) => {
             mousewheel={{
                 forceToAxis: true,
             }}
-            keyboard={true}
+            keyboard={false}
             className='my-swiper'
         >
             {items.map((item, index) => (
