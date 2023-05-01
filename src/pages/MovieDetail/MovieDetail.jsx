@@ -82,20 +82,43 @@ const MovieDetail = () => {
     };
   }, [handleStorageChange, isStored]);
 
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+// Add an event listener to update the state variable when the screen width changes
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className='details'>
+      <img
+          className="backdrop-film-mobile"
+          src={`https://image.tmdb.org/t/p/w500${movieData.backdrop_path}`}
+          alt={`Affiche de ${movieData.title}`}
+      />
       <div
         className='movie-details-bg'
         style={{
-          backgroundImage: `url(${imgBackground.originalImage(
-            movieData.backdrop_path
-          )})`,
+          backgroundImage: screenWidth > 550 ? `url(${imgBackground.originalImage(movieData.backdrop_path)})` : null,
           backgroundPosition: 'right top',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
+
         }}
       >
+
         <div className='movie-details'>
+          <img
+              className="poster-film"
+              src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+              alt={`Affiche de ${movieData.title}`}
+          />
           <div className='movie-infos'>
             <h2>{movieData ? movieData.title : null}</h2>
             <div className='tagline'>
@@ -129,11 +152,9 @@ const MovieDetail = () => {
                 </h4>
               </div>
             </div>
-
             <div className='director'>
               <h4>Réalisé par {movieDirector ? movieDirector.name : null}</h4>
             </div>
-
             <div className='actors'>
               <h4>
                 Acteurs :&nbsp;
@@ -145,7 +166,6 @@ const MovieDetail = () => {
                   .join(', ')}
               </h4>
             </div>
-
             <div className='notation'>
               <h4>
                 <span>⭐ </span>
@@ -161,7 +181,6 @@ const MovieDetail = () => {
                 <p>{movieData ? movieData.overview : null}</p>
               </div>
             ) : null}
-
             <div className='buttons-play-and-fav'>
               {trailer ? (
                 <div>
@@ -179,13 +198,12 @@ const MovieDetail = () => {
                           },
                         }}
                       />
-
                       <div
-                        class='close-container'
+                        className='close-container'
                         onClick={() => setPlaying(false)}
                       >
-                        <div class='leftright'></div>
-                        <div class='rightleft'></div>
+                        <div className='leftright'></div>
+                        <div className='rightleft'></div>
                       </div>
                     </div>
                   ) : (
@@ -195,7 +213,7 @@ const MovieDetail = () => {
                         onClick={() => setPlaying(true)}
                         type='button'
                       >
-                        Bande-annonce
+                        Trailer
                       </button>
                     </div>
                   )}
@@ -203,19 +221,17 @@ const MovieDetail = () => {
               ) : null}
               <div>
                 <button className='button-fav' onClick={() => iconActive === '♡' ? addStorage() : deleteStorage()}>
-                  {iconActive} &nbsp;&nbsp;&nbsp;Coups de coeur
+                  {iconActive} &nbsp;&nbsp;&nbsp;Favoris
                 </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <div className='recommandations-container'>
         <div className='recommendation-title'>
           <h2>Recommandations</h2>
         </div>
-
         <div className='movie-recommendation-list'>
           {recommendMovie.length > 0 ? (
             <SwiperMovies items={recommendMovie} ></SwiperMovies>

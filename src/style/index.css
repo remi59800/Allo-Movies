@@ -1,31 +1,31 @@
 @charset "UTF-8";
 @font-face {
   font-family: "font-1";
-  src: url(../assets/fonts/Poppins-Regular.ttf);
+  src: url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 }
 @font-face {
   font-family: "font-2";
-  src: url(../assets/fonts/Poppins-Medium.ttf);
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 }
 @font-face {
   font-family: "font-3";
-  src: url(../assets/fonts/Poppins-SemiBold.ttf);
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 }
 @font-face {
   font-family: "font-4";
-  src: url(../assets/fonts/Poppins-Thin.ttf);
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');;
 }
 @font-face {
   font-family: "font-5";
-  src: url(../assets/fonts/Poppins-Light.ttf);
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 }
 @font-face {
   font-family: "font-6";
-  src: url(../assets/fonts/Poppins-LightItalic.ttf);
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
 }
 @font-face {
   font-family: "font-7";
-  src: url(../assets/fonts/Poppins-Bold.ttf);
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 }
 * {
   margin: 0;

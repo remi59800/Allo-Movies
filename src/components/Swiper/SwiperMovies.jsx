@@ -37,7 +37,7 @@ export const SwiperMovies = ({ items }) => {
                                 }
                                 alt={`Affiche ${item.title}`}
                             />
-                            <h4>{item.title}</h4>
+                            <p>{item.title}</p>
                         </div>
                     </Link>
                 </SwiperSlide>
