@@ -8,6 +8,7 @@ const BurgerMenu = () => {
 
     const handleMenuClick = () => {
         burgerInputRef.current.checked = false;
+        handleOnClick();
     };
 
     const handleOnClick = () => {
