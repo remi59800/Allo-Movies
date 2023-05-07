@@ -31,10 +31,20 @@ const MovieDetail = () => {
                 axios.get(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&page=1`),
             ]);
 
+            const filteredResults = videoResponse.data.results.filter(video => {
+                const name = video.name.toLowerCase();
+                return name.includes('bande') || name.includes('trailer') || name.includes('bande-annonce') || name.includes('annonce');
+            });
+
+
             setMovieData(movieDataResponse.data);
             setMovieCast(creditsResponse.data.cast);
             setMovieDirector(creditsResponse.data.crew.find((dir) => dir.job === 'Director'));
-            setTrailer(videoResponse.data.results[0]);
+            if (filteredResults.length > 0) {
+                setTrailer(filteredResults[0]);
+            } else {
+                setTrailer(videoResponse.data.results[0]);
+            }
             setRecommendMovie(recommendationsResponse.data.results);
         };
 

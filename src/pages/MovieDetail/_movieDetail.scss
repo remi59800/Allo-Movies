@@ -325,7 +325,7 @@ width:100%;
   .swiper-wrapper {
     display: flex;
     width: 100vw;
-    height: 180px;
+    height: auto;
     margin-top: 5px;
   }
 
@@ -371,7 +371,6 @@ width:100%;
     color: white;
     font-family: $font-2;
     line-height: 1rem;
-    margin-bottom: 4px;
     margin-left: 15px;
   }
 }
