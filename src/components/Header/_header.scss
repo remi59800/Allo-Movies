@@ -144,6 +144,15 @@
 }
 
 
+.overflowHidden {
+  overflow: hidden;
+  margin: 0;
+  touch-action: none;
+  -ms-touch-action: none;
+  height: 100vh;
+}
+
+
 @media screen and (min-width: 711px) {
   .burger-menu {
     display: none;

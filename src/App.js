@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Fav from './pages/Fav/Fav';
 import Header from './components/Header/Header';
@@ -22,7 +21,6 @@ const App = () => {
         ></Route>
         <Route path='film/:id' element={<MovieDetail />}></Route>
         <Route path='/coups-de-coeur' element={<Fav />} />
-        <Route path='/a-propos' element={<About />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
     </BrowserRouter>

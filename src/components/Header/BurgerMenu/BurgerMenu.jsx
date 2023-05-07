@@ -1,12 +1,28 @@
-import React, { useRef } from 'react';
-import { NavLink } from "react-router-dom";
+import React, {useRef, useState} from 'react';
+import {NavLink} from "react-router-dom";
 import logo from "../../../assets/img/Logo-AM.png";
 
 const BurgerMenu = () => {
     const burgerInputRef = useRef(null);
+    const [showBurgerMenu, setShowBurgerMenu] = useState(false)
+
     const handleMenuClick = () => {
         burgerInputRef.current.checked = false;
     };
+
+    const handleOnClick = () => {
+        const burger = document.querySelector('.burger-menu');
+        burger.classList.toggle('active');
+        setShowBurgerMenu(!showBurgerMenu);
+        if (showBurgerMenu === false) {
+            document.querySelector("body").classList.add("overflowHidden");
+            document.querySelector("html").classList.add("overflowHidden")
+        } else if (showBurgerMenu === true) {
+            document.querySelector("body").classList.remove("overflowHidden");
+            document.querySelector("html").classList.remove("overflowHidden");
+        }
+    }
+
     const handleWindowResize = () => {
         if (window.innerWidth > 720) {
             burgerInputRef.current.checked = false;
@@ -17,9 +33,9 @@ const BurgerMenu = () => {
     return (
         <div className='burger-menu'>
             <NavLink to='/accueil'>
-                <img src={logo} alt='Logo Kult Film Club' />
+                <img src={logo} alt='Logo Kult Film Club'/>
             </NavLink>
-            <input id="burger" type="checkbox" ref={burgerInputRef}/>
+            <input id="burger" type="checkbox" ref={burgerInputRef} onClick={handleOnClick}/>
             <label htmlFor="burger">
                 <span></span>
                 <span></span>
@@ -32,9 +48,6 @@ const BurgerMenu = () => {
                     </li>
                     <li onClick={handleMenuClick}>
                         <NavLink to='/coups-de-coeur'>Coups de coeur</NavLink>
-                    </li>
-                    <li onClick={handleMenuClick}>
-                        <NavLink to='/a-propos'>À propos</NavLink>
                     </li>
                     <li onClick={handleMenuClick}>
                         <NavLink to='/contact'>Contact</NavLink>
