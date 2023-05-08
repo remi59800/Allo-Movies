@@ -5,6 +5,10 @@ import Youtube from 'react-youtube';
 import 'swiper/css/zoom';
 import SwiperMovies from "../../components/Swiper/SwiperMovies";
 import "../../components/Swiper/_swiper.scss"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faPlay} from '@fortawesome/free-solid-svg-icons';
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 
 
 const MovieDetail = () => {
@@ -14,7 +18,7 @@ const MovieDetail = () => {
     const [trailer, setTrailer] = useState('');
     const [playing, setPlaying] = useState(false);
     const [recommendMovie, setRecommendMovie] = useState([]);
-    const [iconActive, setIconActive] = useState('♡');
+    const [iconName, setIconName] = useState('regular-heart');
     const [isStored, setIsStored] = useState(false);
 
     const {id} = useParams();
@@ -87,12 +91,16 @@ const MovieDetail = () => {
 
     useEffect(() => {
         handleStorageChange();
-        setIconActive(isStored ? '♥' : '♡');
+        setIconName(isStored ? 'solid-heart' : 'regular-heart');
         window.addEventListener('storage', handleStorageChange);
         return () => {
             window.removeEventListener('storage', handleStorageChange);
         };
     }, [handleStorageChange, isStored]);
+
+    const handleClick = () => {
+        iconName === 'regular-heart' ? addStorage() : deleteStorage();
+    };
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -224,6 +232,7 @@ const MovieDetail = () => {
                                                 onClick={() => setPlaying(true)}
                                                 type='button'
                                             >
+                                                <FontAwesomeIcon icon={faPlay} className="play-icon"/>
                                                 Trailer
                                             </button>
                                         </div>
@@ -231,9 +240,8 @@ const MovieDetail = () => {
                                 </div>
                             ) : null}
                             <div>
-                                <button className='button-fav'
-                                        onClick={() => iconActive === '♡' ? addStorage() : deleteStorage()}>
-                                    {iconActive} &nbsp;&nbsp;&nbsp;Favoris
+                                <button className='button-fav' onClick={handleClick}>
+                                    <FontAwesomeIcon icon={iconName === 'regular-heart' ? regularHeart : solidHeart} /> &nbsp;&nbsp;Favoris
                                 </button>
                             </div>
                         </div>

@@ -268,12 +268,9 @@ width:100%;
           z-index: 1;
           margin-left: 4px;
         }
-      }
-
-      button::before {
-        content: '▶';
-        color: black;
-        padding-right: 9px;
+        .play-icon {
+          margin-right:8px;
+        }
       }
     }
   }
