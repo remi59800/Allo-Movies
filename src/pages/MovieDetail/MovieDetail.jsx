@@ -4,6 +4,7 @@ import axios from 'axios';
 import Youtube from 'react-youtube';
 import 'swiper/css/zoom';
 import SwiperMovies from "../../components/Swiper/SwiperMovies";
+import "../../components/Swiper/_swiper.scss"
 
 
 const MovieDetail = () => {
@@ -247,7 +248,7 @@ const MovieDetail = () => {
                     {recommendMovie.length > 0 ? (
                         <SwiperMovies items={recommendMovie}></SwiperMovies>
                     ) : (
-                        <p>Pas de recommandations trouvées</p>
+                        <p className="no-recommandations">Pas de recommandations trouvées</p>
                     )}
                 </div>
             </div>

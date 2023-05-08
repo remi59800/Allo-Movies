@@ -1,0 +1,62 @@
+@import '../../style/settings';
+
+.swiper-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 180px;
+  margin-top: 5px;
+}
+
+.swiper-slide {
+  margin: 0;
+  opacity: 0.8;
+  transition: opacity 250ms, transform 250ms;
+  transform-origin: center center;
+}
+
+.swiper-slide:hover {
+  transform: scale(1.15);
+  z-index: 1;
+  opacity: 1;
+}
+
+.swiper-slide:first-child:hover {
+  transform: translateX(15px) scale(1.15);
+}
+
+.swiper-slide:last-child:hover {
+  transform: translateX(-15px) scale(1.15);
+}
+
+.section-list a {
+  text-decoration: none;
+}
+
+.swiper-cards img {
+  width: 220px;
+  height: 124px;
+  @media screen and (max-width: 600px) {
+    width: 185px;
+    height: 110px;
+  }
+}
+
+.swiper-cards p {
+  margin-top: 5px;
+  padding-right: 23px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: white;
+  font-family: $font-2;
+  line-height: 1rem;
+  margin-bottom: 4px;
+  margin-left: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}

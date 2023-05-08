@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Footer from '../../components/Footer/Footer';
 import SwiperMovies from "../../components/Swiper/SwiperMovies";
+import "../../components/Swiper/_swiper.scss"
 
 export const Home = () => {
     const navigate = useNavigate();

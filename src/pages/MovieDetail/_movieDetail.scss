@@ -1,3 +1,5 @@
+@import '../../style/settings';
+
 .backdrop-film-mobile {
 width:100%;
 
@@ -80,14 +82,17 @@ width:100%;
         line-height: 2rem;
         margin-bottom: 10px;
         @media screen and (max-width: 449px) {
-         font-size:1.6rem;
-          font-family: $font-5;
+         font-size:1.3rem;
+          font-family: $font-7;
+          letter-spacing: -0.2px;
         }
 
       }
       .tagline {
         h4 {
           font-family: $font-6;
+          margin-bottom:15px;
+          font-size:0.9rem;
         }
         @media screen and (max-width: 449px) {
           display:none;
@@ -96,7 +101,6 @@ width:100%;
 
       .date-duration-genre {
         display: flex;
-        margin-top: 15px;
 
         @media screen and (max-width: 800px) {
           display:none;
@@ -119,7 +123,8 @@ width:100%;
           font-family: $font-1;
           font-size: 0.9rem;
           @media screen and (max-width: 449px) {
-            font-size:0.85rem;
+            font-size:0.8rem;
+            letter-spacing: -0.3px;
             font-family: $font-1;
           }
         }
@@ -131,8 +136,9 @@ width:100%;
           font-size: 1.5rem;
           font-family: $font-2;
           @media screen and (max-width: 449px) {
-            font-size:1.2rem;
-            font-family: $font-5;
+            font-size:1.05rem;
+            font-family: $font-2;
+            letter-spacing: -0.2px;
           }
         }
 
@@ -308,6 +314,11 @@ width:100%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       width: 217px;
+      @media screen and (max-width: 560px) {
+        letter-spacing: -0.2px;
+        font-size: 1.05rem;
+      }
+
     }
   }
 
@@ -315,7 +326,7 @@ width:100%;
     width: 100%;
     overflow: hidden;
 
-    p {
+    .no-recommandations {
       margin-top: 10px;
       margin-left: 40px;
       margin-bottom: 30px;
@@ -323,56 +334,6 @@ width:100%;
       line-height: 20px;
       font-size: 1rem;
     }
-  }
-  .swiper-wrapper {
-    display: flex;
-    width: 100vw;
-    height: auto;
-    margin-top: 5px;
-  }
 
-  .swiper-slide {
-    margin: 0;
-    opacity: 0.8;
-    transition: opacity 250ms, transform 250ms;
-    transform-origin: center center;
-  }
-
-  .swiper-slide:hover {
-    transform: scale(1.15);
-    z-index: 1;
-    opacity: 1;
-  }
-
-  .swiper-slide:first-child:hover {
-    transform: translateX(15px) scale(1.15);
-  }
-
-  .swiper-slide:last-child:hover {
-    transform: translateX(-15px) scale(1.15);
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  .swiper-cards img {
-    width: 220px;
-    height: 124px;
-    @media screen and (max-width: 600px) {
-      width: 185px;
-      height: 110px;
-    }
-  }
-
-  .swiper-cards p {
-    margin-top: 5px;
-    padding-right: 23px;
-    font-size: 0.85rem;
-    text-decoration: none;
-    color: white;
-    font-family: $font-2;
-    line-height: 1rem;
-    margin-left: 15px;
   }
 }
