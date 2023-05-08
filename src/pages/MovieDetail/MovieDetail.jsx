@@ -124,7 +124,7 @@ const MovieDetail = () => {
             <div
                 className='movie-details-bg'
                 style={{
-                    backgroundImage: screenWidth > 550 ? `url(${imgBackground.originalImage(movieData.backdrop_path)})` : null,
+                    backgroundImage: screenWidth > 550 && movieData.backdrop_path ? `url(${imgBackground.originalImage(movieData.backdrop_path)})` : `url('/movie-bg.png')`,
                     backgroundPosition: 'right top',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
@@ -133,11 +133,13 @@ const MovieDetail = () => {
             >
 
                 <div className='movie-details'>
-                    <img
-                        className="poster-film"
-                        src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-                        alt={`Affiche de ${movieData.title}`}
-                    />
+                    {movieData.poster_path && (
+                        <img
+                            className="poster-film"
+                            src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+                            alt={`Affiche de ${movieData.title}`}
+                        />
+                    )}
                     <div className='movie-infos'>
                         <h2>{movieData ? movieData.title : null}</h2>
                         <div className='tagline'>
