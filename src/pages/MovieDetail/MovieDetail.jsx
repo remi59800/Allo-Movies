@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import Youtube from 'react-youtube';
@@ -114,156 +114,154 @@ const MovieDetail = () => {
         };
     }, []);
 
-    return (
-        <div className='details'>
-            <img
-                className="backdrop-film-mobile"
-                src={`https://image.tmdb.org/t/p/w500${movieData.backdrop_path}`}
-                alt={`Affiche de ${movieData.title}`}
-            />
-            <div
-                className='movie-details-bg'
-                style={{
-                    backgroundImage: screenWidth > 550 && movieData.backdrop_path ? `url(${imgBackground.originalImage(movieData.backdrop_path)})` : `url('/movie-bg.png')`,
-                    backgroundPosition: 'right top',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
+    const backgroundImage = useMemo(() => {
+        if (screenWidth > 550 && movieData.backdrop_path) {
+            return `url(${imgBackground.originalImage(movieData.backdrop_path)})`;
+        } else if (screenWidth > 550 && !movieData.backdrop_path) {
+            return `url('/movie-bg.png')`;
+        } else {
+           return 'none'
+        }
+    }, [screenWidth, movieData.backdrop_path]);
 
-                }}
-            >
+    return <div className='details'>
+        <img
+            className="backdrop-film-mobile"
+            src={movieData.backdrop_path ? `https://image.tmdb.org/t/p/w500${movieData.backdrop_path}` : "/movie-bg.png"}
+            alt={`Affiche de ${movieData.title}`}
+        />
+        <div
+            className='movie-details-bg'
+            style={{
+                backgroundImage: backgroundImage,
+                backgroundPosition: 'right top',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
 
-                <div className='movie-details'>
-                    {movieData.poster_path && (
-                        <img
-                            className="poster-film"
-                            src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-                            alt={`Affiche de ${movieData.title}`}
-                        />
-                    )}
-                    <div className='movie-infos'>
-                        <h2>{movieData ? movieData.title : null}</h2>
-                        <div className='tagline'>
-                            <h4>{movieData ? movieData.tagline : null}</h4>
-                        </div>
+            }}
+        >
 
-                        <div className='date-duration-genre'>
-                            <div className='date'>
-                                <h4>
-                                    {movieData
-                                        ? dateFormater(movieData.release_date) + ' •'
-                                        : null}
-                                </h4>
-                            </div>
-                            <div className='duration'>
-                                <h4>
-                                    &nbsp;{movieData ? movieData.runtime + ' mins •' : null}
-                                </h4>
-                            </div>
-                            <div className='genres'>
-                                <h4>
-                                    &nbsp;
-                                    {movieData && movieData.genres
-                                        ? movieData.genres
-                                            .slice(0, 3)
-                                            .map(function (genre) {
-                                                return genre.name;
-                                            })
-                                            .join(', ')
-                                        : null}
-                                </h4>
-                            </div>
-                        </div>
-                        <div className='director'>
-                            <h4>Réalisé par {movieDirector ? movieDirector.name : null}</h4>
-                        </div>
-                        <div className='actors'>
+            <div className='movie-details'>
+                {movieData.poster_path && <img
+                        className="poster-film"
+                        src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+                        alt={`Affiche de ${movieData.title}`}
+                    />}
+                <div className='movie-infos'>
+                    <h2>{movieData ? movieData.title : null}</h2>
+                    <div className='tagline'>
+                        <h4>{movieData ? movieData.tagline : null}</h4>
+                    </div>
+
+                    <div className='date-duration-genre'>
+                        <div className='date'>
                             <h4>
-                                Acteurs :&nbsp;
-                                {movieCast
-                                    .slice(0, 3)
-                                    .map((cast) => {
-                                        return cast.name;
-                                    })
-                                    .join(', ')}
+                                {movieData
+                                    ? dateFormater(movieData.release_date) + ' •'
+                                    : null}
                             </h4>
                         </div>
-                        <div className='notation'>
+                        <div className='duration'>
                             <h4>
-                                <span>⭐ </span>
-                                {movieData ? movieData.vote_average.toFixed(1) : ''} /10{' '}
-                                <span className='movie-vote-count'>
-                  {movieData ? '(' + movieData.vote_count + ') votes' : null}
-                </span>
+                                &nbsp;{movieData ? movieData.runtime + ' mins •' : null}
                             </h4>
                         </div>
-                        {movieData.overview ? (
-                            <div className='synopsis-text'>
-                                <h3>{movieData.overview ? `Synopsis` : null}</h3>
-                                <p>{movieData ? movieData.overview : null}</p>
-                            </div>
-                        ) : null}
-                        <div className='buttons-play-and-fav'>
-                            {trailer ? (
-                                <div>
-                                    {playing ? (
-                                        <div className='youtube-container'>
-                                            <Youtube
-                                                videoId={trailer.key}
-                                                className={'youtube'}
-                                                opts={{
-                                                    width: '100%',
-                                                    height: '540px',
-                                                    playerVars: {
-                                                        autoplay: 1,
-                                                        controls: 1,
-                                                    },
-                                                }}
-                                            />
-                                            <div
-                                                className='close-container'
-                                                onClick={() => setPlaying(false)}
-                                            >
-                                                <div className='leftright'></div>
-                                                <div className='rightleft'></div>
-                                            </div>
+                        <div className='genres'>
+                            <h4>
+                                &nbsp;
+                                {movieData && movieData.genres
+                                    ? movieData.genres
+                                        .slice(0, 3)
+                                        .map(function (genre) {
+                                            return genre.name;
+                                        })
+                                        .join(', ')
+                                    : null}
+                            </h4>
+                        </div>
+                    </div>
+                    <div className='director'>
+                        <h4>Réalisé par {movieDirector ? movieDirector.name : null}</h4>
+                    </div>
+                    <div className='actors'>
+                        <h4>
+                            Acteurs :&nbsp;
+                            {movieCast
+                                .slice(0, 3)
+                                .map((cast) => {
+                                    return cast.name;
+                                })
+                                .join(', ')}
+                        </h4>
+                    </div>
+                    <div className='notation'>
+                        <h4>
+                            <span>⭐ </span>
+                            {movieData ? movieData.vote_average.toFixed(1) : ''} /10{' '}
+                            <span className='movie-vote-count'>
+              {movieData ? '(' + movieData.vote_count + ') votes' : null}
+            </span>
+                        </h4>
+                    </div>
+                    {movieData.overview ? <div className='synopsis-text'>
+                            <h3>{movieData.overview ? `Synopsis` : null}</h3>
+                            <p>{movieData ? movieData.overview : null}</p>
+                        </div> : null}
+                    <div className='buttons-play-and-fav'>
+                        {trailer ? <div>
+                                {playing ? (
+                                    <div className='youtube-container'>
+                                        <Youtube
+                                            videoId={trailer.key}
+                                            className={'youtube'}
+                                            opts={{
+                                                width: '100%',
+                                                height: '540px',
+                                                playerVars: {
+                                                    autoplay: 1,
+                                                    controls: 1,
+                                                },
+                                            }}
+                                        />
+                                        <div
+                                            className='close-container'
+                                            onClick={() => setPlaying(false)}
+                                        >
+                                            <div className='leftright'></div>
+                                            <div className='rightleft'></div>
                                         </div>
-                                    ) : (
-                                        <div className='trailer'>
-                                            <button
-                                                className={'button-play-video'}
-                                                onClick={() => setPlaying(true)}
-                                                type='button'
-                                            >
-                                                <FontAwesomeIcon icon={faPlay} className="play-icon"/>
-                                                Trailer
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
-                            ) : null}
-                            <div>
-                                <button className='button-fav' onClick={handleClick}>
-                                    <FontAwesomeIcon icon={iconName === 'regular-heart' ? regularHeart : solidHeart} /> &nbsp;&nbsp;Favoris
-                                </button>
-                            </div>
+                                    </div>
+                                ) : (
+                                    <div className='trailer'>
+                                        <button
+                                            className={'button-play-video'}
+                                            onClick={() => setPlaying(true)}
+                                            type='button'
+                                        >
+                                            <FontAwesomeIcon icon={faPlay} className="play-icon"/>
+                                            Trailer
+                                        </button>
+                                    </div>
+                                )}
+                            </div> : null}
+                        <div>
+                            <button className='button-fav' onClick={handleClick}>
+                                <FontAwesomeIcon icon={iconName === 'regular-heart' ? regularHeart : solidHeart} /> &nbsp;&nbsp;Favoris
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='recommandations-container'>
-                <div className='recommendation-title'>
-                    <h2>Recommandations</h2>
-                </div>
-                <div className='movie-recommendation-list'>
-                    {recommendMovie.length > 0 ? (
-                        <SwiperMovies items={recommendMovie}></SwiperMovies>
-                    ) : (
-                        <p className="no-recommandations">Pas de recommandations trouvées</p>
-                    )}
-                </div>
+        </div>
+        <div className='recommandations-container'>
+            <div className='recommendation-title'>
+                <h2>Recommandations</h2>
+            </div>
+            <div className='movie-recommendation-list'>
+                {recommendMovie.length > 0 ? <SwiperMovies items={recommendMovie}></SwiperMovies> : <p className="no-recommandations">Pas de recommandations trouvées</p>}
             </div>
         </div>
-    );
+    </div>;
 };
 
 export default MovieDetail;
