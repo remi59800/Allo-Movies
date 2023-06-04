@@ -8,7 +8,7 @@ import "../../components/Swiper/_swiper.scss"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlay} from '@fortawesome/free-solid-svg-icons';
 import ButtonFav from "../../components/ButtonFav/ButtonFav";
-
+import "../../components/ButtonFav/_ButtonFav.scss";
 
 const MovieDetail = () => {
     const [movieData, setMovieData] = useState('');
