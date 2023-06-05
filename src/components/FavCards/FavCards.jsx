@@ -1,11 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {dateFormater} from "../../common/DateFormater";
+
 
 const FavCards = ({fav}) => {
-    const dateFormater = (date) => {
-        let [yy, mm, dd] = date.split('-');
-        return [dd, mm, yy].join('/');
-    };
+    const formatedDate = dateFormater(fav.release_date);
 
     const genreFinder = () => {
         let genreArray = [];
@@ -82,16 +81,11 @@ const FavCards = ({fav}) => {
         window.localStorage.movies = newData;
     };
 
-    return (
-        <div className='fav-cards'>
+    return (<div className='fav-cards'>
             <div className='poster-film'>
                 <Link to={`/film/${fav.id}`}>
                     <img
-                        src={
-                            fav.poster_path
-                                ? 'https://image.tmdb.org/t/p/original' + fav.backdrop_path
-                                : '/movie-bg.png'
-                        }
+                        src={fav.poster_path ? 'https://image.tmdb.org/t/p/original' + fav.backdrop_path : '/movie-bg.png'}
                         alt={`Affiche ${fav.title}`}
                     />
                 </Link>
@@ -103,7 +97,7 @@ const FavCards = ({fav}) => {
                     </div>
                 </Link>
                 <div className='date'>
-                    <h4>{fav ? dateFormater(fav.release_date) : ''}</h4>
+                    <h4>{fav ? formatedDate : ''}</h4>
                 </div>
                 <div className='runtime'>
                     <h4>&nbsp;{fav ? fav.runtime + ' min' : ''}</h4>
@@ -111,12 +105,10 @@ const FavCards = ({fav}) => {
 
                 <div className='genre'>
                     <h4>
-                        {fav.genre_ids
-                            ? genreFinder()
-                            : fav.genres
-                                .slice(0, 2)
-                                .map((genre) => genre.name)
-                                .join(', ')}
+                        {fav.genre_ids ? genreFinder() : fav.genres
+                            .slice(0, 2)
+                            .map((genre) => genre.name)
+                            .join(', ')}
                     </h4>
                 </div>
 
@@ -136,8 +128,7 @@ const FavCards = ({fav}) => {
                     </button>
                 </div>
             </div>
-        </div>
-    );
+        </div>);
 };
 
 export default FavCards;

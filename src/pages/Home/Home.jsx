@@ -6,12 +6,10 @@ import SwiperMovies from "../../components/Swiper/SwiperMovies";
 import "../../components/Swiper/_swiper.scss"
 
 export const Home = () => {
+
+    //Gestion du bouton de recherche
     const navigate = useNavigate();
     const [query, setQuery] = useState('');
-    const [onTheater, setOnTheater] = useState([]);
-    const [upcoming, setUpcoming] = useState([]);
-    const [topRated, setTopRated] = useState([]);
-
     const handleOnChange = (e) => {
         e.preventDefault();
         const value = e.target.value;
@@ -25,20 +23,28 @@ export const Home = () => {
         });
     };
 
+    // fetch des données pour les trois catégories de films
+    const [onTheater, setOnTheater] = useState([]);
+    const [upcoming, setUpcoming] = useState([]);
+    const [topRated, setTopRated] = useState([]);
+
+    const fetchData = async () => {
+        const [onTheaterRes, upcomingRes, topRatedRes] = await Promise.all([
+            axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`),
+            axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`),
+            axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`),
+        ]);
+        setOnTheater(onTheaterRes.data.results);
+        setUpcoming(upcomingRes.data.results);
+        setTopRated(topRatedRes.data.results);
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            const [onTheaterRes, upcomingRes, topRatedRes] = await Promise.all([
-                axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`),
-                axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`),
-                axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=2f29d9bc9f76a597232a8a514e956b12&language=fr-FR&region=FR&page=1`),
-            ]);
-            setOnTheater(onTheaterRes.data.results);
-            setUpcoming(upcomingRes.data.results);
-            setTopRated(topRatedRes.data.results);
-        };
         fetchData();
     }, []);
 
+
+    // Affichage des différentes sections des films dans les swipers
     const Section = ({title, items}) => (
         <div className='container'>
             <div className='section-title'>
