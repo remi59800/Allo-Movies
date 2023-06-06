@@ -6,7 +6,8 @@ const MoviesCards = ({movie}) => {
 
     const formatedDate = dateFormater(movie.release_date);
 
-    return (<div className='movies-card'>
+    return (
+        <div className='movies-card'>
             <div className='poster-film'>
                 <Link to={`/film/${movie.id}`}>
                     <img

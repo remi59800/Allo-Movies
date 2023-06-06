@@ -57,7 +57,7 @@ export const Home = () => {
     );
 
     return (
-        <div>
+        <>
             <div
                 className='search-banner-bg'
                 style={{
@@ -92,7 +92,7 @@ export const Home = () => {
             <Section title="Prochainement" items={upcoming}/>
             <Section title="Films les mieux notés" items={topRated}/>
             <Footer/>
-        </div>
+        </>
     );
 };
 

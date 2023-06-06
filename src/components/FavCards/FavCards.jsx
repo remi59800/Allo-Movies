@@ -81,7 +81,8 @@ const FavCards = ({fav}) => {
         window.localStorage.movies = newData;
     };
 
-    return (<div className='fav-cards'>
+    return (
+        <div className='fav-cards'>
             <div className='poster-film'>
                 <Link to={`/film/${fav.id}`}>
                     <img

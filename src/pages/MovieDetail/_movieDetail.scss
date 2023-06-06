@@ -1,23 +1,5 @@
 @import '../../style/settings';
 
-.backdrop-film-mobile {
-  width: 100%;
-
-  @media screen and (min-width: 550px) {
-    display: none;
-  }
-}
-
-.movie-details-bg {
-  height: 100%;
-  position: relative;
-
-
-  @media screen and (min-width: 1220px) {
-    margin-left: 320px;
-  }
-}
-
 .recommandations-container {
   margin: 30px 0px 10px 0px;
 
