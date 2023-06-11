@@ -1,11 +1,11 @@
 import {useNavigate} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import Footer from '../../components/Footer/Footer';
-import SwiperMovies from "../../components/Swiper/SwiperMovies";
+import {Footer} from '../../components/Footer/Footer';
+import {SwiperMovies} from "../../components/Swiper/SwiperMovies";
 import "../../components/Swiper/_swiper.scss"
 
-export const Home = () => {
+export function Home () {
 
     //Gestion du bouton de recherche
     const navigate = useNavigate();
@@ -94,6 +94,5 @@ export const Home = () => {
             <Footer/>
         </>
     );
-};
+}
 
-export default Home;

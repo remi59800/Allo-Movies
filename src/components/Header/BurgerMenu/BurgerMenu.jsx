@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import logo from "../../../assets/img/Logo-AM.png";
 
-const BurgerMenu = () => {
+export function BurgerMenu () {
     const burgerInputRef = useRef(null);
     const [showBurgerMenu, setShowBurgerMenu] = useState(false)
 
@@ -58,5 +58,3 @@ const BurgerMenu = () => {
         </div>
     );
 };
-
-export default BurgerMenu;

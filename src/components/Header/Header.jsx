@@ -1,9 +1,9 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import logo from '../../assets/img/Logo-AM.png';
-import BurgerMenu from "./BurgerMenu/BurgerMenu";
+import {BurgerMenu} from "./BurgerMenu/BurgerMenu";
 
-const Header = () => {
+export function Header () {
     return (
         <>
             <div className='header'>
@@ -28,5 +28,3 @@ const Header = () => {
         </>
     );
 };
-
-export default Header;

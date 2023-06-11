@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlay} from "@fortawesome/free-solid-svg-icons";
-import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import {VideoPlayer} from "../VideoPlayer/VideoPlayer";
 import "../VideoPlayer/_VideoPlayer.scss";
 
-function ButtonPlay({trailer}) {
+export function ButtonPlay({trailer}) {
     const [playing, setPlaying] = useState(false);
     const openVideoPlayer = () => {
         setPlaying(true)
@@ -22,5 +22,3 @@ function ButtonPlay({trailer}) {
         </>
     );
 }
-
-export default ButtonPlay;

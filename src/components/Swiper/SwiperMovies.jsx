@@ -5,7 +5,7 @@ import SwiperCore, {Keyboard, Mousewheel} from 'swiper/core';
 SwiperCore.use([Keyboard, Mousewheel]);
 
 
-export const SwiperMovies = ({items}) => {
+export function SwiperMovies ({items}) {
     const swiperRef = useRef(null);
 
     const handleSlideClick = (index) => {
@@ -45,4 +45,3 @@ export const SwiperMovies = ({items}) => {
         </Swiper>
     );
 };
-export default SwiperMovies;

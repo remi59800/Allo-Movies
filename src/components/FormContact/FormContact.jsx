@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import emailjs from '@emailjs/browser';
 import {toast} from 'react-toastify';
 
-const FormContact = () => {
+export function FormContact () {
     const form = useRef();
 
     const sendEmail = (e) => {
@@ -59,5 +59,3 @@ const FormContact = () => {
         </div>
     );
 };
-
-export default FormContact;

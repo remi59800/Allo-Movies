@@ -2,9 +2,9 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import axios from 'axios';
-import MoviesCards from '../../components/MoviesCards/MoviesCards';
+import {MoviesCards} from '../../components/MoviesCards/MoviesCards';
 
-const MovieSearch = () => {
+export function MovieSearch () {
     const [moviesData, setMoviesData] = useState([]);
     const [sortGoodBad, setSortGoodBad] = useState(null);
     const {state} = useLocation();
@@ -68,5 +68,3 @@ const MovieSearch = () => {
         </div>
     );
 };
-
-export default MovieSearch;

@@ -1,7 +1,7 @@
 import React from 'react';
-import FormContact from '../../components/FormContact/FormContact';
+import {FormContact} from '../../components/FormContact/FormContact';
 
-const Contact = () => {
+export function Contact () {
     return (
         <div className='contact-container'>
             <FormContact/>
@@ -19,5 +19,3 @@ const Contact = () => {
         </div>
     );
 };
-
-export default Contact;

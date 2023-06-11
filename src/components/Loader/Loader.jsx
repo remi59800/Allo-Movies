@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Loader() {
+export function Loader () {
     return (
         <div className="loader-container">
             <div className="lds-ripple">
@@ -10,4 +10,3 @@ function Loader() {
         </div>   );
 }
 
-export default Loader;

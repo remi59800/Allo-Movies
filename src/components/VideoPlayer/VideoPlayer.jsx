@@ -1,7 +1,7 @@
 import React from 'react';
 import Youtube from "react-youtube";
 
-function VideoPlayer({trailer, setPlaying}) {
+export function VideoPlayer({trailer, setPlaying}) {
 
     const closeVideoPlayer = () => {
         setPlaying(false);
@@ -28,5 +28,3 @@ function VideoPlayer({trailer, setPlaying}) {
         </div>
     );
 }
-
-export default VideoPlayer;

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {dateFormater} from "../../common/DateFormater";
 
 
-const FavCards = ({fav}) => {
+export function FavCards ({fav}) {
     const formatedDate = dateFormater(fav.release_date);
 
     const genreFinder = () => {
@@ -131,5 +131,3 @@ const FavCards = ({fav}) => {
             </div>
         </div>);
 };
-
-export default FavCards;

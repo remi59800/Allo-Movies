@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {dateFormater} from "../../common/DateFormater";
 
-const MoviesCards = ({movie}) => {
+export function MoviesCards ({movie}) {
 
     const formatedDate = dateFormater(movie.release_date);
 
@@ -36,5 +36,3 @@ const MoviesCards = ({movie}) => {
             </Link>
         </div>);
 };
-
-export default MoviesCards;

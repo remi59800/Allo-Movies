@@ -2,12 +2,12 @@ import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import 'swiper/css/zoom';
-import SwiperMovies from "../../components/Swiper/SwiperMovies";
+import {SwiperMovies} from "../../components/Swiper/SwiperMovies";
 import "../../components/Swiper/_swiper.scss"
-import MovieDetailContent from "../../components/MovieDetailContent/MovieDetailContent";
+import {MovieDetailContent} from "../../components/MovieDetailContent/MovieDetailContent";
 import "../../components/MovieDetailContent/_movieDetailContent.scss";
 
-const MovieDetail = () => {
+export function MovieDetail () {
     const [recommendMovie, setRecommendMovie] = useState([]);
 
     const {id} = useParams();
@@ -42,5 +42,3 @@ const MovieDetail = () => {
         </div>
     )
 };
-
-export default MovieDetail;

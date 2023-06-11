@@ -1,12 +1,12 @@
 import {useEffect, useMemo, useState} from 'react';
-import ButtonPlay from "../ButtonPlay/ButtonPlay";
-import ButtonFav from "../ButtonFav/ButtonFav";
+import {ButtonPlay} from "../ButtonPlay/ButtonPlay";
+import {ButtonFav} from "../ButtonFav/ButtonFav";
 import "../../components/ButtonFav/_ButtonFav.scss";
 import "../../components/ButtonPlay/_ButtonPlay.scss";
 import {dateFormater} from "../../common/DateFormater";
 import axios from "axios";
 
-function MovieDetailContent({id}) {
+export function MovieDetailContent({id}) {
 
     const [movieData, setMovieData] = useState('');
     const [movieCast, setMovieCast] = useState([]);
@@ -175,5 +175,3 @@ function MovieDetailContent({id}) {
     </>
     )
 }
-
-export default MovieDetailContent;

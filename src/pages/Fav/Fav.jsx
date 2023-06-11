@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
-import FavCards from '../../components/FavCards/FavCards';
+import {FavCards} from '../../components/FavCards/FavCards';
 
-const CoupsDeCoeur = () => {
+export function Fav () {
     const [listData, setListData] = useState([]);
 
     useEffect(() => {
@@ -41,5 +41,3 @@ const CoupsDeCoeur = () => {
         </div>
     );
 };
-
-export default CoupsDeCoeur;
