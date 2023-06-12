@@ -1,0 +1,40 @@
+@import '../../style/settings';
+
+.inputs-container {
+  margin-top: 35px;
+  display: flex;
+
+  input {
+    padding: 8px 45px 8px 15px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+  }
+
+  input[type='text'] {
+    width: 300px;
+    @media only screen and (max-width: 430px) {
+      width: 240px;
+    }
+  }
+
+  input[type='submit'] {
+    margin-left: -40px;
+    padding: 8px 20px;
+    border-radius: 40px;
+    border: none;
+    color: black;
+    background: linear-gradient(to right, $orange-light, $orange-deep);
+    cursor: pointer;
+    font-family: $font-2;
+    transition: 0.1s;
+
+    &:hover {
+      color: white;
+    }
+
+    @media screen and (max-width: 560px) {
+      letter-spacing: -0.2px;
+    }
+  }
+}
